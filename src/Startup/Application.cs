@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using Owin;
 using Unravel.Hosting;
+using Unravel.SystemWeb;
 
 namespace Unravel
 {
@@ -90,12 +91,14 @@ namespace Unravel
         /// </summary>
         /// <remarks>
         ///   The default implementation uses <see cref="OwinHost.CreateDefaultBuilder()"/>, then
+        ///     calls <see cref="WebHostBuilderSystemWebExtensions.UseHostingEnvironment(IWebHostBuilder)"/>, and
         ///     calls <see cref="WebHostBuilderApplicationExtensions.UseStartup{TStartup}(IWebHostBuilder, TStartup)"/> with <c>this</c>.
         /// </remarks>
         /// <returns>The initialized <see cref="IWebHostBuilder"/>.</returns>
         protected virtual IWebHostBuilder CreateWebHostBuilder()
         {
             return OwinHost.CreateDefaultBuilder()
+                .UseHostingEnvironment()
                 .UseStartup(this);
         }
     }
