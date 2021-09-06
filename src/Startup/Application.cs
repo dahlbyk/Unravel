@@ -57,7 +57,9 @@ namespace Unravel
         ///   Configures OWIN pipeline after <see cref="WebHost"/> has been started, with <see cref="Services"/> available.
         /// </summary>
         /// <param name="app">The host app.</param>
-        public virtual void Configure(IAppBuilder app) { }
+        public virtual void Configure(IAppBuilder app)
+        {
+        }
 
         /// <summary>
         ///   Configures ASP.NET Core pipeline.

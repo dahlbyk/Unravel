@@ -5,7 +5,7 @@ using System.Web.Routing;
 
 namespace UnravelExamples.Web
 {
-    public class MvcApplication : System.Web.HttpApplication
+    public partial class Startup : Unravel.Application
     {
         protected void Application_Start()
         {
