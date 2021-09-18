@@ -1,0 +1,40 @@
+﻿using System;
+using System.Collections.Generic;
+using Microsoft.Extensions.DependencyInjection;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+
+namespace UnravelExamples.Web.Services
+{
+    public class EnvironmentCheck
+    {
+        public EnvironmentCheck(string title, IServiceProvider services)
+        {
+            Title = title;
+            Services = services;
+        }
+
+        public string Title { get; }
+        public IServiceProvider Services { get; }
+
+        public override string ToString()
+        {
+            var json = new JObject
+            {
+                { nameof(Title), Title },
+            };
+
+            foreach (var environment in GetEnvironments())
+                json.Add(environment.EnvironmentName, environment.ToJson());
+
+            return json.ToString(Formatting.Indented);
+        }
+
+        public IEnumerable<EnvironmentBase> GetEnvironments()
+        {
+            yield return new EnvironmentHosting(Services);
+            yield return Services.GetService<Counters>();
+
+        }
+    }
+}
