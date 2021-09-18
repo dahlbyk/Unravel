@@ -4,6 +4,14 @@
 
 <nav>
     <h1>Welcome to Unravel</h1>
+
+    <h2>ASP.NET MVC</h2>
+    <ul>
+        <li><a target="env" href="@Url.Action(nameof(HomeController.Unravel_Application_Services))"><code>Unravel.Application.Services</code></a></li>
+        <li><a target="env" href="@Url.Action(nameof(HomeController.HttpContext_Current_GetRequestServices))"><code>HttpContext.GetRequestServices()</code></a></li>
+        <li><a target="env" href="@Url.Action(nameof(HomeController.HttpContextBase_GetRequestServices))"><code>HttpContextBase.GetRequestServices()</code></a></li>
+        <li><a target="env" href="@Url.Action(nameof(HomeController.Throw))"><code>throw</code></a></li>
+    </ul>
 </nav>
 
 <iframe name="env"
