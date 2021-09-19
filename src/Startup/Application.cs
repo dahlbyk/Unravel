@@ -3,6 +3,8 @@ using System.Web;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Owin;
+using Microsoft.Owin.Security;
 using Owin;
 using Unravel.Hosting;
 using Unravel.SystemWeb;
@@ -35,6 +37,8 @@ namespace Unravel
             var host = WebHost = BuildWebHost(app);
             host.Start();
 
+            app.SetServiceProvider(host.Services);
+
             Configure(app);
         }
 
@@ -43,6 +47,8 @@ namespace Unravel
         ///   <list type="bullet">
         ///     <item><see cref="IAppBuilder"/> (singleton)</item>
         ///     <item><see cref="IHttpContextAccessor"/> (singleton)</item>
+        ///     <item><see cref="IOwinContext"/> (scoped)</item>
+        ///     <item><see cref="IAuthenticationManager"/> (scoped)</item>
         ///   </list>
         /// </summary>
         /// <param name="app">The host app.</param>
@@ -54,6 +60,9 @@ namespace Unravel
                 {
                     services.AddSingleton(app);
                     services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+
+                    services.AddTransient(sp => sp.GetRequiredService<IHttpContextAccessor>().HttpContext?.GetOwinContext());
+                    services.AddTransient(sp => sp.GetService<IOwinContext>()?.Authentication);
                 })
                 .Build();
         }
