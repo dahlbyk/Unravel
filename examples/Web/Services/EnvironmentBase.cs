@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Security.Principal;
 using Newtonsoft.Json.Linq;
 
 namespace UnravelExamples.Web.Services
@@ -15,5 +16,18 @@ namespace UnravelExamples.Web.Services
         public abstract string EnvironmentName { get; }
 
         public abstract JToken ToJson();
+
+        protected JToken ToJson(IPrincipal user)
+        {
+            if (user == null)
+                return null;
+
+            return JObject.FromObject(new
+            {
+                Type = user.GetType().FullName,
+                user.Identity.IsAuthenticated,
+                user.Identity.Name,
+            });
+        }
     }
 }

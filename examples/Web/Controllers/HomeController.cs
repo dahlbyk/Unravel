@@ -23,14 +23,14 @@ namespace UnravelExamples.Web.Controllers
         {
             var services = HttpContext.GetRequestServices();
             var env = new EnvironmentCheck("HttpContextBase.GetRequestServices()", services);
-            return Content(env.ToString(), "text/plain; charset=utf-8");
+            return Content(env.ToString(), "application/json; charset=utf-8");
         }
 
         public ActionResult HttpContext_Current_GetRequestServices()
         {
             var services = System.Web.HttpContext.Current.GetRequestServices();
             var env = new EnvironmentCheck("HttpContext.GetRequestServices()", services);
-            return Content(env.ToString(), "text/plain; charset=utf-8");
+            return Content(env.ToString(), "application/json; charset=utf-8");
         }
 
         public ActionResult Throw()

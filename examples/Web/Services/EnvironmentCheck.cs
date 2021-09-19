@@ -35,6 +35,7 @@ namespace UnravelExamples.Web.Services
             yield return new EnvironmentHosting(Services);
             yield return Services.GetService<Counters>();
 
+            yield return new EnvironmentSystemWeb(Services);
         }
     }
 }

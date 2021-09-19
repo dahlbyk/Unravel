@@ -256,6 +256,7 @@
     <Compile Include="Services\EnvironmentBase.cs" />
     <Compile Include="Services\EnvironmentCheck.cs" />
     <Compile Include="Services\EnvironmentHosting.cs" />
+    <Compile Include="Services\EnvironmentSystemWeb.cs" />
     <Compile Include="Services\ServiceProviderExtensions.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
