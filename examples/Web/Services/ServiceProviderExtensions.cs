@@ -10,7 +10,7 @@ namespace UnravelExamples.Web.Services
         /// </summary>
         /// <param name="services">The <see cref="IServiceProvider"/>.</param>
         /// <typeparam name="T">The service type.</typeparam>
-        /// <returns>The service of type <typeparamref name="T"/>, or <c>default</c> if scope not available.</returns>
+        /// <returns>The service of type <typeparamref name="T"/>, or <c>default(T)</c> if scope not available.</returns>
         public static T GetScopedServiceOrDefault<T>(this IServiceProvider services)
         {
             try

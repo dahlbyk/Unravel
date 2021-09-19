@@ -256,9 +256,11 @@
     <Compile Include="Services\EnvironmentBase.cs" />
     <Compile Include="Services\EnvironmentCheck.cs" />
     <Compile Include="Services\EnvironmentHosting.cs" />
+    <Compile Include="Services\EnvironmentOwin.cs" />
     <Compile Include="Services\EnvironmentSystemWeb.cs" />
     <Compile Include="Services\ServiceProviderExtensions.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="Startup.Owin.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
