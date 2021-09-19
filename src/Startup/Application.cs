@@ -39,7 +39,11 @@ namespace Unravel
         }
 
         /// <summary>
-        ///   Builds <see cref="WebHost"/> and registers current <see cref="IAppBuilder"/> as a singleton service.
+        ///   Builds <see cref="WebHost"/> and registers a few services:
+        ///   <list type="bullet">
+        ///     <item><see cref="IAppBuilder"/> (singleton)</item>
+        ///     <item><see cref="IHttpContextAccessor"/> (singleton)</item>
+        ///   </list>
         /// </summary>
         /// <param name="app">The host app.</param>
         /// <returns>The <see cref="IWebHost"/>.</returns>
@@ -49,6 +53,7 @@ namespace Unravel
                 .ConfigureServices(services =>
                 {
                     services.AddSingleton(app);
+                    services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
                 })
                 .Build();
         }
