@@ -1,0 +1,26 @@
+name: dotnet
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: windows-latest
+    env:
+      DOTNET_CLI_TELEMETRY_OPTOUT: true
+      DOTNET_NOLOGO: true
+      DOTNET_SKIP_FIRST_TIME_EXPERIENCE: true
+
+    steps:
+    - uses: actions/checkout@v2
+    - uses: nuget/setup-nuget@v1
+      with:
+        nuget-version: '5.8'
+    - uses: microsoft/setup-msbuild@v1
+    - name: nuget restore
+      run: nuget restore -NonInteractive
+    - name: msbuild
+      run: msbuild Unravel.sln /verbosity:normal /t:Rebuild
