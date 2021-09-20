@@ -24,3 +24,11 @@ jobs:
       run: nuget restore -NonInteractive
     - name: msbuild
       run: msbuild Unravel.sln /verbosity:normal /t:Rebuild
+
+    - name: Start IIS Express
+      run: |
+        $URL = .\util\Start-IisExpress.ps1 -Path .\examples\Web
+        "URL=$URL" | Out-File -Append -Encoding utf8 -FilePath $Env:GITHUB_ENV
+
+    - name: Check Connection
+      run: curl --insecure --show-error --silent $Env:URL
