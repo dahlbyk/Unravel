@@ -7,6 +7,7 @@ using Microsoft.Owin;
 using Microsoft.Owin.Security;
 using Owin;
 using Unravel.Hosting;
+using Unravel.Startup.Owin;
 using Unravel.SystemWeb;
 
 namespace Unravel
@@ -76,9 +77,19 @@ namespace Unravel
         /// <summary>
         ///   Configures OWIN pipeline after <see cref="WebHost"/> has been started, with <see cref="Services"/> available.
         /// </summary>
+        /// <remarks>
+        ///   The default implementation calls <see cref="OwinLoader.Configure(object, IAppBuilder)"/>,
+        ///   but only if <see cref="StartupType"/> isn't the current instance type.
+        ///   Most apps will just <c>override</c> this if they need an OWIN pipeline.
+        /// </remarks>
         /// <param name="app">The host app.</param>
         public virtual void ConfigureOwin(IAppBuilder app)
         {
+            if (StartupType != GetType())
+            {
+                var startup = Services.GetService<IStartup>();
+                OwinLoader.Configure(startup, app);
+            }
         }
 
         /// <summary>
@@ -99,14 +110,26 @@ namespace Unravel
         /// <remarks>
         ///   The default implementation uses <see cref="OwinHost.CreateDefaultBuilder()"/>, then
         ///     calls <see cref="WebHostBuilderSystemWebExtensions.UseHostingEnvironment(IWebHostBuilder)"/>, and
-        ///     calls <see cref="WebHostBuilderExtensions.UseStartup(IWebHostBuilder, Type)"/> with the <see cref="Type"/> of the current instance.
+        ///     calls <see cref="WebHostBuilderExtensions.UseStartup(IWebHostBuilder, Type)"/> with <see cref="StartupType"/>.
         /// </remarks>
         /// <returns>The initialized <see cref="IWebHostBuilder"/>.</returns>
         protected virtual IWebHostBuilder CreateWebHostBuilder()
         {
             return OwinHost.CreateDefaultBuilder()
                 .UseHostingEnvironment()
-                .UseStartup(GetType());
+                .UseStartup(StartupType);
         }
+
+        /// <summary>
+        ///   The type passed to <see cref="WebHostBuilderExtensions.UseStartup(IWebHostBuilder, Type)"/> in <see cref="CreateWebHostBuilder()"/>.
+        /// </summary>
+        /// <remarks>
+        ///   The default implementation returns the <see cref="Type"/> of the current instance.
+        ///   <para>
+        ///     Override to use a custom startup type, e.g. to support dependency injection.
+        ///     You will need to add <c>[asssembly: OwinStartup(YourHttpApplication)]</c>, so OWIN initializes through <c>Unravel.Application</c>.
+        ///   </para>
+        /// </remarks>
+        protected virtual Type StartupType => GetType();
     }
 }

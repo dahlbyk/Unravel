@@ -11,7 +11,7 @@ The ultimate goal is that an upgrade to ASP.NET Core could be reduced to roughly
 1. Remove `<ProjectTypeGuids>` from `.csproj`
 1. Migrate `.csproj` to [SDK format](https://docs.microsoft.com/en-us/dotnet/core/project-sdk/overview) with [Project2015To2017.Migrate2019.Tool](https://github.com/hvanbakel/CsprojToVs2017)
 1. Convert remaining references to OWIN `IAppBuilder` to `UseOwin()`
-1. Update `Startup.cs` to inherit from `Microsoft.AspNetCore.Hosting.StartupBase`
+1. Update `Startup.cs` to inherit from `Microsoft.AspNetCore.Hosting.StartupBase`, or to a convention-based `Startup`
 1. Convert project to .NET Core Console Application with standard ASP.NET Core `Program.cs`
 
 We'll see how close we can get…
