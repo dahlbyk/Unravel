@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Hosting.Server;
 using Microsoft.AspNetCore.Http.Features;
 using Microsoft.AspNetCore.Owin;
+using Microsoft.Extensions.Logging;
 
 namespace Unravel.Owin
 {
@@ -18,10 +19,12 @@ namespace Unravel.Owin
     public class OwinMiddlewareFeature<TContext> : IOwinMiddlewareFeature
     {
         private readonly IHttpApplication<TContext> application;
+        private readonly ILogger logger;
 
-        public OwinMiddlewareFeature(IHttpApplication<TContext> application)
+        public OwinMiddlewareFeature(IHttpApplication<TContext> application, ILoggerFactory loggerFactory)
         {
             this.application = application;
+            logger = loggerFactory.CreateLogger<OwinMiddlewareFeature<TContext>>();
         }
 
         object IOwinMiddlewareFeature.OwinMiddleware => new Func<AppFunc, AppFunc>(Invoke);
@@ -36,7 +39,8 @@ namespace Unravel.Owin
                 var owinFeatures = new OwinFeatureCollection(env);
                 var features = new FeatureCollection(owinFeatures);
 
-                var response = features.Get<IHttpResponseFeature>();
+                var response = new OwinResponseFeature(features.Get<IHttpResponseFeature>(), logger);
+                features.Set<IHttpResponseFeature>(response);
 
                 var initialStatus = response.StatusCode; // Incoming OWIN status (typically 200)
 

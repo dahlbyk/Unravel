@@ -10,10 +10,12 @@ namespace Unravel.Hosting
 {
     public class OwinServer : IServer
     {
+        private readonly ILoggerFactory loggerFactory;
         private readonly ILogger<OwinServer> logger;
 
         public OwinServer(ILoggerFactory loggerFactory)
         {
+            this.loggerFactory = loggerFactory;
             logger = loggerFactory.CreateLogger<OwinServer>();
 
             // TODO: Set<IServerAddressesFeature>()?
@@ -25,7 +27,7 @@ namespace Unravel.Hosting
         {
             logger.LogTrace(nameof(StartAsync));
 
-            Features.Set<IOwinMiddlewareFeature>(new OwinMiddlewareFeature<TContext>(application));
+            Features.Set<IOwinMiddlewareFeature>(new OwinMiddlewareFeature<TContext>(application, loggerFactory));
 
             return Task.CompletedTask;
         }
