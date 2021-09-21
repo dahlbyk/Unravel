@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.AspNetCore.Builder;
+using Microsoft.Extensions.DependencyInjection;
 using Owin;
 using UnravelExamples.Web.Services;
 
@@ -13,11 +14,20 @@ namespace UnravelExamples.Web
             services.AddAspNetMvc()
                 .AddControllersAsServices()
                 ;
+
+            services.AddHttpContextAccessor();
         }
 
         public override void ConfigureOwin(IAppBuilder app)
         {
             app.Map("/OWIN", OwinTestRoutes);
+
+            app.UseAspNetCore();
+        }
+
+        public override void Configure(IApplicationBuilder app)
+        {
+            app.Map("/AspNetCore", AspNetCoreTestRoutes);
         }
     }
 }

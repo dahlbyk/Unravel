@@ -255,6 +255,7 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\Counters.cs" />
+    <Compile Include="Services\EnvironmentAspNetCore.cs" />
     <Compile Include="Services\EnvironmentBase.cs" />
     <Compile Include="Services\EnvironmentCheck.cs" />
     <Compile Include="Services\EnvironmentConfiguration.cs" />
@@ -263,6 +264,7 @@
     <Compile Include="Services\EnvironmentOwin.cs" />
     <Compile Include="Services\EnvironmentSystemWeb.cs" />
     <Compile Include="Services\ServiceProviderExtensions.cs" />
+    <Compile Include="Startup.AspNetCore.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="Startup.Owin.cs" />
   </ItemGroup>
