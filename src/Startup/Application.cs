@@ -13,10 +13,16 @@ namespace Unravel
 {
     /// <summary>
     ///   A base <see cref="HttpApplication"/> which initializes <see cref="WebHost"/>,
-    ///   and implements ASP.NET Core <see cref="IStartup"/>.
+    ///   and can serve as ASP.NET Core <c>Startup</c>.
     /// </summary>
-    public abstract class Application : HttpApplication, IStartup
+    public abstract class Application : HttpApplication
     {
+        /// <summary>
+        ///   Default constructor is required by ASP.NET.
+        ///   If your startup requires constructor dependency injection, see <see cref="StartupType"/>.
+        /// </summary>
+        protected Application() { }
+
         /// <summary>
         ///   The current <see cref="WebHost"/>'s <see cref="IServiceProvider"/>.
         /// </summary>
@@ -29,7 +35,7 @@ namespace Unravel
         public static IWebHost WebHost { get; private set; } = new InvalidHost();
 
         /// <summary>
-        ///   Builds and starts <see cref="WebHost"/>, then calls <see cref="Configure(IAppBuilder)"/>.
+        ///   Builds and starts <see cref="WebHost"/>, then calls <see cref="ConfigureOwin(IAppBuilder)"/>.
         /// </summary>
         /// <param name="app"></param>
         public void Configuration(IAppBuilder app)
@@ -39,7 +45,7 @@ namespace Unravel
 
             app.SetServiceProvider(host.Services);
 
-            Configure(app);
+            ConfigureOwin(app);
         }
 
         /// <summary>
@@ -61,8 +67,8 @@ namespace Unravel
                     services.AddSingleton(app);
                     services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
-                    services.AddTransient(sp => sp.GetRequiredService<IHttpContextAccessor>().HttpContext?.GetOwinContext());
-                    services.AddTransient(sp => sp.GetService<IOwinContext>()?.Authentication);
+                    services.AddScoped(sp => sp.GetRequiredService<IHttpContextAccessor>().HttpContext?.GetOwinContext());
+                    services.AddScoped(sp => sp.GetService<IOwinContext>()?.Authentication);
                 })
                 .Build();
         }
@@ -71,7 +77,7 @@ namespace Unravel
         ///   Configures OWIN pipeline after <see cref="WebHost"/> has been started, with <see cref="Services"/> available.
         /// </summary>
         /// <param name="app">The host app.</param>
-        public virtual void Configure(IAppBuilder app)
+        public virtual void ConfigureOwin(IAppBuilder app)
         {
         }
 
@@ -81,12 +87,6 @@ namespace Unravel
         /// <param name="app">The host app.</param>
         public virtual void Configure(IApplicationBuilder app) { }
 
-        IServiceProvider IStartup.ConfigureServices(IServiceCollection services)
-        {
-            ConfigureServices(services);
-            return CreateServiceProvider(services);
-        }
-
         /// <summary>
         ///   Configures services for the current <see cref="WebHost"/>.
         /// </summary>
@@ -94,28 +94,19 @@ namespace Unravel
         public virtual void ConfigureServices(IServiceCollection services) { }
 
         /// <summary>
-        ///   Builds a <see cref="IServiceProvider"/> from the configured <see cref="IServiceCollection"/>.
-        /// </summary>
-        /// <param name="services">The <see cref="IServiceCollection"/>.</param>
-        public virtual IServiceProvider CreateServiceProvider(IServiceCollection services)
-        {
-            return services.BuildServiceProvider();
-        }
-
-        /// <summary>
         ///   Creates <see cref="IWebHostBuilder"/> used to initialize <see cref="WebHost"/>.
         /// </summary>
         /// <remarks>
         ///   The default implementation uses <see cref="OwinHost.CreateDefaultBuilder()"/>, then
         ///     calls <see cref="WebHostBuilderSystemWebExtensions.UseHostingEnvironment(IWebHostBuilder)"/>, and
-        ///     calls <see cref="WebHostBuilderApplicationExtensions.UseStartup{TStartup}(IWebHostBuilder, TStartup)"/> with <c>this</c>.
+        ///     calls <see cref="WebHostBuilderExtensions.UseStartup(IWebHostBuilder, Type)"/> with the <see cref="Type"/> of the current instance.
         /// </remarks>
         /// <returns>The initialized <see cref="IWebHostBuilder"/>.</returns>
         protected virtual IWebHostBuilder CreateWebHostBuilder()
         {
             return OwinHost.CreateDefaultBuilder()
                 .UseHostingEnvironment()
-                .UseStartup(this);
+                .UseStartup(GetType());
         }
     }
 }

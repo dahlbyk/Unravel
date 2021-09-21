@@ -21,7 +21,7 @@ We'll see how close we can get…
 - `Unravel.Application`
   - Inherits from `System.Web.HttpApplication`
   - Provides OWIN Startup
-  - Implements ASP.NET Core `IStartup`, including `ConfigureServices(IServiceCollection)`
+  - Provides ASP.NET Core Startup, including `ConfigureServices(IServiceCollection)`
   - Builds an ASP.NET Core `IWebHost`, including an `IServiceProvider`
     - Static `Unravel.Application.Services` service locator
     - Scoped per `HttpContext`
@@ -58,7 +58,7 @@ We'll see how close we can get…
 
 1. If you already have a `Startup.cs`:
     1. Make it `partial`
-    1. Replace `void Configuration(IAppBuilder app)` with `override void Configure(IAppBuilder app)`
+    1. Replace `void Configuration(IAppBuilder app)` with `override void ConfigureOwin(IAppBuilder app)`
 
    If you don't, create one.
 
@@ -72,7 +72,7 @@ We'll see how close we can get…
         {
         }
 
-        public override void Configure(IAppBuilder app)
+        public override void ConfigureOwin(IAppBuilder app)
         {
         }
     }

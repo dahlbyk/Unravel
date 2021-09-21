@@ -11,7 +11,7 @@ namespace UnravelExamples.Web
             Counters.Register(services);
         }
 
-        public override void Configure(IAppBuilder app)
+        public override void ConfigureOwin(IAppBuilder app)
         {
             app.Map("/OWIN", OwinTestRoutes);
         }
