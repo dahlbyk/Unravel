@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Hosting.Server;
 using Microsoft.AspNetCore.Http.Features;
 using Microsoft.Extensions.Logging;
+using Unravel.Owin;
 
 namespace Unravel.Hosting
 {
@@ -23,6 +24,8 @@ namespace Unravel.Hosting
         public virtual Task StartAsync<TContext>(IHttpApplication<TContext> application, CancellationToken cancellationToken)
         {
             logger.LogTrace(nameof(StartAsync));
+
+            Features.Set<IOwinMiddlewareFeature>(new OwinMiddlewareFeature<TContext>(application));
 
             return Task.CompletedTask;
         }
