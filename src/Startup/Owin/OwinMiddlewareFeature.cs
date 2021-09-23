@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Hosting.Server;
 using Microsoft.AspNetCore.Http.Features;
 using Microsoft.AspNetCore.Owin;
 using Microsoft.Extensions.Logging;
+using Owin;
 
 namespace Unravel.Owin
 {
@@ -46,17 +47,26 @@ namespace Unravel.Owin
 
                 var context = application.CreateContext(features);
 
+                var requestException = default(Exception);
+
+                var httpContext = env.GetHttpContext() ?? throw new InvalidOperationException("HttpContextBase not found in OWIN environment.");
+                httpContext.AddOnRequestCompleted(ctx =>
+                {
+                    // Need to block on the callback since we can't change the HttpContextBase signature to be async
+                    response.FireOnCompletedAsync().GetAwaiter().GetResult();
+
+                    application.DisposeContext(context, requestException);
+                });
+
                 // From: https://github.com/dotnet/aspnetcore/blob/c2cfc5f140cd2743ecc33eeeb49c5a2dd35b017f/src/Hosting/TestHost/src/HttpContextBuilder.cs#L67-L77
                 // TODO: https://github.com/dotnet/aspnetcore/blob/ccfb12cf73b0285c981c70a2061312a837510f7b/src/Servers/Kestrel/Core/src/Internal/Http/HttpProtocol.cs#L662-L756
                 try
                 {
                     await application.ProcessRequestAsync(context);
-
-                    application.DisposeContext(context, null);
                 }
                 catch (Exception ex)
                 {
-                    application.DisposeContext(context, ex);
+                    requestException = ex;
                     throw;
                 }
 
