@@ -70,8 +70,10 @@ namespace Unravel.Owin
                     throw;
                 }
 
-                // TODO: Need a more robust check
-                if (response.StatusCode == 404)
+                // The base RequestDelegate only sets StatusCode = 404:
+                // https://github.com/dotnet/aspnetcore/blob/c2cfc5f140cd2743ecc33eeeb49c5a2dd35b017f/src/Http/Http/src/Internal/ApplicationBuilder.cs#L82-L86
+                // If we still have 404 and Body hasn't been accessed, let the OWIN pipeline continue
+                if (response.StatusCode == 404 && !response.AssumeBodyModified)
                 {
                     // Reset to prior OWIN status
                     response.StatusCode = initialStatus;

@@ -19,6 +19,8 @@ namespace Unravel.Owin
             this.logger = logger;
         }
 
+        public bool AssumeBodyModified { get; private set; }
+
         public int StatusCode
         {
             get => response.StatusCode;
@@ -39,8 +41,8 @@ namespace Unravel.Owin
 
         public Stream Body
         {
-            get => response.Body;
-            set => response.Body = value;
+            get { AssumeBodyModified = true; return response.Body; }
+            set { AssumeBodyModified = true; response.Body = value; }
         }
 
         public bool HasStarted => response.HasStarted;
