@@ -23,6 +23,8 @@ namespace UnravelExamples.Web
             app.Map("/OWIN", OwinTestRoutes);
 
             app.UseAspNetCore();
+
+            app.Map("/OWIN-after-UseAspNetCore", OwinTestRoutes);
         }
 
         public override void Configure(IApplicationBuilder app)
