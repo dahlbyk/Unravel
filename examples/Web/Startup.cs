@@ -11,6 +11,7 @@ namespace UnravelExamples.Web
             Counters.Register(services);
 
             services.AddAspNetMvc()
+                .AddControllersAsServices()
                 ;
         }
 
