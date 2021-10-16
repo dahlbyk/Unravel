@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using Owin;
-using Unravel.AspNetCore.Mvc.Internal;
 using UnravelExamples.Web.Services;
 
 namespace UnravelExamples.Web
@@ -18,10 +17,8 @@ namespace UnravelExamples.Web
 
             services.AddHttpContextAccessor();
             services.AddMvc()
+                .IgnoreControllersOfType<System.Web.Mvc.IController>()
                 ;
-
-            // TODO: Move to IMvcBuilder with better name?
-            services.AddIgnoreControllersOfTypeActionInvokerProvider<System.Web.Mvc.IController>();
         }
 
         public override void ConfigureOwin(IAppBuilder app)
