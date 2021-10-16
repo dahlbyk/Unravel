@@ -37,6 +37,7 @@ namespace UnravelExamples.Web.Services
 
             yield return new EnvironmentSystemWeb(Services);
             yield return new EnvironmentOwin(Services);
+            yield return new EnvironmentAspNetCore(Services);
             yield return new EnvironmentConfiguration(Services);
             yield return new EnvironmentLogging(Services);
         }
