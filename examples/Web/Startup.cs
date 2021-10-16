@@ -16,6 +16,8 @@ namespace UnravelExamples.Web
                 ;
 
             services.AddHttpContextAccessor();
+            services.AddMvc()
+                ;
         }
 
         public override void ConfigureOwin(IAppBuilder app)
@@ -30,6 +32,8 @@ namespace UnravelExamples.Web
         public override void Configure(IApplicationBuilder app)
         {
             app.Map("/AspNetCore", AspNetCoreTestRoutes);
+
+            app.UseMvcWithDefaultRoute();
         }
     }
 }
