@@ -590,6 +590,10 @@
       <Project>{3372ba01-9e2b-48c8-a365-e36141ba32d1}</Project>
       <Name>Unravel.AspNet.Mvc</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\src\AspNetCore.Mvc\Unravel.AspNetCore.Mvc.csproj">
+      <Project>{d8fda2da-edf4-49be-90ae-d74763c14dff}</Project>
+      <Name>Unravel.AspNetCore.Mvc</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\src\Startup\Unravel.Startup.csproj">
       <Project>{06797441-1726-4bd0-a74d-21e211756367}</Project>
       <Name>Unravel.Startup</Name>
