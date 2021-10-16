@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Concurrent;
 using System.Reflection;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
@@ -31,12 +32,18 @@ namespace Unravel.AspNetCore.Mvc.Internal
             if (context.ActionContext.ActionDescriptor is ControllerActionDescriptor controllerActionDescriptor)
             {
                 var controllerTypeInfo = controllerActionDescriptor.ControllerTypeInfo;
-                if (typeof(TController).GetTypeInfo().IsAssignableFrom(controllerTypeInfo))
+                if (ignored.GetOrAdd(controllerTypeInfo, ShouldIgnore))
                 {
                     context.Result = new NotFoundActionInvoker(context.ActionContext);
                 }
             }
         }
+
+        // Could also use a ConcurrentBag, but ConcurrentDictionary is optimized for lock-free read
+        private static readonly ConcurrentDictionary<TypeInfo, bool> ignored = new ConcurrentDictionary<TypeInfo, bool>();
+
+        private static bool ShouldIgnore(TypeInfo controllerTypeInfo) =>
+            typeof(TController).GetTypeInfo().IsAssignableFrom(controllerTypeInfo);
 
         /// <inheritdoc/>
         public void OnProvidersExecuted(ActionInvokerProviderContext context)
