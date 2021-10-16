@@ -18,6 +18,10 @@ h1 {
     margin: 10px 0;
 }
 
+a {
+    text-decoration: none;
+}
+
 iframe {
     border: none rebeccapurple 2px;
     border-top-style: solid;

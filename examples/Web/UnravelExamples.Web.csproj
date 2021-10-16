@@ -248,6 +248,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\AspNetTestController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -290,6 +291,10 @@
     <Content Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\src\AspNet.Mvc\Unravel.AspNet.Mvc.csproj">
+      <Project>{3372ba01-9e2b-48c8-a365-e36141ba32d1}</Project>
+      <Name>Unravel.AspNet.Mvc</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\src\Startup\Unravel.Startup.csproj">
       <Project>{06797441-1726-4bd0-a74d-21e211756367}</Project>
       <Name>Unravel.Startup</Name>

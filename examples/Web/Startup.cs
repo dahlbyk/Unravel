@@ -9,6 +9,10 @@ namespace UnravelExamples.Web
         public override void ConfigureServices(IServiceCollection services)
         {
             Counters.Register(services);
+
+            services.AddAspNetMvc()
+                .AddControllersAsServices()
+                ;
         }
 
         public override void ConfigureOwin(IAppBuilder app)
