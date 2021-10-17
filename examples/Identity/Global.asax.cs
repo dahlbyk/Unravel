@@ -8,7 +8,7 @@ using System.Web.Routing;
 
 namespace UnravelExamples.Identity
 {
-    public class MvcApplication : System.Web.HttpApplication
+    public class MvcApplication : Startup
     {
         protected void Application_Start()
         {
