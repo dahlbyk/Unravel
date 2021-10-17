@@ -538,6 +538,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\AspNetWebApiController.cs" />
     <Compile Include="Controllers\AspNetCoreApiController.cs" />
     <Compile Include="Controllers\AspNetCoreMvcController.cs" />
     <Compile Include="Controllers\AspNetMvcController.cs" />
