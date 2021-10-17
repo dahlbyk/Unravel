@@ -22,6 +22,7 @@ namespace UnravelExamples.Web.Services
             var json = new JObject
             {
                 { nameof(Title), Title },
+                { nameof(IServiceProvider), Services == null ? null : "(object)" },
             };
 
             foreach (var environment in GetEnvironments())
@@ -32,6 +33,9 @@ namespace UnravelExamples.Web.Services
 
         public IEnumerable<EnvironmentBase> GetEnvironments()
         {
+            if (Services == null)
+                yield break;
+
             yield return new EnvironmentHosting(Services);
             yield return Services.GetService<Counters>();
 

@@ -20,5 +20,11 @@ namespace UnravelExamples.Web.Controllers
             var env = new EnvironmentCheck("ASP.NET Core API Controller Injection", services);
             return Content(env.ToString(), "application/json; charset=utf-8");
         }
+
+        [HttpGet("[controller]/[action]")]
+        public ActionResult Throw()
+        {
+            throw new ApplicationException("From ASP.NET Core API Controller");
+        }
     }
 }

@@ -11,7 +11,13 @@
         <li><a target="env" href="@Url.Action(nameof(HomeController.HttpContext_Current_GetRequestServices))"><code>HttpContext.GetRequestServices()</code></a></li>
         <li><a target="env" href="@Url.Action(nameof(HomeController.HttpContextBase_GetRequestServices))"><code>HttpContextBase.GetRequestServices()</code></a></li>
         <li><a target="env" href="@Url.Action(nameof(HomeController.Throw))"><code>throw</code></a></li>
-        <li><a target="env" href="@Url.Action(nameof(AspNetTestController.Index), "AspNetTest")">Constructor Injection</a></li>
+        <li><a target="env" href="@Url.Action(nameof(AspNetMvcController.Index), "AspNetMvc")">Constructor Injection</a></li>
+    </ul>
+
+    <h2>ASP.NET WebApi</h2>
+    <ul>
+        <li><a target="env" href="~/AspNetWebApi">Constructor Injection</a></li>
+        <li><a target="env" href="~/AspNetWebApi/Throw">Constructor Injection <code>throw</code></a></li>
     </ul>
 
     <h2>OWIN</h2>
@@ -29,7 +35,9 @@
         <li><a target="env" href="/AspNetCore/HttpContext_RequestServices"><code>HttpContext.RequestServices</code></a></li>
         <li><a target="env" href="/AspNetCore/Throw"><code>throw</code></a></li>
         <li><a target="env" href="@Url.Action(nameof(AspNetCoreApiController.Index), "AspNetCoreApi")">API Controller Constructor Injection</a></li>
+        <li><a target="env" href="@Url.Action(nameof(AspNetCoreApiController.Throw), "AspNetCoreApi")">API Controller <code>throw</code></a></li>
         <li><a target="env" href="@Url.Action(nameof(AspNetCoreMvcController.Index), "AspNetCoreMvc")">MVC Controller Constructor Injection</a></li>
+        <li><a target="env" href="@Url.Action(nameof(AspNetCoreMvcController.Throw), "AspNetCoreMvc")">MVC Controller <code>throw</code></a></li>
     </ul>
 
     <h2>OWIN after <code>UseAspNetCore()</code></h2>

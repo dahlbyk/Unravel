@@ -538,9 +538,10 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\AspNetWebApiController.cs" />
     <Compile Include="Controllers\AspNetCoreApiController.cs" />
     <Compile Include="Controllers\AspNetCoreMvcController.cs" />
-    <Compile Include="Controllers\AspNetTestController.cs" />
+    <Compile Include="Controllers\AspNetMvcController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -589,6 +590,10 @@
     <ProjectReference Include="..\..\src\AspNet.Mvc\Unravel.AspNet.Mvc.csproj">
       <Project>{3372ba01-9e2b-48c8-a365-e36141ba32d1}</Project>
       <Name>Unravel.AspNet.Mvc</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\src\AspNet.WebApi\Unravel.AspNet.WebApi.csproj">
+      <Project>{22478cee-818d-455c-9ae1-d9bb1c9b91a9}</Project>
+      <Name>Unravel.AspNet.WebApi</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\src\AspNetCore.Mvc\Unravel.AspNetCore.Mvc.csproj">
       <Project>{d8fda2da-edf4-49be-90ae-d74763c14dff}</Project>

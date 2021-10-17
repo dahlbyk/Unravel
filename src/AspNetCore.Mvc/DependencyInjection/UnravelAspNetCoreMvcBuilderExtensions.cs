@@ -13,9 +13,10 @@ namespace Microsoft.Extensions.DependencyInjection
         /// </summary>
         /// <typeparam name="TController">The controller base type to ignore.</typeparam>
         /// <returns>The <see cref="IMvcBuilder"/>.</returns>
-        public static void IgnoreControllersOfType<TController>(this IMvcBuilder builder)
+        public static IMvcBuilder IgnoreControllersOfType<TController>(this IMvcBuilder builder)
         {
             builder.Services.AddIgnoreControllersOfTypeActionInvokerProvider<TController>();
+            return builder;
         }
     }
 }

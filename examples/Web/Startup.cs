@@ -15,9 +15,14 @@ namespace UnravelExamples.Web
                 .AddControllersAsServices()
                 ;
 
+            services.AddAspNetWebApi()
+                .AddControllersAsServices()
+                ;
+
             services.AddHttpContextAccessor();
             services.AddMvc()
                 .IgnoreControllersOfType<System.Web.Mvc.IController>()
+                .IgnoreControllersOfType<System.Web.Http.Controllers.IHttpController>()
                 ;
         }
 
