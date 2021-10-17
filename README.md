@@ -80,7 +80,7 @@ We'll see how close we can get…
 
 ## Unravel.AspNet.Mvc
 
-Similar to ASP.NET Core 2.1's [`AddMvc()`](https://docs.microsoft.com/en-us/dotnet/api/microsoft.extensions.dependencyinjection.mvcservicecollectionextensions.addmvc?view=aspnetcore-2.1), Unravel provides an `AddAspNetMvc()` extension method on `IServiceCollection` that registers an `IDependencyResolver`.
+Similar to ASP.NET Core 2.1's [`AddMvc()`](https://docs.microsoft.com/en-us/dotnet/api/microsoft.extensions.dependencyinjection.mvcservicecollectionextensions.addmvc?view=aspnetcore-2.1), Unravel provides an `AddAspNetMvc()` extension method on `IServiceCollection` that registers a `System.Web.Mvc.IDependencyResolver`.
 
 The resulting `IAspNetMvcBuilder` is similar to [`IMvcBuilder`](https://docs.microsoft.com/en-us/dotnet/api/microsoft.extensions.dependencyinjection.imvcbuilder?view=aspnetcore-2.1), providing an extension point for additional configuration:
 
@@ -90,6 +90,22 @@ The resulting `IAspNetMvcBuilder` is similar to [`IMvcBuilder`](https://docs.mic
 public override void ConfigureServices(IServiceCollection services)
 {
     services.AddAspNetMvc()
+        .AddControllersAsServices();
+}
+```
+
+## Unravel.AspNet.WebApi
+
+Similar to `AddAspNetMvc()` described above, there's also an `AddAspNetWebApi()` extension method on `IServiceCollection` that registers a `System.Web.Http.Dependencies.IDependencyResolver`.
+
+The resulting `IAspNetWebApiBuilder` is similar to [`IMvcBuilder`](https://docs.microsoft.com/en-us/dotnet/api/microsoft.extensions.dependencyinjection.imvcbuilder?view=aspnetcore-2.1), providing an extension point for additional configuration:
+
+- [`AddControllersAsServices()`](https://docs.microsoft.com/en-us/dotnet/api/microsoft.extensions.dependencyinjection.mvccoremvcbuilderextensions.addcontrollersasservices?view=aspnetcore-2.1)
+
+```csharp
+public override void ConfigureServices(IServiceCollection services)
+{
+    services.AddAspNetWebApi()
         .AddControllersAsServices();
 }
 ```
