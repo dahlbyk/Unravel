@@ -16,10 +16,6 @@ namespace UnravelExamples.Identity.Controllers
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
 
-        public ManageController()
-        {
-        }
-
         public ManageController(ApplicationUserManager userManager, ApplicationSignInManager signInManager)
         {
             UserManager = userManager;
@@ -30,6 +26,9 @@ namespace UnravelExamples.Identity.Controllers
         {
             get
             {
+                if (_signInManager != HttpContext.GetOwinContext().Get<ApplicationSignInManager>())
+                    throw new InvalidOperationException("Expected same instance within scope.");
+
                 return _signInManager ?? HttpContext.GetOwinContext().Get<ApplicationSignInManager>();
             }
             private set
@@ -42,6 +41,9 @@ namespace UnravelExamples.Identity.Controllers
         {
             get
             {
+                if (_userManager != HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>())
+                    throw new InvalidOperationException("Expected same instance within scope.");
+
                 return _userManager ?? HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>();
             }
             private set

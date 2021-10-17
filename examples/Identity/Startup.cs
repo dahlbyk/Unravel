@@ -9,6 +9,9 @@ namespace UnravelExamples.Identity
     {
         public override void ConfigureServices(IServiceCollection services)
         {
+            services.AddAspNetMvc()
+                .AddControllersAsServices();
+
             ConfigureAuthServices(services);
         }
 
