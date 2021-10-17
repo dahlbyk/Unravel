@@ -10,6 +10,7 @@ using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using Microsoft.Owin.Security;
+using Microsoft.Owin.Security.DataProtection;
 using UnravelExamples.Identity.Models;
 
 namespace UnravelExamples.Identity
@@ -35,14 +36,19 @@ namespace UnravelExamples.Identity
     // Configure the application user manager used in this application. UserManager is defined in ASP.NET Identity and is used by the application.
     public class ApplicationUserManager : UserManager<ApplicationUser>
     {
-        public ApplicationUserManager(IUserStore<ApplicationUser> store)
+        public ApplicationUserManager(IUserStore<ApplicationUser> store, IDataProtectionProvider dataProtectionProvider)
             : base(store)
         {
+            Init(this, dataProtectionProvider);
         }
 
         public static ApplicationUserManager Create(IdentityFactoryOptions<ApplicationUserManager> options, IOwinContext context)
         {
-            var manager = new ApplicationUserManager(new UserStore<ApplicationUser>(context.Get<ApplicationDbContext>()));
+            return new ApplicationUserManager(new UserStore<ApplicationUser>(context.Get<ApplicationDbContext>()), options.DataProtectionProvider);
+        }
+
+        private static void Init(ApplicationUserManager manager, IDataProtectionProvider dataProtectionProvider)
+        {
             // Configure validation logic for usernames
             manager.UserValidator = new UserValidator<ApplicationUser>(manager)
             {
@@ -78,13 +84,11 @@ namespace UnravelExamples.Identity
             });
             manager.EmailService = new EmailService();
             manager.SmsService = new SmsService();
-            var dataProtectionProvider = options.DataProtectionProvider;
             if (dataProtectionProvider != null)
             {
                 manager.UserTokenProvider =
                     new DataProtectorTokenProvider<ApplicationUser>(dataProtectionProvider.Create("ASP.NET Identity"));
             }
-            return manager;
         }
     }
 

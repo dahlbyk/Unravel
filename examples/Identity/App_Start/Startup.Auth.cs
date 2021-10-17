@@ -1,8 +1,12 @@
 ﻿using System;
+using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Owin;
 using Microsoft.Owin.Security.Cookies;
+using Microsoft.Owin.Security.DataProtection;
 using Microsoft.Owin.Security.Google;
 using Owin;
 using UnravelExamples.Identity.Models;
@@ -11,13 +15,31 @@ namespace UnravelExamples.Identity
 {
     public partial class Startup
     {
+        public void ConfigureAuthServices(IServiceCollection services)
+        {
+            services.AddScoped<ApplicationDbContext>();
+            services.AddScoped<IUserStore<ApplicationUser>>(sp => new UserStore<ApplicationUser>(sp.GetRequiredService<ApplicationDbContext>()));
+
+            services.AddSingleton(sp => sp.GetRequiredService<IAppBuilder>().GetDataProtectionProvider());
+            services.AddScoped<ApplicationUserManager>();
+            services.AddScoped<ApplicationSignInManager>();
+        }
+
         // For more information on configuring authentication, please visit https://go.microsoft.com/fwlink/?LinkId=301864
         public void ConfigureAuth(IAppBuilder app)
         {
             // Configure the db context, user manager and signin manager to use a single instance per request
-            app.CreatePerOwinContext(ApplicationDbContext.Create);
-            app.CreatePerOwinContext<ApplicationUserManager>(ApplicationUserManager.Create);
-            app.CreatePerOwinContext<ApplicationSignInManager>(ApplicationSignInManager.Create);
+            app.Use((IOwinContext ctx, Func<Task> next) =>
+            {
+                var services = ctx.GetRequestServices();
+
+                ctx.Set(services.GetRequiredService<ApplicationDbContext>());
+                // Setting ApplicationUserManager is required for use in SecurityStampValidator
+                ctx.Set(services.GetRequiredService<ApplicationUserManager>());
+                ctx.Set(services.GetRequiredService<ApplicationSignInManager>());
+
+                return next();
+            });
 
             // Enable the application to use a cookie to store information for the signed in user
             // and to use a cookie to temporarily store information about a user logging in with a third party login provider
