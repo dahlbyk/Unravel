@@ -540,7 +540,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AspNetCoreApiController.cs" />
     <Compile Include="Controllers\AspNetCoreMvcController.cs" />
-    <Compile Include="Controllers\AspNetTestController.cs" />
+    <Compile Include="Controllers\AspNetMvcController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
