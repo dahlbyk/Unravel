@@ -16,12 +16,13 @@ namespace UnravelExamples.Identity
     {
         public void ConfigureAuthServices(IServiceCollection services)
         {
-            services.AddScoped<ApplicationDbContext>();
+            services.AddScoped(p => ApplicationDbContext.Create());
             services.AddScoped<IUserStore<ApplicationUser>>(sp => new UserStore<ApplicationUser>(sp.GetRequiredService<ApplicationDbContext>()));
 
             services.AddIdentity<ApplicationUser, IdentityRole, string>()
-                .AddUserManager<ApplicationUserManager>()
-                .AddSignInManager<ApplicationSignInManager>()
+                // TODO: Now realizing why the Core IdentityBuilder isn't generic
+                .AddUserManager<ApplicationUser, IdentityRole, string, ApplicationUserManager>(ApplicationUserManager.Create)
+                .AddSignInManager<ApplicationUser, IdentityRole, string, ApplicationSignInManager>(ApplicationSignInManager.Create)
                 ;
         }
 
