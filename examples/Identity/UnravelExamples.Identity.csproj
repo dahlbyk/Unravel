@@ -343,6 +343,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\src\AspNet.Identity\Unravel.AspNet.Identity.csproj">
+      <Project>{9e63bb55-a6d4-4d3d-828c-70e536313d43}</Project>
+      <Name>Unravel.AspNet.Identity</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\src\AspNet.Mvc\Unravel.AspNet.Mvc.csproj">
       <Project>{3372ba01-9e2b-48c8-a365-e36141ba32d1}</Project>
       <Name>Unravel.AspNet.Mvc</Name>

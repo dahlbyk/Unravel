@@ -20,8 +20,11 @@ namespace UnravelExamples.Identity
             services.AddScoped<ApplicationDbContext>();
             services.AddScoped<IUserStore<ApplicationUser>>(sp => new UserStore<ApplicationUser>(sp.GetRequiredService<ApplicationDbContext>()));
 
+            services.AddIdentity<ApplicationUser, IdentityRole, string>()
+                .AddUserManager<ApplicationUserManager>()
+                ;
+
             services.AddSingleton(sp => sp.GetRequiredService<IAppBuilder>().GetDataProtectionProvider());
-            services.AddScoped<ApplicationUserManager>();
             services.AddScoped<ApplicationSignInManager>();
         }
 
