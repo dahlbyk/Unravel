@@ -1,6 +1,9 @@
 ﻿using System;
 using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Extensions.DependencyInjection.Extensions;
+using Microsoft.Owin.Security.DataProtection;
+using Owin;
 using Unravel.AspNet.Identity.DependencyInjection;
 
 namespace Microsoft.Extensions.DependencyInjection
@@ -23,8 +26,12 @@ namespace Microsoft.Extensions.DependencyInjection
             where TRole : class, IRole<TKey>
             where TKey : IEquatable<TKey>
         {
+            // Used by default UserManager
+            services.AddSingleton(sp => sp.GetRequiredService<IAppBuilder>().GetDataProtectionProvider());
+
             // Identity services
             services.TryAddScoped<UserManager<TUser, TKey>, UserManager<TUser, TKey>>();
+            services.TryAddScoped<SignInManager<TUser, TKey>, SignInManager<TUser, TKey>>();
             services.TryAddScoped<RoleManager<TRole, TKey>, RoleManager<TRole, TKey>>();
 
             return new IdentityBuilder<TUser, TRole, TKey>(services);

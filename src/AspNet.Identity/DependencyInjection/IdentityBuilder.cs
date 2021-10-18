@@ -1,5 +1,6 @@
 ﻿using System;
 using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Unravel.AspNet.Identity.DependencyInjection
@@ -78,6 +79,22 @@ namespace Unravel.AspNet.Identity.DependencyInjection
         {
             var managerType = typeof(RoleManager<,>).MakeGenericType(typeof(TRole), typeof(TKey));
             var customType = typeof(TRoleManager);
+            if (managerType != customType)
+            {
+                Services.AddScoped(customType, services => services.GetRequiredService(managerType));
+            }
+            return AddScoped(managerType, customType);
+        }
+
+        /// <summary>
+        /// Adds a <see cref="SignInManager{TUser}"/>.
+        /// </summary>
+        /// <typeparam name="TSignInManager">The type of the role manager to add.</typeparam>
+        /// <returns>The current instance.</returns>
+        public virtual IdentityBuilder<TUser, TRole, TKey> AddSignInManager<TSignInManager>() where TSignInManager : SignInManager<TUser, TKey>
+        {
+            var managerType = typeof(SignInManager<,>).MakeGenericType(typeof(TUser), typeof(TKey));
+            var customType = typeof(TSignInManager);
             if (managerType != customType)
             {
                 Services.AddScoped(customType, services => services.GetRequiredService(managerType));

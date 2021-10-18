@@ -6,7 +6,6 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Owin;
 using Microsoft.Owin.Security.Cookies;
-using Microsoft.Owin.Security.DataProtection;
 using Microsoft.Owin.Security.Google;
 using Owin;
 using UnravelExamples.Identity.Models;
@@ -22,10 +21,8 @@ namespace UnravelExamples.Identity
 
             services.AddIdentity<ApplicationUser, IdentityRole, string>()
                 .AddUserManager<ApplicationUserManager>()
+                .AddSignInManager<ApplicationSignInManager>()
                 ;
-
-            services.AddSingleton(sp => sp.GetRequiredService<IAppBuilder>().GetDataProtectionProvider());
-            services.AddScoped<ApplicationSignInManager>();
         }
 
         // For more information on configuring authentication, please visit https://go.microsoft.com/fwlink/?LinkId=301864
