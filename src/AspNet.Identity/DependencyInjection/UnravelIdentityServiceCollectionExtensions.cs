@@ -21,7 +21,7 @@ namespace Microsoft.Extensions.DependencyInjection
         /// <typeparam name="TKey">The key type for Users and Roles in the system.</typeparam>
         /// <param name="services">The services available in the application.</param>
         /// <returns>An <see cref="IdentityBuilder"/> for creating and configuring the identity system.</returns>
-        public static IdentityBuilder<TUser, TRole, TKey> AddIdentity<TUser, TRole, TKey>(this IServiceCollection services)
+        public static IdentityBuilder AddIdentity<TUser, TRole, TKey>(this IServiceCollection services)
             where TUser : class, IUser<TKey>
             where TRole : class, IRole<TKey>
             where TKey : IEquatable<TKey>
@@ -34,7 +34,7 @@ namespace Microsoft.Extensions.DependencyInjection
             services.TryAddScoped<SignInManager<TUser, TKey>, SignInManager<TUser, TKey>>();
             services.TryAddScoped<RoleManager<TRole, TKey>, RoleManager<TRole, TKey>>();
 
-            return new IdentityBuilder<TUser, TRole, TKey>(services);
+            return new IdentityBuilder(typeof(TUser), typeof(TRole), services);
         }
     }
 }

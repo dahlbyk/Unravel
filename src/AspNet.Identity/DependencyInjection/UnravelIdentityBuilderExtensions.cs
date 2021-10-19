@@ -8,27 +8,24 @@ using Unravel.AspNet.Identity.DependencyInjection;
 namespace Microsoft.Extensions.DependencyInjection
 {
     /// <summary>
-    /// Contains extension methods to <see cref="IdentityBuilder{TUser, TRole, TKey}"/> for configuring identity services.
+    /// Contains extension methods to <see cref="IdentityBuilder"/> for configuring identity services.
     /// </summary>
     public static class UnravelIdentityBuilderExtensions
     {
-        public static IdentityBuilder<TUser, TRole, TKey> AddUserManager<TUser, TRole, TKey, TUserManager>(
-            this IdentityBuilder<TUser, TRole, TKey> builder,
+        public static IdentityBuilder AddUserManager<TUserManager>(
+            this IdentityBuilder builder,
             Func<IdentityFactoryOptions<TUserManager>, IOwinContext, TUserManager> createCallback)
-            where TUser : class, IUser<TKey>
-            where TRole : class, IRole<TKey>
-            where TKey : IEquatable<TKey>
-            where TUserManager : UserManager<TUser, TKey>
+            where TUserManager : IDisposable
         {
             if (builder == null) throw new ArgumentNullException(nameof(builder));
 
-            var userManagerType = typeof(UserManager<,>).MakeGenericType(typeof(TUser), typeof(TKey));
+            var managerType = typeof(UserManager<,>).MakeGenericType(builder.UserType, builder.KeyType);
             var customType = typeof(TUserManager);
-            if (userManagerType != customType)
+            if (managerType != customType)
             {
-                builder.Services.AddScoped(customType, services => services.GetRequiredService(userManagerType));
+                builder.Services.AddScoped(customType, services => services.GetRequiredService(managerType));
             }
-            builder.Services.AddScoped(userManagerType, p =>
+            builder.Services.AddScoped(managerType, p =>
             {
                 var options = CreateOptions<TUserManager>(p);
                 return createCallback(options, p.GetRequiredService<IOwinContext>());
@@ -37,23 +34,49 @@ namespace Microsoft.Extensions.DependencyInjection
             return builder;
         }
 
-        public static IdentityBuilder<TUser, TRole, TKey> AddSignInManager<TUser, TRole, TKey, TSignInManager>(
-            this IdentityBuilder<TUser, TRole, TKey> builder,
-            Func<IdentityFactoryOptions<TSignInManager>, IOwinContext, TSignInManager> createCallback)
-            where TUser : class, IUser<TKey>
-            where TRole : class, IRole<TKey>
-            where TKey : IEquatable<TKey>
-            where TSignInManager : SignInManager<TUser, TKey>
+        public static IdentityBuilder AddRoleManager<TRoleManager>(
+            this IdentityBuilder builder,
+            Func<IdentityFactoryOptions<TRoleManager>, IOwinContext, TRoleManager> createCallback)
+            where TRoleManager : IDisposable
         {
             if (builder == null) throw new ArgumentNullException(nameof(builder));
 
-            var userManagerType = typeof(SignInManager<,>).MakeGenericType(typeof(TUser), typeof(TKey));
-            var customType = typeof(TSignInManager);
-            if (userManagerType != customType)
+            var managerType = typeof(RoleManager<,>).MakeGenericType(builder.RoleType, builder.KeyType);
+            var customType = typeof(TRoleManager);
+            if (managerType != customType)
             {
-                builder.Services.AddScoped(customType, services => services.GetRequiredService(userManagerType));
+                builder.Services.AddScoped(customType, services => services.GetRequiredService(managerType));
             }
-            builder.Services.AddScoped(userManagerType, p =>
+            builder.Services.AddScoped(managerType, p =>
+            {
+                var options = CreateOptions<TRoleManager>(p);
+                return createCallback(options, p.GetRequiredService<IOwinContext>());
+            });
+
+            return builder;
+        }
+
+        /// <summary>
+        /// Adds a <see cref="SignInManager{TUser}"/> for the <seealso cref="UserType"/>.
+        /// </summary>
+        /// <typeparam name="TSignInManager">The type of the sign in manager manager to add.</typeparam>
+        /// <param name="builder">The <see cref="IdentityBuilder"/>.</param>
+        /// <param name="createCallback">The callback to create a <typeparamref name="TSignInManager"/>.</param>
+        /// <returns>The <see cref="IdentityBuilder"/>.</returns>
+        public static IdentityBuilder AddSignInManager<TSignInManager>(
+            this IdentityBuilder builder,
+            Func<IdentityFactoryOptions<TSignInManager>, IOwinContext, TSignInManager> createCallback)
+            where TSignInManager : IDisposable
+        {
+            if (builder == null) throw new ArgumentNullException(nameof(builder));
+
+            var managerType = typeof(SignInManager<,>).MakeGenericType(builder.UserType, builder.KeyType);
+            var customType = typeof(TSignInManager);
+            if (managerType != customType)
+            {
+                builder.Services.AddScoped(customType, services => services.GetRequiredService(managerType));
+            }
+            builder.Services.AddScoped(managerType, p =>
             {
                 var options = CreateOptions<TSignInManager>(p);
                 return createCallback(options, p.GetRequiredService<IOwinContext>());
