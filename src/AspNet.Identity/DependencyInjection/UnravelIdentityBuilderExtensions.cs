@@ -31,6 +31,8 @@ namespace Microsoft.Extensions.DependencyInjection
                 return createCallback(options, p.GetRequiredService<IOwinContext>());
             });
 
+            builder.SetPerOwinContext<TUserManager>();
+
             return builder;
         }
 
@@ -81,6 +83,8 @@ namespace Microsoft.Extensions.DependencyInjection
                 var options = CreateOptions<TSignInManager>(p);
                 return createCallback(options, p.GetRequiredService<IOwinContext>());
             });
+
+            builder.SetPerOwinContext<TSignInManager>();
 
             return builder;
         }

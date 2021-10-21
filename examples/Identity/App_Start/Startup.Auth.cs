@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
@@ -20,6 +19,8 @@ namespace UnravelExamples.Identity
             services.AddScoped<IUserStore<ApplicationUser>>(sp => new UserStore<ApplicationUser>(sp.GetRequiredService<ApplicationDbContext>()));
 
             services.AddIdentity<ApplicationUser, IdentityRole, string>()
+                // Used in ApplicationUserManager.Create; Set first
+                .SetPerOwinContext<ApplicationDbContext>(0)
                 .AddUserManager<ApplicationUserManager>(ApplicationUserManager.Create)
                 .AddSignInManager<ApplicationSignInManager>(ApplicationSignInManager.Create)
                 ;
@@ -28,19 +29,6 @@ namespace UnravelExamples.Identity
         // For more information on configuring authentication, please visit https://go.microsoft.com/fwlink/?LinkId=301864
         public void ConfigureAuth(IAppBuilder app)
         {
-            // Configure the db context, user manager and signin manager to use a single instance per request
-            app.Use((IOwinContext ctx, Func<Task> next) =>
-            {
-                var services = ctx.GetRequestServices();
-
-                ctx.Set(services.GetRequiredService<ApplicationDbContext>());
-                // Setting ApplicationUserManager is required for use in SecurityStampValidator
-                ctx.Set(services.GetRequiredService<ApplicationUserManager>());
-                ctx.Set(services.GetRequiredService<ApplicationSignInManager>());
-
-                return next();
-            });
-
             // Enable the application to use a cookie to store information for the signed in user
             // and to use a cookie to temporarily store information about a user logging in with a third party login provider
             // Configure the sign in cookie
