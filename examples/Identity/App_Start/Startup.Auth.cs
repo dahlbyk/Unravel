@@ -15,12 +15,8 @@ namespace UnravelExamples.Identity
     {
         public void ConfigureAuthServices(IServiceCollection services)
         {
-            services.AddScoped(p => ApplicationDbContext.Create());
-            services.AddScoped<IUserStore<ApplicationUser>>(sp => new UserStore<ApplicationUser>(sp.GetRequiredService<ApplicationDbContext>()));
-
             services.AddIdentity<ApplicationUser, IdentityRole, string>()
-                // Used in ApplicationUserManager.Create; Set first
-                .SetPerOwinContext<ApplicationDbContext>(0)
+                .AddEntityFrameworkStores(ApplicationDbContext.Create)
                 .AddUserManager<ApplicationUserManager>(ApplicationUserManager.Create)
                 .AddSignInManager<ApplicationSignInManager>(ApplicationSignInManager.Create)
                 ;
