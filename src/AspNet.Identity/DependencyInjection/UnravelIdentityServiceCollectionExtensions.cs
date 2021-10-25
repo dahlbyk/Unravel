@@ -30,9 +30,21 @@ namespace Microsoft.Extensions.DependencyInjection
             services.AddSingleton(sp => sp.GetRequiredService<IAppBuilder>().GetDataProtectionProvider());
 
             // Identity services
-            services.TryAddScoped<UserManager<TUser, TKey>, UserManager<TUser, TKey>>();
-            services.TryAddScoped<SignInManager<TUser, TKey>, SignInManager<TUser, TKey>>();
-            services.TryAddScoped<RoleManager<TRole, TKey>, RoleManager<TRole, TKey>>();
+            if (typeof(TKey) == typeof(string))
+            {
+                services.TryAddScoped(typeof(UserManager<>).MakeGenericType(typeof(TUser)));
+                services.TryAddScoped(typeof(RoleManager<>).MakeGenericType(typeof(TRole)));
+
+                services.TryAddScoped(typeof(UserManager<,>).MakeGenericType(typeof(TUser), typeof(TKey)), s => s.GetRequiredService<UserManager<TUser, TKey>>());
+                services.TryAddScoped(typeof(RoleManager<,>).MakeGenericType(typeof(TRole), typeof(TKey)), s => s.GetRequiredService<RoleManager<TRole, TKey>>());
+            }
+            else
+            {
+                services.TryAddScoped<UserManager<TUser, TKey>>();
+                services.TryAddScoped<RoleManager<TRole, TKey>>();
+            }
+
+            services.TryAddScoped<SignInManager<TUser, TKey>>();
 
             return new IdentityBuilder(typeof(TUser), typeof(TRole), services);
         }

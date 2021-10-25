@@ -116,6 +116,15 @@ namespace Unravel.AspNet.Identity.DependencyInjection
             if (managerType != customType)
             {
                 Services.AddScoped(customType, services => services.GetRequiredService(managerType));
+
+                if (KeyType == typeof(string))
+                {
+                    var userManagerType = typeof(UserManager<>).MakeGenericType(UserType);
+                    if (userManagerType.IsAssignableFrom(customType))
+                    {
+                        Services.AddScoped(userManagerType, s => s.GetRequiredService(managerType));
+                    }
+                }
             }
             return AddScoped(managerType, customType);
         }
@@ -145,6 +154,15 @@ namespace Unravel.AspNet.Identity.DependencyInjection
             if (managerType != customType)
             {
                 Services.AddScoped(customType, services => services.GetRequiredService(managerType));
+
+                if (KeyType == typeof(string))
+                {
+                    var roleManagerType = typeof(RoleManager<>).MakeGenericType(RoleType);
+                    if (roleManagerType.IsAssignableFrom(customType))
+                    {
+                        Services.AddScoped(roleManagerType, s => s.GetRequiredService(managerType));
+                    }
+                }
             }
             return AddScoped(managerType, customType);
         }
