@@ -135,7 +135,7 @@ namespace Microsoft.Extensions.DependencyInjection
                 }
             }
 
-            services.TryAddScoped(userStoreType);
+            services.TryAddScoped(userStoreType, s => Activator.CreateInstance(userStoreType, s.GetRequiredService(identityContext)));
             services.TryAddScoped(typeof(IUserLoginStore<,>).MakeGenericType(userType, keyType), s => s.GetRequiredService(userStoreType));
             services.TryAddScoped(typeof(IUserStore<,>).MakeGenericType(userType, keyType), s => s.GetRequiredService(userStoreType));
             services.TryAddScoped(typeof(IUserClaimStore<,>).MakeGenericType(userType, keyType), s => s.GetRequiredService(userStoreType));
@@ -148,7 +148,7 @@ namespace Microsoft.Extensions.DependencyInjection
             services.TryAddScoped(typeof(IUserTwoFactorStore<,>).MakeGenericType(userType, keyType), s => s.GetRequiredService(userStoreType));
             services.TryAddScoped(typeof(IUserLockoutStore<,>).MakeGenericType(userType, keyType), s => s.GetRequiredService(userStoreType));
 
-            services.TryAddScoped(roleStoreType);
+            services.TryAddScoped(roleStoreType, s => Activator.CreateInstance(roleStoreType, s.GetRequiredService(identityContext)));
             services.TryAddScoped(typeof(IQueryableRoleStore<,>).MakeGenericType(roleType, keyType), s => s.GetRequiredService(roleStoreType));
             services.TryAddScoped(typeof(IRoleStore<,>).MakeGenericType(roleType, keyType), s => s.GetRequiredService(roleStoreType));
         }
