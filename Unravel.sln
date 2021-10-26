@@ -25,6 +25,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Unravel.AspNet.WebApi", "sr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnravelExamples.Identity", "examples\Identity\UnravelExamples.Identity.csproj", "{5D97EFEE-4FA3-47DB-9C03-CB99F0CC8E77}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Unravel.AspNet.Identity", "src\AspNet.Identity\Unravel.AspNet.Identity.csproj", "{9E63BB55-A6D4-4D3D-828C-70E536313D43}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Unravel.AspNet.Identity.EntityFramework", "src\AspNet.Identity.EntityFramework\Unravel.AspNet.Identity.EntityFramework.csproj", "{1D43CD4F-824D-4BCA-AB2A-939B6D4C4AEC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -107,6 +111,30 @@ Global
 		{5D97EFEE-4FA3-47DB-9C03-CB99F0CC8E77}.Release|x64.Build.0 = Release|Any CPU
 		{5D97EFEE-4FA3-47DB-9C03-CB99F0CC8E77}.Release|x86.ActiveCfg = Release|Any CPU
 		{5D97EFEE-4FA3-47DB-9C03-CB99F0CC8E77}.Release|x86.Build.0 = Release|Any CPU
+		{9E63BB55-A6D4-4D3D-828C-70E536313D43}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9E63BB55-A6D4-4D3D-828C-70E536313D43}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9E63BB55-A6D4-4D3D-828C-70E536313D43}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{9E63BB55-A6D4-4D3D-828C-70E536313D43}.Debug|x64.Build.0 = Debug|Any CPU
+		{9E63BB55-A6D4-4D3D-828C-70E536313D43}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{9E63BB55-A6D4-4D3D-828C-70E536313D43}.Debug|x86.Build.0 = Debug|Any CPU
+		{9E63BB55-A6D4-4D3D-828C-70E536313D43}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9E63BB55-A6D4-4D3D-828C-70E536313D43}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9E63BB55-A6D4-4D3D-828C-70E536313D43}.Release|x64.ActiveCfg = Release|Any CPU
+		{9E63BB55-A6D4-4D3D-828C-70E536313D43}.Release|x64.Build.0 = Release|Any CPU
+		{9E63BB55-A6D4-4D3D-828C-70E536313D43}.Release|x86.ActiveCfg = Release|Any CPU
+		{9E63BB55-A6D4-4D3D-828C-70E536313D43}.Release|x86.Build.0 = Release|Any CPU
+		{1D43CD4F-824D-4BCA-AB2A-939B6D4C4AEC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1D43CD4F-824D-4BCA-AB2A-939B6D4C4AEC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1D43CD4F-824D-4BCA-AB2A-939B6D4C4AEC}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{1D43CD4F-824D-4BCA-AB2A-939B6D4C4AEC}.Debug|x64.Build.0 = Debug|Any CPU
+		{1D43CD4F-824D-4BCA-AB2A-939B6D4C4AEC}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{1D43CD4F-824D-4BCA-AB2A-939B6D4C4AEC}.Debug|x86.Build.0 = Debug|Any CPU
+		{1D43CD4F-824D-4BCA-AB2A-939B6D4C4AEC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1D43CD4F-824D-4BCA-AB2A-939B6D4C4AEC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1D43CD4F-824D-4BCA-AB2A-939B6D4C4AEC}.Release|x64.ActiveCfg = Release|Any CPU
+		{1D43CD4F-824D-4BCA-AB2A-939B6D4C4AEC}.Release|x64.Build.0 = Release|Any CPU
+		{1D43CD4F-824D-4BCA-AB2A-939B6D4C4AEC}.Release|x86.ActiveCfg = Release|Any CPU
+		{1D43CD4F-824D-4BCA-AB2A-939B6D4C4AEC}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
