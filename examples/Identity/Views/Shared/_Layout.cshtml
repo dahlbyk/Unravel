@@ -1,0 +1,17 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Unravel Identity Example</title>
+</head>
+<body>
+    <header>
+        @Html.Partial("_LoginPartial")
+    </header>
+    <main>
+        @RenderBody()
+    </main>
+    @RenderSection("scripts", required: false)
+</body>
+</html>

@@ -23,6 +23,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Unravel.AspNetCore.Mvc", "s
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Unravel.AspNet.WebApi", "src\AspNet.WebApi\Unravel.AspNet.WebApi.csproj", "{22478CEE-818D-455C-9AE1-D9BB1C9B91A9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnravelExamples.Identity", "examples\Identity\UnravelExamples.Identity.csproj", "{5D97EFEE-4FA3-47DB-9C03-CB99F0CC8E77}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -93,12 +95,25 @@ Global
 		{22478CEE-818D-455C-9AE1-D9BB1C9B91A9}.Release|x64.Build.0 = Release|Any CPU
 		{22478CEE-818D-455C-9AE1-D9BB1C9B91A9}.Release|x86.ActiveCfg = Release|Any CPU
 		{22478CEE-818D-455C-9AE1-D9BB1C9B91A9}.Release|x86.Build.0 = Release|Any CPU
+		{5D97EFEE-4FA3-47DB-9C03-CB99F0CC8E77}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5D97EFEE-4FA3-47DB-9C03-CB99F0CC8E77}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5D97EFEE-4FA3-47DB-9C03-CB99F0CC8E77}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{5D97EFEE-4FA3-47DB-9C03-CB99F0CC8E77}.Debug|x64.Build.0 = Debug|Any CPU
+		{5D97EFEE-4FA3-47DB-9C03-CB99F0CC8E77}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{5D97EFEE-4FA3-47DB-9C03-CB99F0CC8E77}.Debug|x86.Build.0 = Debug|Any CPU
+		{5D97EFEE-4FA3-47DB-9C03-CB99F0CC8E77}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5D97EFEE-4FA3-47DB-9C03-CB99F0CC8E77}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5D97EFEE-4FA3-47DB-9C03-CB99F0CC8E77}.Release|x64.ActiveCfg = Release|Any CPU
+		{5D97EFEE-4FA3-47DB-9C03-CB99F0CC8E77}.Release|x64.Build.0 = Release|Any CPU
+		{5D97EFEE-4FA3-47DB-9C03-CB99F0CC8E77}.Release|x86.ActiveCfg = Release|Any CPU
+		{5D97EFEE-4FA3-47DB-9C03-CB99F0CC8E77}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{CED6AE8D-EE53-4A56-ABE3-CE6C10D1CD18} = {AE0BF6F8-635E-45FB-B231-00C4C3CD5B06}
+		{5D97EFEE-4FA3-47DB-9C03-CB99F0CC8E77} = {AE0BF6F8-635E-45FB-B231-00C4C3CD5B06}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {2E47B976-F7D9-42C9-8641-FCEB950CD1EA}
