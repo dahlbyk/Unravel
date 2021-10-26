@@ -1,6 +1,5 @@
 ﻿using System;
 using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Owin;
@@ -15,7 +14,7 @@ namespace UnravelExamples.Identity
     {
         public void ConfigureAuthServices(IServiceCollection services)
         {
-            services.AddIdentity<ApplicationUser, IdentityRole, string>()
+            services.AddIdentity<ApplicationUser>()
                 .AddEntityFrameworkStores(ApplicationDbContext.Create)
                 .AddUserManager<ApplicationUserManager>(ApplicationUserManager.Create)
                 .AddSignInManager<ApplicationSignInManager>(ApplicationSignInManager.Create)
