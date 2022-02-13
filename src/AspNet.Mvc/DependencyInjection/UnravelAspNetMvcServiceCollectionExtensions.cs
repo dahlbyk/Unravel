@@ -1,7 +1,10 @@
-﻿using System.Web.Mvc;
+using System;
+using System.Web.Mvc;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection.Extensions;
+using Unravel.AspNet.Mvc;
 using Unravel.AspNet.Mvc.DependencyInjection.Internal;
+using Unravel.AspNet.Mvc.Internal;
 
 namespace Microsoft.Extensions.DependencyInjection
 {
@@ -24,7 +27,29 @@ namespace Microsoft.Extensions.DependencyInjection
             services.AddSingleton<IStartupFilter, DependencyResolverStartupFilter>();
             services.TryAddSingleton<IDependencyResolver, ServiceProviderDependencyResolver>();
 
+            services.AddSingleton<IStartupFilter, MvcOptionsStartupFilter>();
+
             return new AspNetMvcBuilder(services);
+        }
+
+        /// <inheritdoc cref="AddAspNetMvc(IServiceCollection)"/>
+        /// <param name="setupAction">An <see cref="Action{MvcOptions}"/> to configure the provided <see cref="MvcOptions"/>.</param>
+        public static IAspNetMvcBuilder AddAspNetMvc(this IServiceCollection services, Action<MvcOptions> setupAction)
+        {
+            if (services == null)
+            {
+                throw new ArgumentNullException(nameof(services));
+            }
+
+            if (setupAction == null)
+            {
+                throw new ArgumentNullException(nameof(setupAction));
+            }
+
+            var builder = services.AddAspNetMvc();
+            builder.Services.Configure(setupAction);
+
+            return builder;
         }
     }
 }
