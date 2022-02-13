@@ -11,7 +11,15 @@ namespace UnravelExamples.Web
         {
             Counters.Register(services);
 
-            services.AddAspNetMvc()
+            services
+                .AddAspNetMvc(options =>
+                {
+                    options.RegisterAllAreas();
+
+                    FilterConfig.RegisterGlobalFilters(options.Filters);
+
+                    RouteConfig.RegisterRoutes(options.Routes);
+                })
                 .AddControllersAsServices()
                 ;
 
