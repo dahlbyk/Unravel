@@ -1,10 +1,12 @@
 using System;
 using System.Web.Mvc;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using Unravel.AspNet.Mvc;
 using Unravel.AspNet.Mvc.DependencyInjection.Internal;
 using Unravel.AspNet.Mvc.Internal;
+using Unravel.AspNet.Mvc.ModelBinding;
 
 namespace Microsoft.Extensions.DependencyInjection
 {
@@ -19,6 +21,10 @@ namespace Microsoft.Extensions.DependencyInjection
         ///     <item><see cref="DependencyResolverStartupFilter"/> as <see cref="IStartupFilter"/></item>
         ///     <item><see cref="ServiceProviderDependencyResolver"/> as <see cref="IDependencyResolver"/></item>
         ///   </list>
+        ///   Also adds useful MVC configuration:
+        ///   <list type="bullet">
+        ///     <item><see cref="IFormFile"/> model binding with <see cref="HttpPostedFormFileModelBinder"/></item>
+        ///   </list>
         /// </summary>
         /// <param name="services">The <see cref="IServiceCollection" /> to add services to.</param>
         /// <returns>An <see cref="IAspNetMvcBuilder"/> that can be used to further configure the MVC services.</returns>
@@ -28,8 +34,14 @@ namespace Microsoft.Extensions.DependencyInjection
             services.TryAddSingleton<IDependencyResolver, ServiceProviderDependencyResolver>();
 
             services.AddSingleton<IStartupFilter, MvcOptionsStartupFilter>();
+            services.Configure<MvcOptions>(ConfigureOptions);
 
             return new AspNetMvcBuilder(services);
+
+            void ConfigureOptions(MvcOptions options)
+            {
+                options.ModelBinders.Add(typeof(IFormFile), new HttpPostedFormFileModelBinder());
+            }
         }
 
         /// <inheritdoc cref="AddAspNetMvc(IServiceCollection)"/>
