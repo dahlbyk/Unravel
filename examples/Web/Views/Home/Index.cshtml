@@ -12,6 +12,12 @@
         <li><a target="env" href="@Url.Action(nameof(HomeController.HttpContextBase_GetRequestServices))"><code>HttpContextBase.GetRequestServices()</code></a></li>
         <li><a target="env" href="@Url.Action(nameof(HomeController.Throw))"><code>throw</code></a></li>
         <li><a target="env" href="@Url.Action(nameof(AspNetMvcController.Index), "AspNetMvc")">Constructor Injection</a></li>
+        <li>
+            <form target="env" method="post" action="@Url.Action(nameof(AspNetMvcController.Upload), "AspNetMvc")" enctype="multipart/form-data">
+                <input type="file" name="testFile" />
+                <input type="submit" />
+            </form>
+        </li>
     </ul>
 
     <h2>ASP.NET WebApi</h2>

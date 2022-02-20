@@ -18,5 +18,25 @@ namespace UnravelExamples.Web.Controllers
             var env = new EnvironmentCheck("ASP.NET MVC Controller Injection", services);
             return Content(env.ToString(), "application/json; charset=utf-8");
         }
+
+        public ActionResult Upload(Microsoft.AspNetCore.Http.IFormFile testFile)
+        {
+            return Json(new
+            {
+                testFile.Name,
+                testFile.FileName,
+                testFile.ContentType,
+                testFile.Length,
+                Bytes = ReadContent(),
+            });
+
+            byte[] ReadContent()
+            {
+                byte[] buffer = new byte[testFile.Length];
+                using (var stream = testFile.OpenReadStream())
+                    stream.Read(buffer, 0, (int)testFile.Length);
+                return buffer;
+            }
+        }
     }
 }

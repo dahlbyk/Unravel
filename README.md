@@ -94,6 +94,37 @@ public override void ConfigureServices(IServiceCollection services)
 }
 ```
 
+### `MvcOptions`
+
+Also similar to ASP.NET Core 2.1, `AddAspNetMvc()` accepts an optional `Action<MvcOptions>` to consolidate configuration, including:
+
+```csharp
+        .AddAspNetMvc(options =>
+        {
+            // Equivalent to AreaRegistration.RegisterAllAreas()
+            options.RegisterAllAreas();
+
+            // Equivalent to MvcHandler.DisableMvcResponseHeader
+            options.DisableMvcResponseHeader = true;
+
+            // Equivalent to GlobalFilters.Filters.Add(...)
+            options.Filters.Add(...);
+
+            // Equivalent to ModelBinders.Binders.Add(...)
+            options.ModelBinders.Add(...);
+
+            // Equivalent to RouteTable.Routes.MapRoute(...);
+            options.Routes.MapRoute(...);
+        })
+```
+
+### `IFormFile` Model Binder
+
+`AddAspNetMvc()` registers a model binder for `IFormFile`, to replace references to
+[`System.Web.HttpPostedFileBase`](https://docs.microsoft.com/en-us/dotnet/api/system.web.httppostedfilebase?view=netframework-4.8).
+
+Some `IFormFile` properties are not supported, due to `HttpPostedFileBase` limitations.
+
 ## Unravel.AspNet.WebApi
 
 Similar to `AddAspNetMvc()` described above, there's also an `AddAspNetWebApi()` extension method on `IServiceCollection` that registers a `System.Web.Http.Dependencies.IDependencyResolver`.
