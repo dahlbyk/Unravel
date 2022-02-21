@@ -1,5 +1,4 @@
 using System.Web.Http;
-using System.Web.Optimization;
 
 namespace UnravelExamples.Web
 {
@@ -8,7 +7,6 @@ namespace UnravelExamples.Web
         protected void Application_Start()
         {
             GlobalConfiguration.Configure(WebApiConfig.Register);
-            BundleConfig.RegisterBundles(BundleTable.Bundles);
         }
     }
 }

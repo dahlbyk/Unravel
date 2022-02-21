@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using Owin;
 using UnravelExamples.Web.Services;
@@ -23,6 +23,8 @@ namespace UnravelExamples.Web
                 .AddControllersAsServices()
                 ;
 
+            services.AddWebOptimizer(BundleConfig.RegisterBundles);
+
             services.AddAspNetWebApi()
                 .AddControllersAsServices()
                 ;
@@ -32,6 +34,8 @@ namespace UnravelExamples.Web
                 .IgnoreControllersOfType<System.Web.Mvc.IController>()
                 .IgnoreControllersOfType<System.Web.Http.Controllers.IHttpController>()
                 ;
+
+            services.AddWebOptimizer();
         }
 
         public override void ConfigureOwin(IAppBuilder app)
@@ -45,6 +49,8 @@ namespace UnravelExamples.Web
 
         public override void Configure(IApplicationBuilder app)
         {
+            app.UseWebOptimizer();
+
             app.Map("/AspNetCore", AspNetCoreTestRoutes);
 
             app.UseMvcWithDefaultRoute();
