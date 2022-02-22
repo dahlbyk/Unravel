@@ -1,12 +1,20 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFramework>net472</TargetFramework>
     <AssemblyName>Unravel.Web.Optimization</AssemblyName>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="LigerShark.WebOptimizer.Core" Version="1.0.236" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\AspNet.Mvc\Unravel.AspNet.Mvc.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="System.Web" />
   </ItemGroup>
 
 </Project>
