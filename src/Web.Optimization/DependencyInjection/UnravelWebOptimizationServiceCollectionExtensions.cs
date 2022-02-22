@@ -1,5 +1,6 @@
 using System;
 using System.Web.Optimization;
+using Microsoft.Extensions.DependencyInjection.Extensions;
 using WebOptimizer;
 
 namespace Microsoft.Extensions.DependencyInjection
@@ -23,6 +24,8 @@ namespace Microsoft.Extensions.DependencyInjection
             {
                 throw new ArgumentNullException(nameof(configureBundles));
             }
+
+            services.TryAddSingleton<AssetManager>();
 
             return services.AddWebOptimizer(ConfigureAssetPipeline);
 
