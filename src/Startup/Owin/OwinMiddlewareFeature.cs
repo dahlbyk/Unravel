@@ -33,7 +33,9 @@ namespace Unravel.Owin
         public AppFunc Invoke(AppFunc next)
         {
             // https://github.com/dotnet/AspNetCore.Docs/blob/55e9843af1055d38d33450497850bd4295d0f5fe/aspnetcore/fundamentals/owin/sample/src/NowinSample/NowinServer.cs#L32-L50
-            return async env =>
+            return UnravelAppFunc;
+
+            async Task UnravelAppFunc(IDictionary<string, object> env)
             {
                 // The reason for 2 level of wrapping is because the OwinFeatureCollection isn't mutable
                 // so features can't be added
@@ -50,13 +52,15 @@ namespace Unravel.Owin
                 var requestException = default(Exception);
 
                 var httpContext = env.GetHttpContext() ?? throw new InvalidOperationException("HttpContextBase not found in OWIN environment.");
-                httpContext.AddOnRequestCompleted(ctx =>
+                httpContext.AddOnRequestCompleted(OnRequestCompleted);
+
+                void OnRequestCompleted(System.Web.HttpContextBase ctx)
                 {
                     // Need to block on the callback since we can't change the HttpContextBase signature to be async
                     response.FireOnCompletedAsync().GetAwaiter().GetResult();
 
                     application.DisposeContext(context, requestException);
-                });
+                }
 
                 // From: https://github.com/dotnet/aspnetcore/blob/c2cfc5f140cd2743ecc33eeeb49c5a2dd35b017f/src/Hosting/TestHost/src/HttpContextBuilder.cs#L67-L77
                 // TODO: https://github.com/dotnet/aspnetcore/blob/ccfb12cf73b0285c981c70a2061312a837510f7b/src/Servers/Kestrel/Core/src/Internal/Http/HttpProtocol.cs#L662-L756
@@ -79,7 +83,7 @@ namespace Unravel.Owin
                     response.StatusCode = initialStatus;
                     await next(env);
                 }
-            };
+            }
         }
     }
 }
