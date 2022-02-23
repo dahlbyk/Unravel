@@ -32,14 +32,6 @@ namespace System.Web
             return scope;
         }
 
-        internal static void DisposeServiceScope(this HttpContext context)
-        {
-            if (context.Items[ServiceScopeKey] is IServiceScope scope)
-            {
-                scope.Dispose();
-            }
-        }
-
         /// <summary>
         ///   Gets the scoped <see cref="IServiceProvider"/> for <paramref name="context"/>.
         /// </summary>
