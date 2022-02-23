@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Hosting.Server;
@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http.Features;
 using Microsoft.AspNetCore.Owin;
 using Microsoft.Extensions.Logging;
 using Owin;
+using Unravel.SystemWeb;
 
 namespace Unravel.Owin
 {
@@ -45,13 +46,15 @@ namespace Unravel.Owin
                 var response = new OwinResponseFeature(features.Get<IHttpResponseFeature>(), logger);
                 features.Set<IHttpResponseFeature>(response);
 
+                var httpContext = env.GetHttpContext() ?? throw new InvalidOperationException("HttpContextBase not found in OWIN environment.");
+                features.Set<IServiceProvidersFeature>(new HttpContextRequestServicesFeature(httpContext));
+
                 var initialStatus = response.StatusCode; // Incoming OWIN status (typically 200)
 
                 var context = application.CreateContext(features);
 
                 var requestException = default(Exception);
 
-                var httpContext = env.GetHttpContext() ?? throw new InvalidOperationException("HttpContextBase not found in OWIN environment.");
                 httpContext.AddOnRequestCompleted(OnRequestCompleted);
 
                 void OnRequestCompleted(System.Web.HttpContextBase ctx)
