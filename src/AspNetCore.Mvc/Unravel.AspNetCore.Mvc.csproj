@@ -13,4 +13,8 @@
     <ProjectReference Include="..\Startup\Unravel.Startup.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Reference Include="System.Web" />
+  </ItemGroup>
+
 </Project>
