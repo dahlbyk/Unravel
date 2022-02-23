@@ -587,6 +587,7 @@
     <Folder Include="Views\AspNetCoreTest\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="appconfig.json" />
     <None Include="packages.config" />
     <Content Include="App.config" />
   </ItemGroup>
