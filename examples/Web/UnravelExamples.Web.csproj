@@ -597,6 +597,10 @@
       <Project>{22478cee-818d-455c-9ae1-d9bb1c9b91a9}</Project>
       <Name>Unravel.AspNet.WebApi</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\src\AspNetCore.Mvc.ViewFeatures\Unravel.AspNetCore.Mvc.ViewFeatures.csproj">
+      <Project>{22c0e3ca-02ce-4c6c-b663-befa22214cde}</Project>
+      <Name>Unravel.AspNetCore.Mvc.ViewFeatures</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\src\AspNetCore.Mvc\Unravel.AspNetCore.Mvc.csproj">
       <Project>{d8fda2da-edf4-49be-90ae-d74763c14dff}</Project>
       <Name>Unravel.AspNetCore.Mvc</Name>

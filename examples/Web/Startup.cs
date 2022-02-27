@@ -29,6 +29,7 @@ namespace UnravelExamples.Web
 
             services.AddHttpContextAccessor();
             services.AddMvc()
+                .AddAspNetMvcViewEngines()
                 .IgnoreControllersOfType<System.Web.Mvc.IController>()
                 .IgnoreControllersOfType<System.Web.Http.Controllers.IHttpController>()
                 ;
