@@ -29,5 +29,10 @@ namespace UnravelExamples.Web.Services
                 user.Identity.Name,
             });
         }
+
+        public override string ToString()
+        {
+            return ToJson().ToString(Newtonsoft.Json.Formatting.Indented);
+        }
     }
 }

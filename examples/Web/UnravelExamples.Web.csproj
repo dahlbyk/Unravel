@@ -557,11 +557,13 @@
     <Compile Include="Services\EnvironmentOwin.cs" />
     <Compile Include="Services\EnvironmentSystemWeb.cs" />
     <Compile Include="Services\ServiceProviderExtensions.cs" />
+    <Compile Include="Services\ViewEnvironment.cs" />
     <Compile Include="Startup.AspNetCore.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="Startup.Owin.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\Home.css" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Web.config" />
@@ -580,11 +582,11 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
-    <Folder Include="Views\AspNetCoreTest\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
     <Content Include="App.config" />
+    <Content Include="Views\Shared\EnvironmentCheck.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\src\AspNet.Mvc\Unravel.AspNet.Mvc.csproj">

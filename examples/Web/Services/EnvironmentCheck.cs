@@ -31,8 +31,12 @@ namespace UnravelExamples.Web.Services
             return json.ToString(Formatting.Indented);
         }
 
-        public IEnumerable<EnvironmentBase> GetEnvironments()
+        public IEnumerable<EnvironmentBase> GetEnvironments(params EnvironmentBase[] additionalEnvironments)
         {
+            if (additionalEnvironments != null)
+                foreach (var env in additionalEnvironments)
+                    yield return env;
+
             if (Services == null)
                 yield break;
 

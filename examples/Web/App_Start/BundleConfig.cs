@@ -9,6 +9,9 @@ namespace UnravelExamples.Web
         {
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/Site.css"));
+
+            bundles.Add(new StyleBundle("~/Content/home").Include(
+                      "~/Content/Home.css"));
         }
     }
 }

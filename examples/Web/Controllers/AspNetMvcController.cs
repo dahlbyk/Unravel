@@ -19,6 +19,23 @@ namespace UnravelExamples.Web.Controllers
             return Content(env.ToString(), "application/json; charset=utf-8");
         }
 
+        public new ActionResult PartialView()
+        {
+            var env = new EnvironmentCheck("ASP.NET MVC Partial View", services);
+            return base.PartialView(nameof(EnvironmentCheck), env);
+        }
+
+        public new ActionResult View()
+        {
+            var env = new EnvironmentCheck("ASP.NET MVC View", services);
+            return base.View(nameof(EnvironmentCheck), env);
+        }
+
+        public ActionResult ViewNotFound()
+        {
+            return base.View("ViewNotFound");
+        }
+
         public ActionResult Upload(Microsoft.AspNetCore.Http.IFormFile testFile)
         {
             return Json(new

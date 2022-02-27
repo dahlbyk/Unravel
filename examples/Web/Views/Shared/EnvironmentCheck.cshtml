@@ -1,0 +1,14 @@
+﻿@using UnravelExamples.Web.Services
+@model EnvironmentCheck
+
+@{
+    ViewBag.Title = "View";
+}
+
+<h2>@Html.DisplayFor(model => model.Title)</h2>
+
+@foreach (var env in Model.GetEnvironments(new ViewEnvironment(this)))
+{
+    <h3>@env.EnvironmentName</h3>
+    <pre>@env</pre>
+}
