@@ -1,3 +1,6 @@
+using Microsoft.AspNetCore.Mvc.ViewEngines;
+using Unravel.AspNetCore.Mvc.ViewEngines;
+
 namespace Microsoft.Extensions.DependencyInjection
 {
     /// <summary>
@@ -11,6 +14,8 @@ namespace Microsoft.Extensions.DependencyInjection
         /// <returns>The <see cref="IMvcBuilder"/>.</returns>
         public static IMvcBuilder AddAspNetMvcViewEngines(this IMvcBuilder builder)
         {
+            builder.Services.AddSingleton<ICompositeViewEngine, AspNetMvcCompositeViewEngine>();
+
             return builder;
         }
     }
