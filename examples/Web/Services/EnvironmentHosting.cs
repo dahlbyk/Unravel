@@ -14,7 +14,7 @@ namespace UnravelExamples.Web.Services
 
         public IHostingEnvironment HostingEnvironment { get; }
 
-        public override string EnvironmentName => typeof(IHostingEnvironment).FullName;
+        public override string EnvironmentName => typeof(IHostingEnvironment).ToString();
 
         public override JToken ToJson()
         {

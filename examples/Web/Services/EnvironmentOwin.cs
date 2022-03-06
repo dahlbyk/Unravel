@@ -30,8 +30,8 @@ namespace UnravelExamples.Web.Services
             return new JObject
             {
                 { nameof(IAppBuilder), ToJson(AppBuilder?.Properties, "owin.Version", "host.AppName", "host.AppMode") },
-                { nameof(IOwinContext), ToJson(OwinContext?.Environment, "owin.Version", "owin.RequestPath", "owin.RequestPathBase", typeof(HttpContextBase).FullName) },
-                { nameof(IAuthenticationManager), AuthenticationManager?.User?.GetType().FullName }
+                { nameof(IOwinContext), ToJson(OwinContext?.Environment, "owin.Version", "owin.RequestPath", "owin.RequestPathBase", typeof(HttpContextBase).ToString()) },
+                { nameof(IAuthenticationManager), AuthenticationManager?.User?.GetType().ToString() }
             };
         }
 

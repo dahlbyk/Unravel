@@ -31,7 +31,7 @@ namespace UnravelExamples.Web.Services
                     nameof(HttpContext),
                     HttpContext == null ?
                         null :
-                        JObject.FromObject(HttpContext.Features.ToDictionary(kvp => kvp.Key.Name, kvp => kvp.Value.GetType().FullName))
+                        JObject.FromObject(HttpContext.Features.ToDictionary(kvp => kvp.Key.Name, kvp => kvp.Value.GetType().ToString()))
                 },
                 {
                     nameof(HttpRequest),

@@ -16,11 +16,11 @@ namespace UnravelExamples.Web.Services
 
         public IEnumerable<ILoggerProvider> LoggerProviders { get; }
 
-        public override string EnvironmentName => typeof(ILoggerProvider).FullName;
+        public override string EnvironmentName => typeof(ILoggerProvider).ToString();
 
         public override JToken ToJson()
         {
-            return new JArray(LoggerProviders.Select(lp => lp.GetType().FullName));
+            return new JArray(LoggerProviders.Select(lp => lp.GetType().ToString()));
         }
     }
 }

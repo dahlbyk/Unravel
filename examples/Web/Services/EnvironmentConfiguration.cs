@@ -20,7 +20,7 @@ namespace UnravelExamples.Web.Services
         public IConfiguration Configuration { get; }
         public IHostingEnvironment HostingEnvironment { get; }
 
-        public override string EnvironmentName => typeof(IConfiguration).FullName;
+        public override string EnvironmentName => typeof(IConfiguration).ToString();
 
         public override JToken ToJson()
         {
@@ -33,7 +33,7 @@ namespace UnravelExamples.Web.Services
                     return new JArray(configRoot.Providers.Select(cp => Dump(cp)));
 
                 default:
-                    return Configuration.GetType().FullName;
+                    return Configuration.GetType().ToString();
             }
         }
 
@@ -49,12 +49,13 @@ namespace UnravelExamples.Web.Services
 
                     return JObject.FromObject(new
                     {
-                        Type = configProvider.GetType().FullName,
+                        Type = configProvider.GetType().ToString(),
                         FilePath = Path.Combine(root, fileConfigProvider.Source.Path),
                         fileConfigProvider.Source.Optional,
                     });
+
                 default:
-                    return configProvider.GetType().FullName;
+                    return configProvider.GetType().ToString();
             }
         }
     }

@@ -49,7 +49,7 @@ namespace Unravel.Owin
 
         public void OnStarting(Func<object, Task> callback, object state)
         {
-            logger.LogDebug("OnStarting {0}.{1}(state)", callback?.Method.DeclaringType.FullName, callback?.Method.Name);
+            logger.LogDebug("OnStarting {0}.{1}(state)", callback?.Method.DeclaringType.ToString(), callback?.Method.Name);
 
             response.OnStarting(callback, state);
         }
@@ -60,7 +60,7 @@ namespace Unravel.Owin
         // From: https://github.com/dotnet/aspnetcore/blob/c2cfc5f140cd2743ecc33eeeb49c5a2dd35b017f/src/Servers/Kestrel/Core/src/Internal/Http/HttpProtocol.cs#L658-L668
         public void OnCompleted(Func<object, Task> callback, object state)
         {
-            logger.LogDebug("OnCompleted {0}.{1}(state)", callback?.Method.DeclaringType.FullName, callback?.Method.Name);
+            logger.LogDebug("OnCompleted {0}.{1}(state)", callback?.Method.DeclaringType.ToString(), callback?.Method.Name);
 
             lock (_onCompletedSync)
             {
