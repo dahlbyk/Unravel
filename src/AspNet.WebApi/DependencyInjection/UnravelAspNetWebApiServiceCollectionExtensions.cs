@@ -1,4 +1,4 @@
-﻿using System.Web.Http.Dependencies;
+using System.Web.Http.Dependencies;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using Unravel.AspNet.WebApi.DependencyInjection.Internal;

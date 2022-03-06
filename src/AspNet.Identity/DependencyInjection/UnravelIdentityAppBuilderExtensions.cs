@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using Unravel.AspNet.Identity.DependencyInjection;

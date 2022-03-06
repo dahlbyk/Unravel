@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Web;
 using Microsoft.Extensions.DependencyInjection;
 using Newtonsoft.Json.Linq;

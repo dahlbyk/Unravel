@@ -1,4 +1,4 @@
-﻿namespace Microsoft.Extensions.DependencyInjection
+namespace Microsoft.Extensions.DependencyInjection
 {
     /// <summary>
     ///   An interface for configuring ASP.NET MVC services.

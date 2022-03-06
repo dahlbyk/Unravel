@@ -1,4 +1,4 @@
-﻿using Unravel.AspNetCore.Mvc.Internal;
+using Unravel.AspNetCore.Mvc.Internal;
 
 namespace Microsoft.Extensions.DependencyInjection
 {

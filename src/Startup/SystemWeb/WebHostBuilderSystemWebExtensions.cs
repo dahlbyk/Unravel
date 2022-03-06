@@ -1,4 +1,4 @@
-﻿using System.Web.Hosting;
+using System.Web.Hosting;
 using Microsoft.AspNetCore.Hosting;
 
 namespace Unravel.SystemWeb

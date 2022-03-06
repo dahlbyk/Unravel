@@ -1,4 +1,4 @@
-﻿using Microsoft.Owin.Builder;
+using Microsoft.Owin.Builder;
 using Owin;
 
 namespace Unravel.Owin

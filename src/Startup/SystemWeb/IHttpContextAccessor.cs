@@ -1,4 +1,4 @@
-﻿namespace System.Web
+namespace System.Web
 {
     public interface IHttpContextAccessor
     {

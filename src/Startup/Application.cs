@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Web;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
