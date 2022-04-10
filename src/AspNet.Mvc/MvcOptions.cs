@@ -28,6 +28,10 @@ namespace Unravel.AspNet.Mvc
         public System.Web.Routing.RouteCollection Routes =>
             System.Web.Routing.RouteTable.Routes;
 
+        /// <inheritdoc cref="System.Web.Mvc.ViewEngines.Engines"/>
+        public System.Web.Mvc.ViewEngineCollection ViewEngines =>
+            System.Web.Mvc.ViewEngines.Engines;
+
         /// <inheritdoc cref="System.Web.Mvc.AreaRegistration.RegisterAllAreas()"/>
         public void RegisterAllAreas() => System.Web.Mvc.AreaRegistration.RegisterAllAreas();
 

@@ -23,5 +23,22 @@ namespace UnravelExamples.Web.Controllers
         {
             throw new ApplicationException("From ASP.NET Core MVC Controller");
         }
+
+        public new ActionResult PartialView()
+        {
+            var env = new EnvironmentCheck("ASP.NET Core MVC Partial View", services);
+            return base.PartialView(nameof(EnvironmentCheck), env);
+        }
+
+        public new ActionResult View()
+        {
+            var env = new EnvironmentCheck("ASP.NET Core MVC View", services);
+            return base.View(nameof(EnvironmentCheck), env);
+        }
+
+        public ActionResult ViewNotFound()
+        {
+            return base.View("ViewNotFound");
+        }
     }
 }

@@ -2,6 +2,11 @@
     ViewBag.Title = "Home";
 }
 
+@section styles
+{
+    <link rel="stylesheet" href="~/Content/home" />
+}
+
 <nav>
     <h1>Welcome to Unravel</h1>
 
@@ -12,6 +17,9 @@
         <li><a target="env" href="@Url.Action(nameof(HomeController.HttpContextBase_GetRequestServices))"><code>HttpContextBase.GetRequestServices()</code></a></li>
         <li><a target="env" href="@Url.Action(nameof(HomeController.Throw))"><code>throw</code></a></li>
         <li><a target="env" href="@Url.Action(nameof(AspNetMvcController.Index), "AspNetMvc")">Constructor Injection</a></li>
+        <li><a target="env" href="@Url.Action(nameof(AspNetMvcController.PartialView), "AspNetMvc")">Partial View</a></li>
+        <li><a target="env" href="@Url.Action(nameof(AspNetMvcController.View), "AspNetMvc")">View</a></li>
+        <li><a target="env" href="@Url.Action(nameof(AspNetMvcController.ViewNotFound), "AspNetMvc")">View Not Found</a></li>
         <li>
             <form target="env" method="post" action="@Url.Action(nameof(AspNetMvcController.Upload), "AspNetMvc")" enctype="multipart/form-data">
                 <input type="file" name="testFile" />
@@ -44,6 +52,9 @@
         <li><a target="env" href="@Url.Action(nameof(AspNetCoreApiController.Throw), "AspNetCoreApi")">API Controller <code>throw</code></a></li>
         <li><a target="env" href="@Url.Action(nameof(AspNetCoreMvcController.Index), "AspNetCoreMvc")">MVC Controller Constructor Injection</a></li>
         <li><a target="env" href="@Url.Action(nameof(AspNetCoreMvcController.Throw), "AspNetCoreMvc")">MVC Controller <code>throw</code></a></li>
+        <li><a target="env" href="@Url.Action(nameof(AspNetCoreMvcController.PartialView), "AspNetCoreMvc")">MVC Controller Partial View</a></li>
+        <li><a target="env" href="@Url.Action(nameof(AspNetCoreMvcController.View), "AspNetCoreMvc")">MVC Controller View</a></li>
+        <li><a target="env" href="@Url.Action(nameof(AspNetCoreMvcController.ViewNotFound), "AspNetCoreMvc")">MVC Controller View Not Found</a></li>
     </ul>
 
     <h2>OWIN after <code>UseAspNetCore()</code></h2>

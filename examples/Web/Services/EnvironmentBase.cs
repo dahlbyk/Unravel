@@ -24,10 +24,15 @@ namespace UnravelExamples.Web.Services
 
             return JObject.FromObject(new
             {
-                Type = user.GetType().FullName,
+                Type = user.GetType().ToString(),
                 user.Identity.IsAuthenticated,
                 user.Identity.Name,
             });
+        }
+
+        public override string ToString()
+        {
+            return ToJson().ToString(Newtonsoft.Json.Formatting.Indented);
         }
     }
 }

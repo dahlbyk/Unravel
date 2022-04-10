@@ -13,18 +13,15 @@ namespace Unravel.SystemWeb
         void IHttpModule.Init(HttpApplication context)
         {
             context.BeginRequest += OnContextBeginRequest;
-            context.EndRequest += OnContextEndRequest;
         }
 
         void IHttpModule.Dispose() { }
 
-        private static void OnContextBeginRequest(object sender, EventArgs e) =>
-            Context(sender).CreateServiceScope();
-
-        private static void OnContextEndRequest(object sender, EventArgs e) =>
-            Context(sender).DisposeServiceScope();
-
-        private static HttpContext Context(object sender) =>
-            ((HttpApplication)sender).Context;
+        private static void OnContextBeginRequest(object sender, EventArgs e)
+        {
+            var httpContext = ((HttpApplication)sender).Context;
+            var scope = httpContext.CreateServiceScope();
+            httpContext.DisposeOnPipelineCompleted(scope);
+        }
     }
 }

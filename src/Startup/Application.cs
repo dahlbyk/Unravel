@@ -56,6 +56,10 @@ namespace Unravel
         ///     <item><see cref="IHttpContextAccessor"/> (singleton)</item>
         ///     <item><see cref="IOwinContext"/> (scoped)</item>
         ///     <item><see cref="IAuthenticationManager"/> (scoped)</item>
+        ///     <item>
+        ///       <see cref="Microsoft.AspNetCore.Http.IHttpContextAccessor"/> (singleton);
+        ///       see <see cref="AspNetCore.Http.SystemWebHttpContextAccessor"/> for details
+        ///     </item>
         ///   </list>
         /// </summary>
         /// <param name="app">The host app.</param>
@@ -70,6 +74,8 @@ namespace Unravel
 
                     services.AddScoped(sp => sp.GetRequiredService<IHttpContextAccessor>().HttpContext?.GetOwinContext());
                     services.AddScoped(sp => sp.GetService<IOwinContext>()?.Authentication);
+
+                    services.AddSingleton<Microsoft.AspNetCore.Http.IHttpContextAccessor, AspNetCore.Http.SystemWebHttpContextAccessor>();
                 })
                 .Build();
         }

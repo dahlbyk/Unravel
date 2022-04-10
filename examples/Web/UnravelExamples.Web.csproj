@@ -557,11 +557,13 @@
     <Compile Include="Services\EnvironmentOwin.cs" />
     <Compile Include="Services\EnvironmentSystemWeb.cs" />
     <Compile Include="Services\ServiceProviderExtensions.cs" />
+    <Compile Include="Services\ViewEnvironment.cs" />
     <Compile Include="Startup.AspNetCore.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="Startup.Owin.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\Home.css" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Web.config" />
@@ -580,11 +582,11 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
-    <Folder Include="Views\AspNetCoreTest\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
     <Content Include="App.config" />
+    <Content Include="Views\Shared\EnvironmentCheck.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\src\AspNet.Mvc\Unravel.AspNet.Mvc.csproj">
@@ -594,6 +596,10 @@
     <ProjectReference Include="..\..\src\AspNet.WebApi\Unravel.AspNet.WebApi.csproj">
       <Project>{22478cee-818d-455c-9ae1-d9bb1c9b91a9}</Project>
       <Name>Unravel.AspNet.WebApi</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\src\AspNetCore.Mvc.ViewFeatures\Unravel.AspNetCore.Mvc.ViewFeatures.csproj">
+      <Project>{22c0e3ca-02ce-4c6c-b663-befa22214cde}</Project>
+      <Name>Unravel.AspNetCore.Mvc.ViewFeatures</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\src\AspNetCore.Mvc\Unravel.AspNetCore.Mvc.csproj">
       <Project>{d8fda2da-edf4-49be-90ae-d74763c14dff}</Project>

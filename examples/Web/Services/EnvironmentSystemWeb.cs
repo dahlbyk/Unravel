@@ -23,7 +23,7 @@ namespace UnravelExamples.Web.Services
             return new JObject
             {
                 { nameof(HttpApplication), ToJson(HttpContext?.ApplicationInstance) },
-                { nameof(HttpContext), HttpContext?.Handler?.GetType().FullName },
+                { nameof(HttpContext), HttpContext?.Handler?.GetType().ToString() },
                 {
                     nameof(HttpRequest),
                     HttpRequest == null ?
@@ -44,7 +44,7 @@ namespace UnravelExamples.Web.Services
             var type = application.GetType();
             while (type.BaseType != null)
             {
-                result.Add(type.FullName);
+                result.Add(type.ToString());
                 type = type.BaseType;
             }
 
