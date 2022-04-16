@@ -30,6 +30,10 @@ namespace Unravel
         /// </summary>
         public static IServiceProvider Services => WebHost.Services;
 
+        /// <inheritdoc cref="Services" />
+        [Obsolete("Use " + nameof(Services))]
+        public static IServiceProvider ServiceProvider => Services;
+
         /// <summary>
         ///   The current <see cref="IWebHost"/>.
         ///   Cannot be used until OWIN has been initialized.
