@@ -24,7 +24,7 @@ namespace Unravel.Hosting
         /// <remarks>
         ///   The following defaults are applied to the returned <see cref="WebHostBuilder"/>:
         ///     use OWIN as the web server,
-        ///     use the default <see cref="IHostingEnvironment.ContentRootPath"/> (typically <see cref="AppContext.BaseDirectory"/>)
+        ///     use the default <see cref="IHostingEnvironment.ContentRootPath"/> (typically <see cref="AppContext.BaseDirectory"/>),
         ///     load <see cref="IConfiguration"/> from 'appsettings.json' and 'appsettings.[<see cref="IHostingEnvironment.EnvironmentName"/>].json',
         ///     load <see cref="IConfiguration"/> from User Secrets when <see cref="IHostingEnvironment.EnvironmentName"/> is 'Development' using the entry assembly,
         ///     load <see cref="IConfiguration"/> from environment variables,

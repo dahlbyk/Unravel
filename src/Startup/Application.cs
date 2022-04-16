@@ -22,7 +22,8 @@ namespace Unravel
         ///   Default constructor is required by ASP.NET.
         ///   If your startup requires constructor dependency injection, see <see cref="StartupType"/>.
         /// </summary>
-        protected Application() { }
+        protected Application()
+        { }
 
         /// <summary>
         ///   The current <see cref="WebHost"/>'s <see cref="IServiceProvider"/>.
@@ -102,13 +103,15 @@ namespace Unravel
         ///   Configures ASP.NET Core pipeline.
         /// </summary>
         /// <param name="app">The host app.</param>
-        public virtual void Configure(IApplicationBuilder app) { }
+        public virtual void Configure(IApplicationBuilder app)
+        { }
 
         /// <summary>
         ///   Configures services for the current <see cref="WebHost"/>.
         /// </summary>
         /// <param name="services">The <see cref="IServiceCollection"/>.</param>
-        public virtual void ConfigureServices(IServiceCollection services) { }
+        public virtual void ConfigureServices(IServiceCollection services)
+        { }
 
         /// <summary>
         ///   Creates <see cref="IWebHostBuilder"/> used to initialize <see cref="WebHost"/>.
