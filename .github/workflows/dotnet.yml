@@ -20,6 +20,11 @@ jobs:
       with:
         nuget-version: '5.8'
     - uses: microsoft/setup-msbuild@v1
+    - uses: actions/cache@v1
+      id: cache
+      with:
+        path: ~/.nuget/packages
+        key: nuget-${{ runner.os }}-${{ hashFiles('**/packages.lock.json') }}
     - name: nuget restore
       run: nuget restore -NonInteractive
     - name: msbuild
