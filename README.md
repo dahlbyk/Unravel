@@ -28,9 +28,10 @@ We'll see how close we can get…
     - With `GetRequestServices()` extension methods
 - `OwinHost.CreateDefaultBuilder()`, equivalent to [`WebHost.CreateDefaultBuilder()`](https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.webhost.createdefaultbuilder?view=aspnetcore-2.1).
   - `Microsoft.Extensions.Configuration`
+    - `ConfigurationManagerConfigurationProvider` inspired by [@benfoster](https://benfoster.io/blog/net-core-configuration-legacy-projects/)
     - `appsettings.json` and `appsettings.{env}.json`
     - User Secrets (Development only)
-    - TODO: Integrates with `ConfigurationManager`
+    - Environment Variables
   - `Microsoft.Extensions.DependencyInjection`
   - `Microsoft.Extensions.Logging`
     - Configured from `IConfiguration`

@@ -24,6 +24,7 @@
     <PackageReference Include="Microsoft.Owin.Host.SystemWeb" Version="4.2.0" />
   </ItemGroup>
   <ItemGroup>
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Web" />
   </ItemGroup>
 </Project>
