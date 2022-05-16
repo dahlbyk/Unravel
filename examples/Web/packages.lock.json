@@ -526,15 +526,15 @@
       },
       "Microsoft.Owin": {
         "type": "Direct",
-        "requested": "[4.2.0, 4.2.0]",
-        "resolved": "4.2.0",
-        "contentHash": "NPPwhK+oSf6JWAy6m2Dq7xYIVnEvUTeMM1mVaOobkiVsOaHPAu8E05/fKAjrDBBDCC14z32jwnZyPs3z9UNV5w=="
+        "requested": "[4.2.2, 4.2.2]",
+        "resolved": "4.2.2",
+        "contentHash": "jt410l/8dvCIguRdU7dupYdm4kGLepVdD8EOTKU4nYZcLRrn6kQYqI6pbJOTJp7Vlm/T2WUF5bzyKK2z29xtjg=="
       },
       "Microsoft.Owin.Host.SystemWeb": {
         "type": "Direct",
-        "requested": "[4.2.0, 4.2.0]",
-        "resolved": "4.2.0",
-        "contentHash": "fjBSPPXS9gXVoHvvpjjfhcIH3XwArt37oqEkJDXH5O0l6VcSmteaQS76esJHQI4Wk6Bc+ebHmGaM5eX9ovJiCA=="
+        "requested": "[4.2.2, 4.2.2]",
+        "resolved": "4.2.2",
+        "contentHash": "MYdqpNXC5xX7pVAnhGDfZvU7ybylYENqnV17XYGGkInk3Hco2Fx8t4nVBXBoAw/3ox6cNTbazq+EiS4Pi9lGQA=="
       },
       "Microsoft.Web.Infrastructure": {
         "type": "Direct",

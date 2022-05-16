@@ -543,18 +543,18 @@
       },
       "Microsoft.Owin": {
         "type": "Transitive",
-        "resolved": "4.2.0",
-        "contentHash": "NPPwhK+oSf6JWAy6m2Dq7xYIVnEvUTeMM1mVaOobkiVsOaHPAu8E05/fKAjrDBBDCC14z32jwnZyPs3z9UNV5w==",
+        "resolved": "4.2.2",
+        "contentHash": "jt410l/8dvCIguRdU7dupYdm4kGLepVdD8EOTKU4nYZcLRrn6kQYqI6pbJOTJp7Vlm/T2WUF5bzyKK2z29xtjg==",
         "dependencies": {
           "Owin": "1.0.0"
         }
       },
       "Microsoft.Owin.Host.SystemWeb": {
         "type": "Transitive",
-        "resolved": "4.2.0",
-        "contentHash": "fjBSPPXS9gXVoHvvpjjfhcIH3XwArt37oqEkJDXH5O0l6VcSmteaQS76esJHQI4Wk6Bc+ebHmGaM5eX9ovJiCA==",
+        "resolved": "4.2.2",
+        "contentHash": "MYdqpNXC5xX7pVAnhGDfZvU7ybylYENqnV17XYGGkInk3Hco2Fx8t4nVBXBoAw/3ox6cNTbazq+EiS4Pi9lGQA==",
         "dependencies": {
-          "Microsoft.Owin": "4.2.0",
+          "Microsoft.Owin": "4.2.2",
           "Owin": "1.0.0"
         }
       },
@@ -710,7 +710,7 @@
           "Microsoft.Extensions.DependencyInjection": "[2.1.1, )",
           "Microsoft.Extensions.Logging.Configuration": "[2.1.1, )",
           "Microsoft.Extensions.Logging.Debug": "[2.1.1, )",
-          "Microsoft.Owin.Host.SystemWeb": "[4.2.0, )"
+          "Microsoft.Owin.Host.SystemWeb": "[4.2.2, )"
         }
       }
     }
