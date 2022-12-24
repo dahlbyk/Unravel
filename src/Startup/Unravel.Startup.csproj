@@ -21,7 +21,7 @@
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="2.1.1" />
     <PackageReference Include="Microsoft.Extensions.Logging.Configuration" Version="2.1.1" />
     <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="2.1.1" />
-    <PackageReference Include="Microsoft.Owin.Host.SystemWeb" Version="4.2.0" />
+    <PackageReference Include="Microsoft.Owin.Host.SystemWeb" Version="4.2.2" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System.Configuration" />

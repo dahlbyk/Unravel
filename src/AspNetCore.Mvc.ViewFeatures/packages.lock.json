@@ -20,24 +20,24 @@
       },
       "Microsoft.AspNet.Mvc": {
         "type": "Transitive",
-        "resolved": "5.2.7",
-        "contentHash": "m3hUsn48k6Qb5El9A8naTwGTLCdSQKGSpGweqIfiVKltGJzAJJxuXvhhaQQtLCGg3i5V88iGjz0JG72/tlFKlg==",
+        "resolved": "5.2.9",
+        "contentHash": "bcekKshCAh7kTWSMZPavQStSZQF/QmjEjO2gVWGITEd0/t5eRlb+ZLDE+az2qY1bZ8L6Hz0OCNeS0uzXtJcK5w==",
         "dependencies": {
-          "Microsoft.AspNet.Razor": "[3.2.7, 3.3.0)",
-          "Microsoft.AspNet.WebPages": "[3.2.7, 3.3.0)"
+          "Microsoft.AspNet.Razor": "[3.2.9, 3.3.0)",
+          "Microsoft.AspNet.WebPages": "[3.2.9, 3.3.0)"
         }
       },
       "Microsoft.AspNet.Razor": {
         "type": "Transitive",
-        "resolved": "3.2.7",
-        "contentHash": "BpWEZ+Ys7g9VAkbAfpG5jr5A1fKcmadCCXv3fYfps5YfTVABJIGV4uc9yvmXKxsNsjL+BzDld2gs+xtgT2gg1g=="
+        "resolved": "3.2.9",
+        "contentHash": "QOJEnEw3xp+t5lMvYR5nGCF4CfZpHqr2p8uZOBEgDZoB6r2txtSj6581YNr+/dOHjI3YRlo1QAKGQoSohbQ/KA=="
       },
       "Microsoft.AspNet.WebPages": {
         "type": "Transitive",
-        "resolved": "3.2.7",
-        "contentHash": "2jwZFB7PvY+tbdz0ZP4iEo7gMrJxkCQUzoGLh6swUc6ZXl6DoKyDslmGcC/j9PFmJXCRMVIqtRorlPSMU2DuRA==",
+        "resolved": "3.2.9",
+        "contentHash": "yByb721lwv8YFsx1oKA5CLKXa89XVbVMkPafS4bg/bPelBEgChq/coFBQEkA4kwcabG7AR56w3vapnoZUfr2Cw==",
         "dependencies": {
-          "Microsoft.AspNet.Razor": "[3.2.7, 3.3.0)",
+          "Microsoft.AspNet.Razor": "[3.2.9, 3.3.0)",
           "Microsoft.Web.Infrastructure": "1.0.0"
         }
       },
@@ -543,18 +543,18 @@
       },
       "Microsoft.Owin": {
         "type": "Transitive",
-        "resolved": "4.2.0",
-        "contentHash": "NPPwhK+oSf6JWAy6m2Dq7xYIVnEvUTeMM1mVaOobkiVsOaHPAu8E05/fKAjrDBBDCC14z32jwnZyPs3z9UNV5w==",
+        "resolved": "4.2.2",
+        "contentHash": "jt410l/8dvCIguRdU7dupYdm4kGLepVdD8EOTKU4nYZcLRrn6kQYqI6pbJOTJp7Vlm/T2WUF5bzyKK2z29xtjg==",
         "dependencies": {
           "Owin": "1.0.0"
         }
       },
       "Microsoft.Owin.Host.SystemWeb": {
         "type": "Transitive",
-        "resolved": "4.2.0",
-        "contentHash": "fjBSPPXS9gXVoHvvpjjfhcIH3XwArt37oqEkJDXH5O0l6VcSmteaQS76esJHQI4Wk6Bc+ebHmGaM5eX9ovJiCA==",
+        "resolved": "4.2.2",
+        "contentHash": "MYdqpNXC5xX7pVAnhGDfZvU7ybylYENqnV17XYGGkInk3Hco2Fx8t4nVBXBoAw/3ox6cNTbazq+EiS4Pi9lGQA==",
         "dependencies": {
-          "Microsoft.Owin": "4.2.0",
+          "Microsoft.Owin": "4.2.2",
           "Owin": "1.0.0"
         }
       },
@@ -688,29 +688,29 @@
       "unravel.aspnet.mvc": {
         "type": "Project",
         "dependencies": {
-          "Microsoft.AspNet.Mvc": "5.2.7",
-          "Unravel.Startup": "1.0.0"
+          "Microsoft.AspNet.Mvc": "[5.2.9, )",
+          "Unravel.Startup": "[1.0.0, )"
         }
       },
       "unravel.aspnetcore.mvc": {
         "type": "Project",
         "dependencies": {
-          "Microsoft.AspNetCore.Mvc.Core": "2.1.3",
-          "Unravel.Startup": "1.0.0"
+          "Microsoft.AspNetCore.Mvc.Core": "[2.1.3, )",
+          "Unravel.Startup": "[1.0.0, )"
         }
       },
       "unravel.startup": {
         "type": "Project",
         "dependencies": {
-          "Microsoft.AspNetCore.Hosting": "2.1.1",
-          "Microsoft.AspNetCore.Owin": "2.1.1",
-          "Microsoft.Extensions.Configuration.EnvironmentVariables": "2.1.1",
-          "Microsoft.Extensions.Configuration.Json": "2.1.1",
-          "Microsoft.Extensions.Configuration.UserSecrets": "2.1.1",
-          "Microsoft.Extensions.DependencyInjection": "2.1.1",
-          "Microsoft.Extensions.Logging.Configuration": "2.1.1",
-          "Microsoft.Extensions.Logging.Debug": "2.1.1",
-          "Microsoft.Owin.Host.SystemWeb": "4.2.0"
+          "Microsoft.AspNetCore.Hosting": "[2.1.1, )",
+          "Microsoft.AspNetCore.Owin": "[2.1.1, )",
+          "Microsoft.Extensions.Configuration.EnvironmentVariables": "[2.1.1, )",
+          "Microsoft.Extensions.Configuration.Json": "[2.1.1, )",
+          "Microsoft.Extensions.Configuration.UserSecrets": "[2.1.1, )",
+          "Microsoft.Extensions.DependencyInjection": "[2.1.1, )",
+          "Microsoft.Extensions.Logging.Configuration": "[2.1.1, )",
+          "Microsoft.Extensions.Logging.Debug": "[2.1.1, )",
+          "Microsoft.Owin.Host.SystemWeb": "[4.2.2, )"
         }
       }
     }
