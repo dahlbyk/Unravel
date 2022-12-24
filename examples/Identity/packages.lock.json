@@ -314,6 +314,12 @@
         "resolved": "1.0.0",
         "contentHash": "FNmvLn5m2LTU/Rs2KWVo0SIIh9Ek+U0ojex7xeDaSHw/zgEP77A8vY5cVWgUtBGS8MJfDGNn8rpXJWEIQaPwTg=="
       },
+      "MSBuild.Microsoft.VisualStudio.Web.targets": {
+        "type": "Direct",
+        "requested": "[14.0.0.3, 14.0.0.3]",
+        "resolved": "14.0.0.3",
+        "contentHash": "38FjZFXUvPG9azsfJzC3UiW6+ogg2jPQBZxtAUV4ybIowiUuHgDS9M2EAeFPBivqiUgALqXh1BoAHSmTiT52gA=="
+      },
       "Newtonsoft.Json": {
         "type": "Direct",
         "requested": "[12.0.2, 12.0.2]",
