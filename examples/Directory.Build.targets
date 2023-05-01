@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project>
+  <Target Name="pack">
+    <Message Text="Skipping pack for examples." />
+  </Target>
+</Project>
