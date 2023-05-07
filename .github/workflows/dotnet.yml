@@ -42,7 +42,13 @@ jobs:
         "URL=$URL" | Out-File -Append -Encoding utf8 -FilePath $Env:GITHUB_ENV
 
     - name: Check Connection
-      run: curl --insecure --show-error --silent $Env:URL
+      run: |
+        curl --insecure --show-error --silent $Env:URL/AspNetMvc
+        curl --insecure --show-error --silent $Env:URL/AspNetMvc/View
+        curl --insecure --show-error --silent $Env:URL/AspNetWebApi
+        curl --insecure --show-error --silent $Env:URL/AspNetCoreApi
+        curl --insecure --show-error --silent $Env:URL/AspNetCoreMvc
+        curl --insecure --show-error --silent $Env:URL/AspNetCoreMvc/View
 
     - name: dotnet pack
       run: dotnet pack --configuration Release --no-build --output artifacts/
