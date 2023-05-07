@@ -52,3 +52,8 @@ jobs:
 
     - name: dotnet pack
       run: dotnet pack --configuration Release --no-build --output artifacts/
+
+    - uses: actions/upload-artifact@v3
+      with:
+        name: packages
+        path: artifacts/
