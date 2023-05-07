@@ -16,10 +16,15 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+      with:
+        fetch-depth: 0 # avoid shallow clone so nbgv can do its work.
     - uses: nuget/setup-nuget@v1
       with:
         nuget-version: '5.8'
     - uses: microsoft/setup-msbuild@v1
+    - uses: dotnet/nbgv@v0.4.0
+      with:
+        setAllVars: true
     - uses: actions/cache@v1
       id: cache
       with:
@@ -28,7 +33,7 @@ jobs:
     - name: nuget restore
       run: nuget restore -NonInteractive
     - name: msbuild
-      run: msbuild Unravel.sln /verbosity:normal /t:Rebuild
+      run: msbuild Unravel.sln /p:Configuration=Release /verbosity:normal /t:Rebuild
 
     - name: Start IIS Express
       run: |
@@ -38,3 +43,6 @@ jobs:
 
     - name: Check Connection
       run: curl --insecure --show-error --silent $Env:URL
+
+    - name: dotnet pack
+      run: dotnet pack --configuration Release --no-build --output artifacts/
