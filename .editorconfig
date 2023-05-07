@@ -5,10 +5,21 @@
 # All files
 [*]
 indent_style = space
+insert_final_newline = true
+
+# MSBuild files
+[*.{csproj,props}]
+indent_size = 2
+[*.sln]
+indent_style = tab
+
+# Config files
+[*.json]
+indent_size = 2
+
 # Code files
 [*.{cs,csx,vb,vbx}]
 indent_size = 4
-insert_final_newline = true
 charset = utf-8
 ###############################
 # .NET Coding Conventions     #
