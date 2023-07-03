@@ -12,7 +12,7 @@ namespace Unravel.AspNet.Mvc.ModelBinding
 {
     public class HttpPostedFormFileModelBinder : IModelBinder
     {
-        public object BindModel(ControllerContext controllerContext, ModelBindingContext bindingContext)
+        public object? BindModel(ControllerContext controllerContext, ModelBindingContext bindingContext)
         {
             if (controllerContext == null)
             {
@@ -29,7 +29,7 @@ namespace Unravel.AspNet.Mvc.ModelBinding
         }
 
         // helper that returns the original file if there was content uploaded, null if empty
-        internal static IFormFile ChooseFileOrNull(string name, HttpPostedFileBase rawFile)
+        internal static IFormFile? ChooseFileOrNull(string name, HttpPostedFileBase rawFile)
         {
             // case 1: there was no <input type="file" ... /> element in the post
             if (rawFile == null)

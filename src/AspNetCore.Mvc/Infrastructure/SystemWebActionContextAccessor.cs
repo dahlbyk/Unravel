@@ -16,7 +16,7 @@ namespace Unravel.AspNetCore.Mvc.Infrastructure
         /// </summary>
         public static readonly Type ActionContextKey = typeof(ActionContext);
 
-        public ActionContext ActionContext
+        public ActionContext? ActionContext
         {
             get
             {

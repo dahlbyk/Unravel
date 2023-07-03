@@ -14,7 +14,7 @@ namespace Unravel.AspNetCore.Mvc.ViewEngines
             this.view = view;
         }
 
-        public string Path => (view as BuildManagerCompiledView)?.ViewPath;
+        public string? Path => (view as BuildManagerCompiledView)?.ViewPath;
 
         public Task RenderAsync(Microsoft.AspNetCore.Mvc.Rendering.ViewContext context)
         {

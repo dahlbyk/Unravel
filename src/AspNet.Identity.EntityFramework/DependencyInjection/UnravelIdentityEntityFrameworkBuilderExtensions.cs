@@ -153,7 +153,7 @@ namespace Microsoft.Extensions.DependencyInjection
             services.TryAddScoped(typeof(IRoleStore<,>).MakeGenericType(roleType, keyType), s => s.GetRequiredService(roleStoreType));
         }
 
-        private static TypeInfo FindGenericBaseType(Type currentType, Type genericBaseType)
+        private static TypeInfo? FindGenericBaseType(Type? currentType, Type genericBaseType)
         {
             var type = currentType;
             while (type != null)
