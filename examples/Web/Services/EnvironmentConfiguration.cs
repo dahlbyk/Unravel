@@ -45,7 +45,7 @@ namespace UnravelExamples.Web.Services
                     var root = (fileConfigProvider.Source.FileProvider as PhysicalFileProvider)?.Root;
 
                     if (HostingEnvironment != null)
-                        root = root.Replace(HostingEnvironment.ContentRootPath ?? "", ".");
+                        root = root?.Replace(HostingEnvironment.ContentRootPath ?? "", ".");
 
                     return JObject.FromObject(new
                     {
