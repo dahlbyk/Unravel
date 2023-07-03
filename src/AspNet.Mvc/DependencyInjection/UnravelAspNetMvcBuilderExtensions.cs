@@ -74,9 +74,10 @@ namespace Microsoft.Extensions.DependencyInjection
             return builder;
         }
 
-        private static T GetServiceFromCollection<T>(IServiceCollection services)
+        private static T? GetServiceFromCollection<T>(IServiceCollection services)
+            where T : class
         {
-            return (T)services
+            return (T?)services
                 .LastOrDefault(d => d.ServiceType == typeof(T))
                 ?.ImplementationInstance;
         }

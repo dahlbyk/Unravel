@@ -16,7 +16,7 @@ namespace Unravel.AspNetCore.Http
         /// </summary>
         public static readonly Type HttpContextKey = typeof(HttpContext);
 
-        public HttpContext HttpContext
+        public HttpContext? HttpContext
         {
             get
             {

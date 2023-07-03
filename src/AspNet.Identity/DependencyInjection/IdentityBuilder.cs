@@ -8,7 +8,6 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.Owin;
 using Owin;
 
@@ -68,11 +67,10 @@ namespace Unravel.AspNet.Identity.DependencyInjection
         /// </summary>
         public Type UserType { get; }
 
-
         /// <summary>
         /// Gets the <see cref="Type"/> used for roles.
         /// </summary>
-        public Type RoleType { get; }
+        public Type? RoleType { get; }
 
         /// <summary>
         /// List of callbacks to invoke per OWIN request.

@@ -4,7 +4,7 @@ namespace Unravel.SystemWeb
 {
     public class HttpContextAccessor : IHttpContextAccessor
     {
-        public HttpContextBase HttpContext
+        public HttpContextBase? HttpContext
         {
             get
             {

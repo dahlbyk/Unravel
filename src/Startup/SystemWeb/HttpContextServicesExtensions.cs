@@ -42,12 +42,12 @@ namespace System.Web
         ///   An <see cref="IServiceScope"/> was not found.
         ///   See <see cref="CreateServiceScope(HttpContext)"/>.
         /// </exception>
-        public static IServiceProvider GetRequestServices(this HttpContext context) =>
+        public static IServiceProvider GetRequestServices(this HttpContext? context) =>
             context.GetServiceScope().ServiceProvider;
 
         /// <inheritdoc cref="GetRequestServices(HttpContext)"/>
         [Obsolete("Use " + nameof(GetRequestServices))]
-        public static IServiceProvider GetServiceProvider(this HttpContext context) =>
+        public static IServiceProvider GetServiceProvider(this HttpContext? context) =>
             context.GetRequestServices();
 
         /// <summary>
@@ -60,18 +60,18 @@ namespace System.Web
         ///   An <see cref="IServiceScope"/> was not found.
         ///   See <see cref="CreateServiceScope(HttpContext)"/>.
         /// </exception>
-        public static IServiceProvider GetRequestServices(this HttpContextBase context) =>
+        public static IServiceProvider GetRequestServices(this HttpContextBase? context) =>
             context.GetServiceScope().ServiceProvider;
 
         /// <inheritdoc cref="GetRequestServices(HttpContextBase)"/>
         [Obsolete("Use " + nameof(GetRequestServices))]
-        public static IServiceProvider GetServiceProvider(this HttpContextBase context) =>
+        public static IServiceProvider GetServiceProvider(this HttpContextBase? context) =>
             context.GetRequestServices();
 
-        private static IServiceScope GetServiceScope(this HttpContext context) =>
+        private static IServiceScope GetServiceScope(this HttpContext? context) =>
             (context ?? throw new ArgumentNullException(nameof(context))).Items.GetServiceScope();
 
-        private static IServiceScope GetServiceScope(this HttpContextBase context) =>
+        private static IServiceScope GetServiceScope(this HttpContextBase? context) =>
             (context ?? throw new ArgumentNullException(nameof(context))).Items.GetServiceScope();
 
         private static IServiceScope GetServiceScope(this IDictionary items) =>

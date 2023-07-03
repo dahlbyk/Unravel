@@ -55,12 +55,12 @@ namespace Unravel.Owin
         }
 
         private readonly object _onCompletedSync = new object();
-        private Stack<(Func<object, Task>, object)> _onCompleted;
+        private Stack<(Func<object, Task>, object)>? _onCompleted;
 
         // From: https://github.com/dotnet/aspnetcore/blob/c2cfc5f140cd2743ecc33eeeb49c5a2dd35b017f/src/Servers/Kestrel/Core/src/Internal/Http/HttpProtocol.cs#L658-L668
         public void OnCompleted(Func<object, Task> callback, object state)
         {
-            logger.LogDebug("OnCompleted {0}.{1}(state)", callback?.Method.DeclaringType.ToString(), callback?.Method.Name);
+            logger.LogDebug("OnCompleted {0}.{1}(state)", callback.Method.DeclaringType.ToString(), callback.Method.Name);
 
             lock (_onCompletedSync)
             {
@@ -75,7 +75,7 @@ namespace Unravel.Owin
         // From: https://github.com/dotnet/aspnetcore/blob/c2cfc5f140cd2743ecc33eeeb49c5a2dd35b017f/src/Servers/Kestrel/Core/src/Internal/Http/HttpProtocol.cs#L732-L762
         public Task FireOnCompletedAsync()
         {
-            Stack<(Func<object, Task>, object)> onCompleted;
+            Stack<(Func<object, Task>, object)>? onCompleted;
             lock (_onCompletedSync)
             {
                 onCompleted = _onCompleted;

@@ -112,9 +112,9 @@
       },
       "Microsoft.CodeDom.Providers.DotNetCompilerPlatform": {
         "type": "Direct",
-        "requested": "[2.0.1, 2.0.1]",
-        "resolved": "2.0.1",
-        "contentHash": "pn7IMmDyYRwFE316nnMs27GmedPAnjmOfWalWTO+pJkt6JMwdNDQ3yNbWTYG+7zmUU8P4JxhODhXQygDNGvCWQ=="
+        "requested": "[4.1.0, 4.1.0]",
+        "resolved": "4.1.0",
+        "contentHash": "o34xN9ugrjXCj45UuZhKjHzuxWCdrlWdqhzhVJ6J7a67djTFD6k+1WBm8Hz7Dbi+KQm98eUmlKEg3DsF1uqZow=="
       },
       "Microsoft.Extensions.Configuration": {
         "type": "Direct",
@@ -313,6 +313,12 @@
         "requested": "[1.0.0, 1.0.0]",
         "resolved": "1.0.0",
         "contentHash": "FNmvLn5m2LTU/Rs2KWVo0SIIh9Ek+U0ojex7xeDaSHw/zgEP77A8vY5cVWgUtBGS8MJfDGNn8rpXJWEIQaPwTg=="
+      },
+      "MSBuild.Microsoft.VisualStudio.Web.targets": {
+        "type": "Direct",
+        "requested": "[14.0.0.3, 14.0.0.3]",
+        "resolved": "14.0.0.3",
+        "contentHash": "38FjZFXUvPG9azsfJzC3UiW6+ogg2jPQBZxtAUV4ybIowiUuHgDS9M2EAeFPBivqiUgALqXh1BoAHSmTiT52gA=="
       },
       "Newtonsoft.Json": {
         "type": "Direct",

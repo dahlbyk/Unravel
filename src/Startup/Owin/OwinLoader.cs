@@ -24,7 +24,7 @@ namespace Unravel.Startup.Owin
                 var startupMethods = _methods?.GetValue(cbs) as StartupMethods
                     ?? throw new InvalidOperationException("ConventionBasedStartup changed. Please open an issue and include ASP.NET Core version.");
 
-                startup = startupMethods?.StartupInstance;
+                startup = startupMethods.StartupInstance;
             }
 
             if (startup is null) return;
