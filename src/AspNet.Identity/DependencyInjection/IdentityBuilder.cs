@@ -8,7 +8,6 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.Owin;
 using Owin;
 
@@ -67,7 +66,6 @@ namespace Unravel.AspNet.Identity.DependencyInjection
         /// Gets the <see cref="Type"/> used for users.
         /// </summary>
         public Type UserType { get; }
-
 
         /// <summary>
         /// Gets the <see cref="Type"/> used for roles.
