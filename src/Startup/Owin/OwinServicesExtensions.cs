@@ -22,7 +22,8 @@ namespace Owin
         ///   See <see cref="HttpContextServicesExtensions.CreateServiceScope(HttpContext)"/>.
         /// </exception>
         public static IServiceProvider GetRequestServices(this IOwinContext context) =>
-            context.GetHttpContext()
+            (context ?? throw new ArgumentNullException(nameof(context)))
+                .GetHttpContext()
                 .GetRequestServices();
 
         /// <inheritdoc cref="GetRequestServices(IOwinContext)"/>
@@ -30,11 +31,11 @@ namespace Owin
         public static IServiceProvider GetServiceProvider(this IOwinContext context) =>
             context.GetRequestServices();
 
-        internal static HttpContextBase GetHttpContext(this IOwinContext context) =>
+        internal static HttpContextBase? GetHttpContext(this IOwinContext context) =>
             (context ?? throw new ArgumentNullException(nameof(context)))
                 .Environment.GetHttpContext();
 
-        internal static HttpContextBase GetHttpContext(this IDictionary<string, object> env) =>
+        internal static HttpContextBase? GetHttpContext(this IDictionary<string, object> env) =>
             (env ?? throw new ArgumentNullException(nameof(env)))
                 .TryGetValue(typeof(HttpContextBase).FullName, out var value) ? value as HttpContextBase : null;
 

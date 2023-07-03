@@ -70,7 +70,7 @@ namespace Unravel.AspNet.Identity.DependencyInjection
         /// <summary>
         /// Gets the <see cref="Type"/> used for roles.
         /// </summary>
-        public Type RoleType { get; }
+        public Type? RoleType { get; }
 
         /// <summary>
         /// List of callbacks to invoke per OWIN request.
