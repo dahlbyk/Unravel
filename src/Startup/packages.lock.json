@@ -4,7 +4,7 @@
     ".NETFramework,Version=v4.7.2": {
       "Microsoft.AspNetCore.Hosting": {
         "type": "Direct",
-        "requested": "[2.1.1, )",
+        "requested": "[2.1.1, 2.2.0)",
         "resolved": "2.1.1",
         "contentHash": "MqYc0DUxrhAPnb5b4HFspxsoJT+gJlLsliSxIgovf4BsbmpaXQId0/pDiVzLuEbmks2w1/lRfY8w0lQOuK1jQQ==",
         "dependencies": {
@@ -25,7 +25,7 @@
       },
       "Microsoft.AspNetCore.Owin": {
         "type": "Direct",
-        "requested": "[2.1.1, )",
+        "requested": "[2.1.1, 2.2.0)",
         "resolved": "2.1.1",
         "contentHash": "OKovgdeKNc2XE31363rCa5ON30FFlcjC4zfsXRokpHZdVUX1A0cllNlXyNggJf1K+5DepBr/fv6BuuX6x/ZZYQ==",
         "dependencies": {
@@ -34,7 +34,7 @@
       },
       "Microsoft.Extensions.Configuration.EnvironmentVariables": {
         "type": "Direct",
-        "requested": "[2.1.1, )",
+        "requested": "[2.1.1, 2.2.0)",
         "resolved": "2.1.1",
         "contentHash": "6xMxFIfKL+7J/jwlk8zV8I61sF3+DRG19iKQxnSfYQU+iMMjGbcWNCHFF/3MHf3o4sTZPZ8D6Io+GwKFc3TIZA==",
         "dependencies": {
@@ -43,7 +43,7 @@
       },
       "Microsoft.Extensions.Configuration.Json": {
         "type": "Direct",
-        "requested": "[2.1.1, )",
+        "requested": "[2.1.1, 2.2.0)",
         "resolved": "2.1.1",
         "contentHash": "IFpONpvdhVEE3S3F4fTYkpT/GyIHtumy2m0HniQanJ80Pj/pUF3Z4wjrHEp1G78rPD+WTo5fRlhdJfuU1Tv2GQ==",
         "dependencies": {
@@ -54,7 +54,7 @@
       },
       "Microsoft.Extensions.Configuration.UserSecrets": {
         "type": "Direct",
-        "requested": "[2.1.1, )",
+        "requested": "[2.1.1, 2.2.0)",
         "resolved": "2.1.1",
         "contentHash": "/HeMnhc9a6Ou9V+QIdGYHtYuOf0t0RQ//odFUrJ249F6W78pJyVDZY7RnhH4UMF+WLOJpo6hh010DIlW2nqqSA==",
         "dependencies": {
@@ -63,7 +63,7 @@
       },
       "Microsoft.Extensions.DependencyInjection": {
         "type": "Direct",
-        "requested": "[2.1.1, )",
+        "requested": "[2.1.1, 2.2.0)",
         "resolved": "2.1.1",
         "contentHash": "RVdgNWT/73M0eCpreGpWv5NmbHFGQzzW+G7nChK8ej84m+d1nzeWrtqcRYnEpKNx3B8V/Uek4tNP0WCaCNjYnQ==",
         "dependencies": {
@@ -72,7 +72,7 @@
       },
       "Microsoft.Extensions.Logging.Configuration": {
         "type": "Direct",
-        "requested": "[2.1.1, )",
+        "requested": "[2.1.1, 2.2.0)",
         "resolved": "2.1.1",
         "contentHash": "Z3AzFM21fL/ux0kZAbTE+HDPQ46vuh0dqzhlBm6w7/029RxZLvV6bUUsAs70i2r4JfShhCjBYZ+bTjR42diFVA==",
         "dependencies": {
@@ -82,7 +82,7 @@
       },
       "Microsoft.Extensions.Logging.Debug": {
         "type": "Direct",
-        "requested": "[2.1.1, )",
+        "requested": "[2.1.1, 2.2.0)",
         "resolved": "2.1.1",
         "contentHash": "72k7rBz2DL3ev59gX+uwOmA/pEegGzi5SRZhysPIi7+2+JoyLlIRBPscJ8OzOI344Bq27cTByGHDoYWOrq73vg==",
         "dependencies": {
