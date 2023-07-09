@@ -16,10 +16,15 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+      with:
+        fetch-depth: 0 # avoid shallow clone so nbgv can do its work.
     - uses: nuget/setup-nuget@v1
       with:
         nuget-version: '5.8'
     - uses: microsoft/setup-msbuild@v1
+    - uses: dotnet/nbgv@v0.4.0
+      with:
+        setAllVars: true
     - uses: actions/cache@v1
       id: cache
       with:
@@ -28,7 +33,7 @@ jobs:
     - name: nuget restore
       run: nuget restore -NonInteractive
     - name: msbuild
-      run: msbuild Unravel.sln /verbosity:normal /t:Rebuild
+      run: msbuild Unravel.sln /p:Configuration=Release /verbosity:normal /t:Rebuild
 
     - name: Start IIS Express
       run: |
@@ -37,4 +42,38 @@ jobs:
         "URL=$URL" | Out-File -Append -Encoding utf8 -FilePath $Env:GITHUB_ENV
 
     - name: Check Connection
-      run: curl --insecure --show-error --silent $Env:URL
+      run: |
+        curl --insecure --show-error --silent $Env:URL/AspNetMvc
+        curl --insecure --show-error --silent $Env:URL/AspNetMvc/View
+        curl --insecure --show-error --silent $Env:URL/AspNetWebApi
+        curl --insecure --show-error --silent $Env:URL/AspNetCoreApi
+        curl --insecure --show-error --silent $Env:URL/AspNetCoreMvc
+        curl --insecure --show-error --silent $Env:URL/AspNetCoreMvc/View
+
+    - name: dotnet pack
+      run: dotnet pack --configuration Release --no-build --output artifacts/
+
+    - uses: actions/upload-artifact@v3
+      with:
+        name: packages
+        path: artifacts/
+
+    - name: dotnet nuget add source --name github
+      env:
+        SOURCE_URL: ${{ format('https://nuget.pkg.github.com/{0}/index.json', github.repository_owner) }}
+      run: |
+        dotnet nuget remove source ${{ env.SOURCE_URL }} > $null
+        dotnet nuget add source --username ${{ github.actor }} --password ${{ secrets.GITHUB_TOKEN }} --store-password-in-clear-text --name github ${{ env.SOURCE_URL }}
+        dotnet nuget list source
+
+    - name: dotnet nuget push --source github
+      working-directory: artifacts
+      run: dotnet nuget push --source github *.nupkg
+
+    - name: dotnet nuget push
+      if: github.event_name == 'push' && github.ref_name == 'main'
+      working-directory: artifacts
+      env:
+        NUGET_AUTH_TOKEN: ${{ secrets.NUGET_API_KEY }}
+        SOURCE_URL: https://api.nuget.org/v3/index.json
+      run: dotnet nuget push --source ${{ env.SOURCE_URL }} --api-key ${{ env.NUGET_AUTH_TOKEN }} *.nupkg
