@@ -21,4 +21,9 @@ Start-Process -PassThru ./iisexpress "/site:$name /trace:error" | Out-Null
 
 Pop-Location
 
-return $url
+Write-Warning "Connecting to $url"
+$res = Invoke-WebRequest $url -SkipCertificateCheck -Method HEAD -MaximumRetryCount 10 -RetryIntervalSec 3 -Verbose
+if ($res.StatusCode -eq 200) {
+  return $url
+}
+exit 1
