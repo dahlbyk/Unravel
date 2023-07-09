@@ -69,3 +69,11 @@ jobs:
     - name: dotnet nuget push --source github
       working-directory: artifacts
       run: dotnet nuget push --source github *.nupkg
+
+    - name: dotnet nuget push
+      if: github.event_name == 'push' && github.ref_name == 'main'
+      working-directory: artifacts
+      env:
+        NUGET_AUTH_TOKEN: ${{ secrets.NUGET_API_KEY }}
+        SOURCE_URL: https://api.nuget.org/v3/index.json
+      run: dotnet nuget push --source ${{ env.SOURCE_URL }} --api-key ${{ env.NUGET_AUTH_TOKEN }} *.nupkg
