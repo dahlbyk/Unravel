@@ -64,6 +64,7 @@ jobs:
       run: |
         dotnet nuget remove source ${{ env.SOURCE_URL }} > $null
         dotnet nuget add source --username ${{ github.actor }} --password ${{ secrets.GITHUB_TOKEN }} --store-password-in-clear-text --name github ${{ env.SOURCE_URL }}
+        dotnet nuget list source
 
     - name: dotnet nuget push --source github
       working-directory: artifacts
