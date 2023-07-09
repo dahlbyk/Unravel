@@ -304,21 +304,21 @@
       },
       "Microsoft.CodeAnalysis.Analyzers": {
         "type": "Direct",
-        "requested": "[1.1.0, 1.1.0]",
-        "resolved": "1.1.0",
-        "contentHash": "HS3iRWZKcUw/8eZ/08GXKY2Bn7xNzQPzf8gRPHGSowX7u7XXu9i9YEaBeBNKUXWfI7qjvT2zXtLUvbN0hds8vg=="
+        "requested": "[3.3.4, 3.3.4]",
+        "resolved": "3.3.4",
+        "contentHash": "AxkxcPR+rheX0SmvpLVIGLhOUXAKG56a64kV9VQZ4y9gR9ZmPXnqZvHJnmwLSwzrEP6junUF11vuc+aqo5r68g=="
       },
       "Microsoft.CodeAnalysis.Common": {
         "type": "Direct",
-        "requested": "[2.8.0, 2.8.0]",
-        "resolved": "2.8.0",
-        "contentHash": "06AzG7oOLKTCN1EnoVYL1bQz+Zwa10LMpUn7Kc+PdpN8CQXRqXTyhfxuKIz6t0qWfoatBNXdHD0OLcEYp5pOvQ=="
+        "requested": "[3.4.0, 3.4.0]",
+        "resolved": "3.4.0",
+        "contentHash": "3ncA7cV+iXGA1VYwe2UEZXcvWyZSlbexWjM9AvocP7sik5UD93qt9Hq0fMRGk0jFRmvmE4T2g+bGfXiBVZEhLw=="
       },
       "Microsoft.CodeAnalysis.CSharp": {
         "type": "Direct",
-        "requested": "[2.8.0, 2.8.0]",
-        "resolved": "2.8.0",
-        "contentHash": "RizcFXuHgGmeuZhxxE1qQdhFA9lGOHlk0MJlCUt6LOnYsevo72gNikPcbANFHY02YK8L/buNrihchY0TroGvXQ=="
+        "requested": "[3.4.0, 3.4.0]",
+        "resolved": "3.4.0",
+        "contentHash": "/LsTtgcMN6Tu1oo7/WYbRAHL4/ubXC/miEakwTpcZKJKtFo7D0AK95Hw0dbGxul6C8WJu60v6NP2435TDYZM+Q=="
       },
       "Microsoft.CodeAnalysis.Razor": {
         "type": "Direct",
@@ -610,9 +610,9 @@
       },
       "System.Console": {
         "type": "Direct",
-        "requested": "[4.3.0, 4.3.0]",
-        "resolved": "4.3.0",
-        "contentHash": "DHDrIxiqk1h03m6khKWV2X8p/uvN79rgSqpilL6uzpmSfxfU5ng8VcPtW4qsDsQDHiTv6IPV9TmD5M/vElPNLg=="
+        "requested": "[4.3.1, 4.3.1]",
+        "resolved": "4.3.1",
+        "contentHash": "6iKDG36vugpW230eBGMLL6GQIx+Buf5txz6DFC1c4MOH8qcOo2mFzId6GsJUTptR4AusnDsdUeCYuzDiftD39w=="
       },
       "System.Diagnostics.Debug": {
         "type": "Direct",
@@ -724,9 +724,9 @@
       },
       "System.Runtime": {
         "type": "Direct",
-        "requested": "[4.3.0, 4.3.0]",
-        "resolved": "4.3.0",
-        "contentHash": "JufQi0vPQ0xGnAczR13AUFglDyVYt4Kqnz1AZaiKZ5+GICq0/1MH/mO/eAJHt/mHW1zjKBJd7kV26SrxddAhiw=="
+        "requested": "[4.3.1, 4.3.1]",
+        "resolved": "4.3.1",
+        "contentHash": "abhfv1dTK6NXOmu4bgHIONxHyEqFjW8HwXPmpY9gmll+ix9UNo4XDcmzJn6oLooftxNssVHdJC1pGT9jkSynQg=="
       },
       "System.Runtime.CompilerServices.Unsafe": {
         "type": "Direct",
@@ -736,9 +736,9 @@
       },
       "System.Runtime.Extensions": {
         "type": "Direct",
-        "requested": "[4.3.0, 4.3.0]",
-        "resolved": "4.3.0",
-        "contentHash": "guW0uK0fn5fcJJ1tJVXYd7/1h5F+pea1r7FLSOz/f8vPEqbR2ZAknuRDvTQ8PzAilDveOxNjSfr0CHfIQfFk8g=="
+        "requested": "[4.3.1, 4.3.1]",
+        "resolved": "4.3.1",
+        "contentHash": "qAtKMcHOAq9/zKkl0dwvF0T0pmgCQxX1rC49rJXoU8jq+lw6MC3uXy7nLFmjEI20T3Aq069eWz4LcYR64vEmJw=="
       },
       "System.Runtime.InteropServices": {
         "type": "Direct",
@@ -766,9 +766,9 @@
       },
       "System.Security.Cryptography.Algorithms": {
         "type": "Direct",
-        "requested": "[4.3.0, 4.3.0]",
-        "resolved": "4.3.0",
-        "contentHash": "W1kd2Y8mYSCgc3ULTAZ0hOP2dSdG5YauTb1089T0/kRcN2MpSAW1izOFROrJgxSlMn3ArsgHXagigyi+ibhevg=="
+        "requested": "[4.3.1, 4.3.1]",
+        "resolved": "4.3.1",
+        "contentHash": "DVUblnRfnarrI5olEC2B/OCsJQd0anjVaObQMndHSc43efbc88/RMOlDyg/EyY0ix5ecyZMXS8zMksb5ukebZA=="
       },
       "System.Security.Cryptography.Encoding": {
         "type": "Direct",
@@ -784,9 +784,9 @@
       },
       "System.Security.Cryptography.X509Certificates": {
         "type": "Direct",
-        "requested": "[4.3.0, 4.3.0]",
-        "resolved": "4.3.0",
-        "contentHash": "t2Tmu6Y2NtJ2um0RtcuhP7ZdNNxXEgUm2JeoA/0NvlMjAhKCnM1NX07TDl3244mVp3QU6LPEhT3HTtH1uF7IYw=="
+        "requested": "[4.3.2, 4.3.2]",
+        "resolved": "4.3.2",
+        "contentHash": "uwlfOnvJd7rXRvP3aV126Q9XebIIEGEaZ245Rd5/ZwOg7U7AU+AmpE0vRh2F0DFjfOTuk7MAexv4nYiNP/RYnQ=="
       },
       "System.Security.Cryptography.Xml": {
         "type": "Direct",
@@ -814,9 +814,9 @@
       },
       "System.Text.Encoding.CodePages": {
         "type": "Direct",
-        "requested": "[4.3.0, 4.3.0]",
-        "resolved": "4.3.0",
-        "contentHash": "IRiEFUa5b/Gs5Egg8oqBVoywhtOeaO2KOx3j0RfcYY/raxqBuEK7NXRDgOwtYM8qbi+7S4RPXUbNt+ZxyY0/NQ=="
+        "requested": "[4.5.1, 4.5.1]",
+        "resolved": "4.5.1",
+        "contentHash": "4J2JQXbftjPMppIHJ7IC+VXQ9XfEagN92vZZNoG12i+zReYlim5dMoXFC1Zzg7tsnKDM7JPo5bYfFK4Jheq44w=="
       },
       "System.Text.Encoding.Extensions": {
         "type": "Direct",
@@ -868,9 +868,9 @@
       },
       "System.Xml.ReaderWriter": {
         "type": "Direct",
-        "requested": "[4.3.0, 4.3.0]",
-        "resolved": "4.3.0",
-        "contentHash": "GrprA+Z0RUXaR4N7/eW71j1rgMnEnEVlgii49GZyAjTH7uliMnrOU3HNFBr6fEDBCJCIdlVNq9hHbaDR621XBA=="
+        "requested": "[4.3.1, 4.3.1]",
+        "resolved": "4.3.1",
+        "contentHash": "fVU1Xp9TEOHv1neQDtcJ4hNfYJ1pjfXzKY3VFeiRZK6HTV4Af2Ihyvq1FkPLrL1hzZhXv7NTmowQnL5DgTzIKA=="
       },
       "System.Xml.XDocument": {
         "type": "Direct",
