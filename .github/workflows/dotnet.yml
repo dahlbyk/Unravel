@@ -57,3 +57,13 @@ jobs:
       with:
         name: packages
         path: artifacts/
+
+    - name: dotnet nuget add source --name github
+      env:
+        SOURCE_URL: ${{ format('https://nuget.pkg.github.com/{0}/index.json', github.repository_owner) }}
+      run: |
+        dotnet nuget add source --username ${{ github.actor }} --password ${{ secrets.GITHUB_TOKEN }} --store-password-in-clear-text --name github ${{ env.SOURCE_URL }}
+
+    - name: dotnet nuget push --source github
+      working-directory: artifacts
+      run: dotnet nuget push --source github *.nupkg
