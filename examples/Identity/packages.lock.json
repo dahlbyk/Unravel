@@ -268,45 +268,45 @@
       },
       "Microsoft.Owin.Security": {
         "type": "Direct",
-        "requested": "[4.2.0, 4.2.0]",
-        "resolved": "4.2.0",
-        "contentHash": "w/cWWNkc4sBRYHmY49VSfgKGEXVbBNecnrLR6sHf/shkRpFvitduo6dGUy/CwL3bQEFPEbuyQeXmMVVXQj3R4Q=="
+        "requested": "[4.2.2, 4.2.2]",
+        "resolved": "4.2.2",
+        "contentHash": "nEgJYWfSrbp/u2FnIkmiLUuWUyFX8xC/gtnwN9r1rV+iT/E10rMinGbaxQvSHlkhHBnUgzriYwCaMhMExxpyhQ=="
       },
       "Microsoft.Owin.Security.Cookies": {
         "type": "Direct",
-        "requested": "[4.2.0, 4.2.0]",
-        "resolved": "4.2.0",
-        "contentHash": "pH7EIIPO6/zu8Bz1SlJeUR+4o/iYo0tSmTzdRcPaK3Il1DixgXuiMAgSw6GrVLOqAYdv5YW2hWyRjseBRrWQAg=="
+        "requested": "[4.2.2, 4.2.2]",
+        "resolved": "4.2.2",
+        "contentHash": "/YTwRJlmJrsOXFT2KrkrQi32X54iNAae5Ev5tB5YK1069d/6U2tXxtheXkEG8UEf/1O57igfEMF7bk3fuOI6qg=="
       },
       "Microsoft.Owin.Security.Facebook": {
         "type": "Direct",
-        "requested": "[4.2.0, 4.2.0]",
-        "resolved": "4.2.0",
-        "contentHash": "AwxcJYZ6x8QVFE+Qpjj6yJ5Vsgls665TpvDjK86tHBUrQIuPr8Wf1z8y1+8aWOQm7vxOWgpjXDyjmPgCxCIo2w=="
+        "requested": "[4.2.2, 4.2.2]",
+        "resolved": "4.2.2",
+        "contentHash": "cK54wCDyw9pm6pE8AlhueHX8HrI6CP9oTSuILJXx7vB5PJ//b5dAJvEQbQThHVwK5LBpHxtSWwNRyaMpRKwSjA=="
       },
       "Microsoft.Owin.Security.Google": {
         "type": "Direct",
-        "requested": "[4.2.0, 4.2.0]",
-        "resolved": "4.2.0",
-        "contentHash": "tIwKhlIYIZsMJ6DFnCPOrthhzCdRo+qzmcfq/k8Pnu/asx/HkbCYJEeyJ4/pjhfWtj2YRrrJWUVsoJvQm/7U3A=="
+        "requested": "[4.2.2, 4.2.2]",
+        "resolved": "4.2.2",
+        "contentHash": "rlT2VAgMJC2is6j5dVSFq2dKBitmVF5j3rA+AQTzVQIOKcVHWstfvEI/3Bod7UIKosRsipcfNHkRI5uq73CZ2g=="
       },
       "Microsoft.Owin.Security.MicrosoftAccount": {
         "type": "Direct",
-        "requested": "[4.2.0, 4.2.0]",
-        "resolved": "4.2.0",
-        "contentHash": "xVL35AH35T/UWG4lrcWn/ww3Uy/dyX5MzdMDv8OxrtRj2JSqVrOdzFeYs84yU6zY9uiof1UTI2R2ATdI/pECCA=="
+        "requested": "[4.2.2, 4.2.2]",
+        "resolved": "4.2.2",
+        "contentHash": "8JPEP2eGA1inwYmq0lBmZnVR/Y9UQg+ILcnVnk/fZf07tzfIxJhuovZXaXuLT2qby02kEUihXno7YnSfA2NIEA=="
       },
       "Microsoft.Owin.Security.OAuth": {
         "type": "Direct",
-        "requested": "[4.2.0, 4.2.0]",
-        "resolved": "4.2.0",
-        "contentHash": "aMHGnSrCqFyS3a5mwiTx0isrxXoYvi3Xt4KDjj00zswFhb9EmjfJL6EmP6WuopefixdMpNQGJ5XQjT+qtBd5lA=="
+        "requested": "[4.2.2, 4.2.2]",
+        "resolved": "4.2.2",
+        "contentHash": "Y0F0lmDZAdpQn9LMdVwfWwq5JZpLu2OYSdToVwMdneC1AAVvaPxkFW6gnMe1Uox2ZNJwFd8Ytt1lm4eQL7itqw=="
       },
       "Microsoft.Owin.Security.Twitter": {
         "type": "Direct",
-        "requested": "[4.2.0, 4.2.0]",
-        "resolved": "4.2.0",
-        "contentHash": "d+w5iroY1w9FQBDJL0KzEXIl44YrCoBqgmIyDt4cdwWA4C85U+4AwZn4Pqmlj0S3tPyoPTqbpiDxMDWdfqbJ1A=="
+        "requested": "[4.2.2, 4.2.2]",
+        "resolved": "4.2.2",
+        "contentHash": "f4LRCXQbODqyhoDy/dk5Yx8CSl5QCokPgJfWcqjohMTGJsQ3fRUMv6UECtNe47avwIvltJap5mzWm+Ps24F0ew=="
       },
       "Microsoft.Web.Infrastructure": {
         "type": "Direct",
