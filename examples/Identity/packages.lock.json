@@ -10,9 +10,9 @@
       },
       "EntityFramework": {
         "type": "Direct",
-        "requested": "[6.2.0, 6.2.0]",
-        "resolved": "6.2.0",
-        "contentHash": "ptGyXOf26qLrtn+2doAmylIlCxOnBJANwlyyLrXDmqIk9O18IzLWHyxDwwAyhgXkxmbiaA0WNpRy67WRReInBw=="
+        "requested": "[6.4.4, 6.4.4]",
+        "resolved": "6.4.4",
+        "contentHash": "yj1+/4tci7Panu3jKDHYizxwVm0Jvm7b7m057b5h4u8NUHGCR8WIWirBTw+8EptRffwftIWPBeIRGNKD1ewEMQ=="
       },
       "Microsoft.AspNet.Identity.Core": {
         "type": "Direct",
