@@ -18,7 +18,7 @@ namespace Unravel.Hosting
             throw new InvalidOperationException("Host not available.");
 
         public Task StartAsync(CancellationToken cancellationToken) =>
-            throw new InvalidOperationException("Host not available.");
+            Task.FromException(new InvalidOperationException("Host not available."));
 
         public Task StopAsync(CancellationToken cancellationToken) =>
             Task.CompletedTask;

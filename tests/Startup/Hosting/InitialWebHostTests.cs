@@ -30,7 +30,9 @@ namespace Unravel.Startup.Hosting.Tests
 
             Assert.Throws<InvalidOperationException>(() => host.Start());
 
-            await Assert.ThrowsAsync<InvalidOperationException>(() => host.StartAsync(default));
+            // Shouldn't throw yet
+            var startTask = host.StartAsync(default);
+            await Assert.ThrowsAsync<InvalidOperationException>(() => startTask);
         }
 
         [Fact]
