@@ -33,6 +33,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Unravel.AspNet.Identity.Ent
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Unravel.AspNetCore.Mvc.ViewFeatures", "src\AspNetCore.Mvc.ViewFeatures\Unravel.AspNetCore.Mvc.ViewFeatures.csproj", "{22C0E3CA-02CE-4C6C-B663-BEFA22214CDE}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{3221C017-C78E-4664-BAFF-559215648AA4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Startup", "tests\Startup\Startup.csproj", "{0AE86EDB-EC40-414B-BED0-CD7752B787FC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -151,6 +155,18 @@ Global
 		{22C0E3CA-02CE-4C6C-B663-BEFA22214CDE}.Release|x64.Build.0 = Release|Any CPU
 		{22C0E3CA-02CE-4C6C-B663-BEFA22214CDE}.Release|x86.ActiveCfg = Release|Any CPU
 		{22C0E3CA-02CE-4C6C-B663-BEFA22214CDE}.Release|x86.Build.0 = Release|Any CPU
+		{0AE86EDB-EC40-414B-BED0-CD7752B787FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0AE86EDB-EC40-414B-BED0-CD7752B787FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0AE86EDB-EC40-414B-BED0-CD7752B787FC}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{0AE86EDB-EC40-414B-BED0-CD7752B787FC}.Debug|x64.Build.0 = Debug|Any CPU
+		{0AE86EDB-EC40-414B-BED0-CD7752B787FC}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{0AE86EDB-EC40-414B-BED0-CD7752B787FC}.Debug|x86.Build.0 = Debug|Any CPU
+		{0AE86EDB-EC40-414B-BED0-CD7752B787FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0AE86EDB-EC40-414B-BED0-CD7752B787FC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0AE86EDB-EC40-414B-BED0-CD7752B787FC}.Release|x64.ActiveCfg = Release|Any CPU
+		{0AE86EDB-EC40-414B-BED0-CD7752B787FC}.Release|x64.Build.0 = Release|Any CPU
+		{0AE86EDB-EC40-414B-BED0-CD7752B787FC}.Release|x86.ActiveCfg = Release|Any CPU
+		{0AE86EDB-EC40-414B-BED0-CD7752B787FC}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -158,6 +174,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{CED6AE8D-EE53-4A56-ABE3-CE6C10D1CD18} = {AE0BF6F8-635E-45FB-B231-00C4C3CD5B06}
 		{5D97EFEE-4FA3-47DB-9C03-CB99F0CC8E77} = {AE0BF6F8-635E-45FB-B231-00C4C3CD5B06}
+		{0AE86EDB-EC40-414B-BED0-CD7752B787FC} = {3221C017-C78E-4664-BAFF-559215648AA4}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {2E47B976-F7D9-42C9-8641-FCEB950CD1EA}
