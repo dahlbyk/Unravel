@@ -38,7 +38,7 @@ namespace Unravel
         ///   The current <see cref="IWebHost"/>.
         ///   Cannot be used until OWIN has been initialized.
         /// </summary>
-        public static IWebHost WebHost { get; private set; } = new InvalidHost();
+        public static IWebHost WebHost { get; private set; } = new InitialWebHost();
 
         /// <summary>
         ///   Builds and starts <see cref="WebHost"/>, then calls <see cref="ConfigureOwin(IAppBuilder)"/>.

@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Http.Features;
 
 namespace Unravel.Hosting
 {
-    internal class InvalidHost : IWebHost
+    internal class InitialWebHost : IWebHost
     {
         public IFeatureCollection ServerFeatures =>
             throw new InvalidOperationException("Host not available.");
