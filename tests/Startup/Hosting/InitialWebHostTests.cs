@@ -1,5 +1,6 @@
 using System;
 using System.Threading.Tasks;
+using System.Web;
 using Unravel.Hosting;
 using Xunit;
 
@@ -16,11 +17,11 @@ namespace Unravel.Startup.Hosting.Tests
         }
 
         [Fact]
-        public void ServicesThrows()
+        public void ServicesReturnsProviderThatAlwaysReturnsNull()
         {
             using var host = new InitialWebHost();
 
-            Assert.Throws<InvalidOperationException>(() => host.Services);
+            Assert.Null(host.Services.GetService(typeof(IHttpContextAccessor)));
         }
 
         [Fact]

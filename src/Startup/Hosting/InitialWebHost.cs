@@ -6,13 +6,12 @@ using Microsoft.AspNetCore.Http.Features;
 
 namespace Unravel.Hosting
 {
-    internal class InitialWebHost : IWebHost
+    internal class InitialWebHost : IWebHost, IServiceProvider
     {
         public IFeatureCollection ServerFeatures =>
             throw new InvalidOperationException("Host not available.");
 
-        public IServiceProvider Services =>
-            throw new InvalidOperationException("Host not available.");
+        public IServiceProvider Services => this;
 
         public void Start() =>
             throw new InvalidOperationException("Host not available.");
@@ -24,5 +23,7 @@ namespace Unravel.Hosting
             Task.CompletedTask;
 
         public void Dispose() { }
+
+        object? IServiceProvider.GetService(Type serviceType) => null;
     }
 }
