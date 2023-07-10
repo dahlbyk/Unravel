@@ -13,6 +13,9 @@
     <DebugType>pdbonly</DebugType>
   </PropertyGroup>
   <ItemGroup>
+    <AssemblyAttribute Include="System.Runtime.CompilerServices.InternalsVisibleTo">
+      <_Parameter1>$(AssemblyName).Tests</_Parameter1>
+    </AssemblyAttribute>
     <PackageReference Include="Microsoft.AspNetCore.Hosting" Version="[2.1.1,2.2.0)" />
     <PackageReference Include="Microsoft.AspNetCore.Owin" Version="[2.1.1,2.2.0)" />
     <PackageReference Include="Microsoft.Extensions.Configuration.EnvironmentVariables" Version="2.1.1" />

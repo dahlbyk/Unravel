@@ -34,6 +34,8 @@ jobs:
       run: nuget restore -NonInteractive
     - name: msbuild
       run: msbuild Unravel.sln /p:Configuration=Release /verbosity:normal /t:Rebuild
+    - name: dotnet test
+      run: dotnet test --nologo --no-build --configuration Release
 
     - name: Start IIS Express
       run: |
