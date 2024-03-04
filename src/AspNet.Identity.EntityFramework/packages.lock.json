@@ -35,15 +35,15 @@
       },
       "Microsoft.AspNet.Identity.Core": {
         "type": "Transitive",
-        "resolved": "2.2.3",
-        "contentHash": "Mv5FpoaxspE8hlWLE4r1IdZtovg/OyFgVRhxQbx47J4sqdLImN1hnM1lnwCj+/wLmqtqFk/RYMoZ5GAcwm/00g=="
+        "resolved": "2.2.4",
+        "contentHash": "s3u/o3iG5h0z7Ggukwo4soPwogD56ZrYbolGxTfw41zkuG6jAXUJT/V3EThqHJXGuCNvWSdSnnwAhPfT9Sn36g=="
       },
       "Microsoft.AspNet.Identity.Owin": {
         "type": "Transitive",
-        "resolved": "2.2.3",
-        "contentHash": "gNr7dQGE23hAtWmSZVmKPJ+DKBw/obh68Ub7M5cCUiRNAqg6+6Jb3T7en4Fuw8R/8H5/sIsecrfT3MbK2/FzEg==",
+        "resolved": "2.2.4",
+        "contentHash": "u3SmsjXT/43Xas/xJx4Mz9FImMxfxz9npmFLXRDc8j7Ni3vkoRNK9zryx3i60WVPIxnVlJsJcCe6PaBuPJJscw==",
         "dependencies": {
-          "Microsoft.AspNet.Identity.Core": "2.2.3",
+          "Microsoft.AspNet.Identity.Core": "2.2.4",
           "Microsoft.Owin.Security": "3.0.1",
           "Microsoft.Owin.Security.Cookies": "3.0.1",
           "Microsoft.Owin.Security.OAuth": "3.0.1"
@@ -444,8 +444,8 @@
       "unravel.aspnet.identity": {
         "type": "Project",
         "dependencies": {
-          "Microsoft.AspNet.Identity.Core": "[2.2.3, )",
-          "Microsoft.AspNet.Identity.Owin": "[2.2.3, )",
+          "Microsoft.AspNet.Identity.Core": "[2.2.4, )",
+          "Microsoft.AspNet.Identity.Owin": "[2.2.4, )",
           "Unravel.Startup": "[1.0.0, )"
         }
       },

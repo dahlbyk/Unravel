@@ -5,6 +5,7 @@ on:
     branches: [ main ]
   pull_request:
     branches: [ main ]
+  workflow_dispatch:
 
 jobs:
   build:
@@ -61,6 +62,7 @@ jobs:
         path: artifacts/
 
     - name: dotnet nuget add source --name github
+      if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.url == github.event.pull_request.base.repo.url
       env:
         SOURCE_URL: ${{ format('https://nuget.pkg.github.com/{0}/index.json', github.repository_owner) }}
       run: |
@@ -69,6 +71,7 @@ jobs:
         dotnet nuget list source
 
     - name: dotnet nuget push --source github
+      if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.url == github.event.pull_request.base.repo.url
       working-directory: artifacts
       run: dotnet nuget push --source github *.nupkg
 
