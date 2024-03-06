@@ -4,6 +4,7 @@
   <PropertyGroup>
     <Authors>Keith Dahlby</Authors>
     <RepositoryUrl>https://github.com/dahlbyk/Unravel</RepositoryUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
     <EmbedUntrackedSources>true</EmbedUntrackedSources>
     <IncludeSymbols>true</IncludeSymbols>
