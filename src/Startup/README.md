@@ -23,7 +23,24 @@ Unravel provides a fully configurable ASP.NET Core `IWebHost` on top of `System.
 
 ## Setup
 
-1. Install `Unravel.Startup`
+1. Install `Unravel.Startup` in your Web Application project
+1. Search the project for an existing [OWIN Startup Class](https://learn.microsoft.com/en-us/aspnet/aspnet/overview/owin-and-katana/owin-startup-class-detection):
+    - There may be an `OwinStartup` attribute, e.g.
+
+      ```csharp
+      [assembly: OwinStartup(typeof(UnravelExamples.Web.OwinStartup))]
+      ```
+
+    - `Web.config` may contain `owin:appStartup`, e.g.
+
+      ```xml
+      <appSettings>
+        <add key="owin:appStartup" value="UnravelExamples.Web.OwinStartup" />
+      </appSettings>
+      ```
+
+    In the instructions that follow, use that class name instead of `Startup` (or rename it to `Startup`).
+
 1. Open `Global.asax.cs`:
     - Rename the class to `Startup`
     - Make the class `partial`
