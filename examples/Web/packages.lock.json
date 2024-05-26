@@ -10,15 +10,15 @@
       },
       "Microsoft.AspNet.Mvc": {
         "type": "Direct",
-        "requested": "[5.2.9, 5.2.9]",
-        "resolved": "5.2.9",
-        "contentHash": "bcekKshCAh7kTWSMZPavQStSZQF/QmjEjO2gVWGITEd0/t5eRlb+ZLDE+az2qY1bZ8L6Hz0OCNeS0uzXtJcK5w=="
+        "requested": "[5.3.0, 5.3.0]",
+        "resolved": "5.3.0",
+        "contentHash": "Q1LcXRqTPmbXJAdf45PsxI6JYnCQP4vBfPCgDFd4dYf8ojxFTo4PH333PC4TzbOqRHxrUWGwgBdcR5T2jNwpHQ=="
       },
       "Microsoft.AspNet.Razor": {
         "type": "Direct",
-        "requested": "[3.2.9, 3.2.9]",
-        "resolved": "3.2.9",
-        "contentHash": "QOJEnEw3xp+t5lMvYR5nGCF4CfZpHqr2p8uZOBEgDZoB6r2txtSj6581YNr+/dOHjI3YRlo1QAKGQoSohbQ/KA=="
+        "requested": "[3.3.0, 3.3.0]",
+        "resolved": "3.3.0",
+        "contentHash": "5vJ0UKE/n381qcaKwFHxCwzb/YVuHzrm155iTgQhiv7+xdg2PE+54u+NPqu6C9AeRVOiwbh8/EOZwD16bLvWkg=="
       },
       "Microsoft.AspNet.Web.Optimization": {
         "type": "Direct",
@@ -28,33 +28,33 @@
       },
       "Microsoft.AspNet.WebApi": {
         "type": "Direct",
-        "requested": "[5.2.9, 5.2.9]",
-        "resolved": "5.2.9",
-        "contentHash": "jVd73J1CWj1iRf72WWnn6vkLH63QbyAJT/M16UfmF6uEsS6bK2mJz3gfFg66Au4p8uA7FgaZiWkh5wqRGNXMjQ=="
+        "requested": "[5.3.0, 5.3.0]",
+        "resolved": "5.3.0",
+        "contentHash": "KDk0HCAkz+bB/pmk+tHS/NDpoYvdj8VeetdaDv7kKX/c4+XbuGQsDzOeBhgWjeeqgxybPuHURteius0ZYVcSFA=="
       },
       "Microsoft.AspNet.WebApi.Client": {
         "type": "Direct",
-        "requested": "[5.2.9, 5.2.9]",
-        "resolved": "5.2.9",
-        "contentHash": "cuVhPjjNMSEFpKXweMNBbsG4RUFuuZpFBm8tSyw309U9JEjcnbB6n3EPb4xwgcy9bJ38ctIbv5G8zXUBhlrPWw=="
+        "requested": "[6.0.0, 6.0.0]",
+        "resolved": "6.0.0",
+        "contentHash": "zXeWP03dTo67AoDHUzR+/urck0KFssdCKOC+dq7Nv1V2YbFh/nIg09L0/3wSvyRONEdwxGB/ssEGmPNIIhAcAw=="
       },
       "Microsoft.AspNet.WebApi.Core": {
         "type": "Direct",
-        "requested": "[5.2.9, 5.2.9]",
-        "resolved": "5.2.9",
-        "contentHash": "9C0/gBUeMBjorRFSmR5Z2j5wznf9BP5SddN+OZE7X0BpXgivBZTZ42d0h8tIjJzSLHYVCU4HZBf51+cidCY4fQ=="
+        "requested": "[5.3.0, 5.3.0]",
+        "resolved": "5.3.0",
+        "contentHash": "h0oLsUFPgoB1R+6ichy1bniAs4oC6w6XrPsEgn+LuQBxBGskN0djSOSX7hzL8LTFEZUTdsh/3ShjRu1Mb2QRfw=="
       },
       "Microsoft.AspNet.WebApi.WebHost": {
         "type": "Direct",
-        "requested": "[5.2.9, 5.2.9]",
-        "resolved": "5.2.9",
-        "contentHash": "+mQWEe0/mWdEccKszPI7QOLduYH0ZSl1AjdRXLlM6jKrhS3LnLMBg2WuLEIlQcCS7GCs4GU5LlhycArgg3j84g=="
+        "requested": "[5.3.0, 5.3.0]",
+        "resolved": "5.3.0",
+        "contentHash": "8eE0saCz7qWVwEBd/1vwycROmD8+UTbnw9aJmBAMVbn/Sh8lTDvDMOHt2NjrdmsZTLXELhAIbXg3Ffhy2u63mA=="
       },
       "Microsoft.AspNet.WebPages": {
         "type": "Direct",
-        "requested": "[3.2.9, 3.2.9]",
-        "resolved": "3.2.9",
-        "contentHash": "yByb721lwv8YFsx1oKA5CLKXa89XVbVMkPafS4bg/bPelBEgChq/coFBQEkA4kwcabG7AR56w3vapnoZUfr2Cw=="
+        "requested": "[3.3.0, 3.3.0]",
+        "resolved": "3.3.0",
+        "contentHash": "2ATJrA8KNx2EpBWNjwy4P+NjQ06cZWjYsTZ5NqGNIHaU/i3NKmtpoaE90NGmVRaKF5rryGfADnvPQ56f61OuWg=="
       },
       "Microsoft.AspNetCore.Antiforgery": {
         "type": "Direct",

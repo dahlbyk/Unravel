@@ -22,9 +22,9 @@
       },
       "Microsoft.AspNet.Identity.EntityFramework": {
         "type": "Direct",
-        "requested": "[2.2.3, 2.2.3]",
-        "resolved": "2.2.3",
-        "contentHash": "dt4XZChjw3a6jE66Yd6LkF9omspxi0A9lJpwBZz8Wl1sabOS6dlLP1OOTVuUjtPaoAshjoIzvS6DFRQdPyq55g=="
+        "requested": "[2.2.4, 2.2.4]",
+        "resolved": "2.2.4",
+        "contentHash": "ay5FMSwNF0tb9KiC4l4aqm7D1E6Da9nU3euI/X0UD1SuumJX7OkZ9LtZjU9xT3xmou3XLXO8DDcgrW6udSQk6Q=="
       },
       "Microsoft.AspNet.Identity.Owin": {
         "type": "Direct",
@@ -34,15 +34,15 @@
       },
       "Microsoft.AspNet.Mvc": {
         "type": "Direct",
-        "requested": "[5.2.9, 5.2.9]",
-        "resolved": "5.2.9",
-        "contentHash": "bcekKshCAh7kTWSMZPavQStSZQF/QmjEjO2gVWGITEd0/t5eRlb+ZLDE+az2qY1bZ8L6Hz0OCNeS0uzXtJcK5w=="
+        "requested": "[5.3.0, 5.3.0]",
+        "resolved": "5.3.0",
+        "contentHash": "Q1LcXRqTPmbXJAdf45PsxI6JYnCQP4vBfPCgDFd4dYf8ojxFTo4PH333PC4TzbOqRHxrUWGwgBdcR5T2jNwpHQ=="
       },
       "Microsoft.AspNet.Razor": {
         "type": "Direct",
-        "requested": "[3.2.9, 3.2.9]",
-        "resolved": "3.2.9",
-        "contentHash": "QOJEnEw3xp+t5lMvYR5nGCF4CfZpHqr2p8uZOBEgDZoB6r2txtSj6581YNr+/dOHjI3YRlo1QAKGQoSohbQ/KA=="
+        "requested": "[3.3.0, 3.3.0]",
+        "resolved": "3.3.0",
+        "contentHash": "5vJ0UKE/n381qcaKwFHxCwzb/YVuHzrm155iTgQhiv7+xdg2PE+54u+NPqu6C9AeRVOiwbh8/EOZwD16bLvWkg=="
       },
       "Microsoft.AspNet.Web.Optimization": {
         "type": "Direct",
@@ -52,9 +52,9 @@
       },
       "Microsoft.AspNet.WebPages": {
         "type": "Direct",
-        "requested": "[3.2.9, 3.2.9]",
-        "resolved": "3.2.9",
-        "contentHash": "yByb721lwv8YFsx1oKA5CLKXa89XVbVMkPafS4bg/bPelBEgChq/coFBQEkA4kwcabG7AR56w3vapnoZUfr2Cw=="
+        "requested": "[3.3.0, 3.3.0]",
+        "resolved": "3.3.0",
+        "contentHash": "2ATJrA8KNx2EpBWNjwy4P+NjQ06cZWjYsTZ5NqGNIHaU/i3NKmtpoaE90NGmVRaKF5rryGfADnvPQ56f61OuWg=="
       },
       "Microsoft.AspNetCore.Hosting": {
         "type": "Direct",

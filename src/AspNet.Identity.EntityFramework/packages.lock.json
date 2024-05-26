@@ -4,12 +4,12 @@
     ".NETFramework,Version=v4.7.2": {
       "Microsoft.AspNet.Identity.EntityFramework": {
         "type": "Direct",
-        "requested": "[2.2.3, )",
-        "resolved": "2.2.3",
-        "contentHash": "dt4XZChjw3a6jE66Yd6LkF9omspxi0A9lJpwBZz8Wl1sabOS6dlLP1OOTVuUjtPaoAshjoIzvS6DFRQdPyq55g==",
+        "requested": "[2.2.4, )",
+        "resolved": "2.2.4",
+        "contentHash": "ay5FMSwNF0tb9KiC4l4aqm7D1E6Da9nU3euI/X0UD1SuumJX7OkZ9LtZjU9xT3xmou3XLXO8DDcgrW6udSQk6Q==",
         "dependencies": {
           "EntityFramework": "6.1.0",
-          "Microsoft.AspNet.Identity.Core": "2.2.3"
+          "Microsoft.AspNet.Identity.Core": "2.2.4"
         }
       },
       "Microsoft.SourceLink.GitHub": {
