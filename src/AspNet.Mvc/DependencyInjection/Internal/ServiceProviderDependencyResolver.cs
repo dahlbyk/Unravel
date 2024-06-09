@@ -9,12 +9,12 @@ namespace Unravel.AspNet.Mvc.DependencyInjection.Internal
     public sealed class ServiceProviderDependencyResolver : IDependencyResolver
     {
         /// <inheritdoc/>
-        public object GetService(Type serviceType) =>
+        public object? GetService(Type serviceType) =>
             HttpContext.Current.GetRequestServices()
                 .GetService(serviceType);
 
         /// <inheritdoc/>
-        public IEnumerable<object> GetServices(Type serviceType) =>
+        public IEnumerable<object>? GetServices(Type serviceType) =>
             HttpContext.Current.GetRequestServices()
                 .GetServices(serviceType);
     }
