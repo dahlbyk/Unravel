@@ -6,7 +6,11 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace Unravel.AspNet.WebApi.DependencyInjection.Internal
 {
-    public sealed class ServiceProviderDependencyResolver : IDependencyResolver
+    /// <summary>
+    /// WebApi <see cref="IDependencyResolver"/> that resolves services from
+    /// <see cref="HttpContextServicesExtensions.GetRequestServices(HttpContext?)"/>.
+    /// </summary>
+    public sealed class RequestServicesDependencyResolver : IDependencyResolver
     {
         /// <inheritdoc/>
         public object? GetService(Type serviceType) =>

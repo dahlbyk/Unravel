@@ -19,7 +19,7 @@ namespace Microsoft.Extensions.DependencyInjection
         ///   Adds ASP.NET MVC services to the specified <see cref="IServiceCollection" />, including:
         ///   <list type="bullet">
         ///     <item><see cref="DependencyResolverStartupFilter"/> as <see cref="IStartupFilter"/></item>
-        ///     <item><see cref="ServiceProviderDependencyResolver"/> as <see cref="IDependencyResolver"/></item>
+        ///     <item><see cref="RequestServicesDependencyResolver"/> as <see cref="IDependencyResolver"/></item>
         ///   </list>
         ///   Also adds useful MVC configuration:
         ///   <list type="bullet">
@@ -31,7 +31,7 @@ namespace Microsoft.Extensions.DependencyInjection
         public static IAspNetMvcBuilder AddAspNetMvc(this IServiceCollection services)
         {
             services.AddSingleton<IStartupFilter, DependencyResolverStartupFilter>();
-            services.TryAddSingleton<IDependencyResolver, ServiceProviderDependencyResolver>();
+            services.TryAddSingleton<IDependencyResolver, RequestServicesDependencyResolver>();
 
             services.AddSingleton<IStartupFilter, MvcOptionsStartupFilter>();
             services.Configure<MvcOptions>(ConfigureOptions);
