@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.30204.135
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.34814.14
 MinimumVisualStudioVersion = 15.0.26124.0
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".​", ".​", "{24B5A9A2-476C-4448-85E0-00FD368A650C}"
 	ProjectSection(SolutionItems) = preProject
@@ -35,7 +35,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Unravel.AspNetCore.Mvc.View
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{3221C017-C78E-4664-BAFF-559215648AA4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Startup", "tests\Startup\Startup.csproj", "{0AE86EDB-EC40-414B-BED0-CD7752B787FC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Startup", "tests\Startup\Startup.csproj", "{0AE86EDB-EC40-414B-BED0-CD7752B787FC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Extras", "Extras", "{73305445-6D88-443D-BBCF-C38B3499CAA5}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Unravel.Spring.Web.Mvc5", "extras\Spring.Web.Mvc5\Unravel.Spring.Web.Mvc5.csproj", "{F611F704-1767-490F-9C54-27A8E4A7AEE2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -167,6 +171,18 @@ Global
 		{0AE86EDB-EC40-414B-BED0-CD7752B787FC}.Release|x64.Build.0 = Release|Any CPU
 		{0AE86EDB-EC40-414B-BED0-CD7752B787FC}.Release|x86.ActiveCfg = Release|Any CPU
 		{0AE86EDB-EC40-414B-BED0-CD7752B787FC}.Release|x86.Build.0 = Release|Any CPU
+		{F611F704-1767-490F-9C54-27A8E4A7AEE2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F611F704-1767-490F-9C54-27A8E4A7AEE2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F611F704-1767-490F-9C54-27A8E4A7AEE2}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{F611F704-1767-490F-9C54-27A8E4A7AEE2}.Debug|x64.Build.0 = Debug|Any CPU
+		{F611F704-1767-490F-9C54-27A8E4A7AEE2}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{F611F704-1767-490F-9C54-27A8E4A7AEE2}.Debug|x86.Build.0 = Debug|Any CPU
+		{F611F704-1767-490F-9C54-27A8E4A7AEE2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F611F704-1767-490F-9C54-27A8E4A7AEE2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F611F704-1767-490F-9C54-27A8E4A7AEE2}.Release|x64.ActiveCfg = Release|Any CPU
+		{F611F704-1767-490F-9C54-27A8E4A7AEE2}.Release|x64.Build.0 = Release|Any CPU
+		{F611F704-1767-490F-9C54-27A8E4A7AEE2}.Release|x86.ActiveCfg = Release|Any CPU
+		{F611F704-1767-490F-9C54-27A8E4A7AEE2}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -175,6 +191,7 @@ Global
 		{CED6AE8D-EE53-4A56-ABE3-CE6C10D1CD18} = {AE0BF6F8-635E-45FB-B231-00C4C3CD5B06}
 		{5D97EFEE-4FA3-47DB-9C03-CB99F0CC8E77} = {AE0BF6F8-635E-45FB-B231-00C4C3CD5B06}
 		{0AE86EDB-EC40-414B-BED0-CD7752B787FC} = {3221C017-C78E-4664-BAFF-559215648AA4}
+		{F611F704-1767-490F-9C54-27A8E4A7AEE2} = {73305445-6D88-443D-BBCF-C38B3499CAA5}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {2E47B976-F7D9-42C9-8641-FCEB950CD1EA}
