@@ -10,7 +10,20 @@ namespace Unravel.AspNet.WebApi.DependencyInjection.Internal
     /// WebApi <see cref="IDependencyResolver"/> that resolves services from
     /// <see cref="HttpContextServicesExtensions.GetRequestServices(HttpContext?)"/>.
     /// </summary>
-    public sealed class RequestServicesDependencyResolver : IDependencyResolver
+    public sealed class RequestServicesDependencyResolver : RequestServicesDependencyScope, IDependencyResolver
+    {
+        /// <summary>
+        ///   Scope is managed by <see cref="Unravel.SystemWeb.ServiceScopeModule"/>.
+        /// </summary>
+        /// <returns>The current instance.</returns>
+        public IDependencyScope BeginScope() => this;
+    }
+
+    /// <summary>
+    /// WebApi <see cref="IDependencyScope"/> that resolves services from
+    /// <see cref="HttpContextServicesExtensions.GetRequestServices(HttpContext?)"/>.
+    /// </summary>
+    public class RequestServicesDependencyScope : IDependencyScope
     {
         /// <inheritdoc/>
         public object? GetService(Type serviceType) =>
@@ -21,12 +34,6 @@ namespace Unravel.AspNet.WebApi.DependencyInjection.Internal
         public IEnumerable<object>? GetServices(Type serviceType) =>
             HttpContext.Current.GetRequestServices()
                 .GetServices(serviceType);
-
-        /// <summary>
-        ///   Scope is managed by <see cref="Unravel.SystemWeb.ServiceScopeModule"/>.
-        /// </summary>
-        /// <returns>The current instance.</returns>
-        public IDependencyScope BeginScope() => this;
 
         /// <summary>
         ///   Scope is managed by <see cref="Unravel.SystemWeb.ServiceScopeModule"/>.
