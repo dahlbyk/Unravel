@@ -14,7 +14,7 @@ namespace Microsoft.Extensions.DependencyInjection
         ///   Adds ASP.NET Web API services to the specified <see cref="IServiceCollection" />, including:
         ///   <list type="bullet">
         ///     <item><see cref="GlobalConfigurationStartupFilter"/> as <see cref="IStartupFilter"/></item>
-        ///     <item><see cref="ServiceProviderDependencyResolver"/> as <see cref="IDependencyResolver"/></item>
+        ///     <item><see cref="RequestServicesDependencyResolver"/> as <see cref="IDependencyResolver"/></item>
         ///   </list>
         /// </summary>
         /// <param name="services">The <see cref="IServiceCollection" /> to add services to.</param>
@@ -22,7 +22,7 @@ namespace Microsoft.Extensions.DependencyInjection
         public static IAspNetWebApiBuilder AddAspNetWebApi(this IServiceCollection services)
         {
             services.AddSingleton<IStartupFilter, GlobalConfigurationStartupFilter>();
-            services.TryAddSingleton<IDependencyResolver, ServiceProviderDependencyResolver>();
+            services.TryAddSingleton<IDependencyResolver, RequestServicesDependencyResolver>();
 
             return new AspNetWebApiBuilder(services);
         }

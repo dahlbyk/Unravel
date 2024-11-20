@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net472</TargetFramework>
+    <AssemblyName>Unravel.Spring.Web.Mvc5</AssemblyName>
+    <RootNamespace>Unravel.Spring.Web.Mvc</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Spring.Web.Mvc5" Version="2.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\AspNet.Mvc\Unravel.AspNet.Mvc.csproj" />
+    <ProjectReference Include="..\..\src\AspNet.WebApi\Unravel.AspNet.WebApi.csproj" />
+    <ProjectReference Include="..\..\src\Startup\Unravel.Startup.csproj" />
+  </ItemGroup>
+
+</Project>
