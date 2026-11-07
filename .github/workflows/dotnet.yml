@@ -22,17 +22,17 @@ jobs:
       DOTNET_SKIP_FIRST_TIME_EXPERIENCE: true
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v7
       with:
         fetch-depth: 0 # avoid shallow clone so nbgv can do its work.
-    - uses: nuget/setup-nuget@v1
+    - uses: nuget/setup-nuget@v4
       with:
         nuget-version: '5.8'
-    - uses: microsoft/setup-msbuild@v1
-    - uses: dotnet/nbgv@v0.4
+    - uses: microsoft/setup-msbuild@v3
+    - uses: dotnet/nbgv@v0.5.2
       with:
         setAllVars: true
-    - uses: actions/cache@v4
+    - uses: actions/cache@v6
       id: cache
       with:
         path: ~/.nuget/packages
@@ -52,17 +52,15 @@ jobs:
 
     - name: Check Connection
       run: |
-        curl --insecure --show-error --silent $Env:URL/AspNetMvc
-        curl --insecure --show-error --silent $Env:URL/AspNetMvc/View
-        curl --insecure --show-error --silent $Env:URL/AspNetWebApi
-        curl --insecure --show-error --silent $Env:URL/AspNetCoreApi
-        curl --insecure --show-error --silent $Env:URL/AspNetCoreMvc
-        curl --insecure --show-error --silent $Env:URL/AspNetCoreMvc/View
+        foreach ($path in '/AspNetMvc', '/AspNetMvc/View', '/AspNetWebApi', '/AspNetCoreApi', '/AspNetCoreMvc', '/AspNetCoreMvc/View') {
+          curl --fail-with-body --insecure --show-error --silent "$Env:URL$path"
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
+        }
 
     - name: dotnet pack
       run: dotnet pack --configuration Release --no-build --output artifacts/
 
-    - uses: actions/upload-artifact@v3
+    - uses: actions/upload-artifact@v7
       with:
         name: packages
         path: artifacts/
