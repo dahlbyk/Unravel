@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Configuration;
 using Microsoft.Extensions.Configuration;
+using ConfigurationManager = System.Configuration.ConfigurationManager;
 
 namespace Unravel.Startup.Configuration
 {

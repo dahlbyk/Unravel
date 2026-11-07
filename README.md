@@ -4,7 +4,31 @@ Unravel your dependence on `System.Web`.
 
 ## Goals
 
-Unravel's goal is to facilitate in-place upgrade from ASP.NET MVC and Web API on .NET Framework to ASP.NET Core 2.1 (the last version [supported on .NET Framework](https://dotnet.microsoft.com/platform/support/policy/aspnet#dotnet-core)). Long-lived upgrade branches are bad.
+Unravel's goal is to facilitate in-place upgrade from ASP.NET MVC and Web API on .NET Framework to ASP.NET Core 2.3 (the version [supported on .NET Framework](https://dotnet.microsoft.com/platform/support/policy/aspnet#dotnet-core)). Long-lived upgrade branches are bad.
+
+> [!WARNING]
+> ASP.NET Core 2.3 [reaches end of support on April 13, 2027](https://devblogs.microsoft.com/dotnet/aspnet-core-2-3-end-of-support/), after which it won't be supported on any version of .NET Framework. Microsoft no longer recommends it as a migration strategy.
+
+### Why not a proxy?
+
+Microsoft's [recommended incremental migration](https://learn.microsoft.com/aspnet/core/migration/fx-to-core/) puts a new ASP.NET Core app in front of the old one. The new app forwards unmigrated routes to the old one through [YARP](https://microsoft.github.io/reverse-proxy/), and the two apps share session and authentication through System.Web adapters. It runs on supported versions of .NET, and it suits a long, gradual migration.
+
+Unravel takes the other trade-off. It runs ASP.NET Core inside your existing app:
+
+- **One app.** There is one process, one deployment, and one set of URLs and cookies. You don't need a proxy hop, a second site to host, or remote session and auth plumbing.
+- **Shared everything.** Migrated and legacy code use the same dependency injection container, configuration, logging, and data access, in process.
+- **Migrate code, not routes.** Services, filters, and controllers move one at a time. ASP.NET Core controllers can render existing MVC 5 views with [`AddAspNetMvcViewEngines()`](src/AspNetCore.Mvc.ViewFeatures/README.md).
+- **No rearranging.** Files can stay where they are. An SDK-style project can compile them for both `net48` and modern .NET, so API differences show up as compile errors while you migrate instead of at cutover.
+
+The cost is ASP.NET Core 2.3. Most of what [changed after 2.x](https://learn.microsoft.com/aspnet/core/migration/22-to-30) is in hosting and startup (Generic Host, endpoint routing), which you rewrite once at cutover. Controllers and views are largely compatible, but some behavior compiles unchanged and then differs at runtime:
+
+- **Link generation:** endpoint routing stops reusing ambient route values when linking to a different action. This affects `Url.Action` and `asp-action` links, especially with areas.
+- **JSON:** the default serializer changed to System.Text.Json. `AddNewtonsoftJson()` restores the old behavior.
+- **Synchronous I/O** (such as `HttpRequest.Body.Read` or `Stream.Flush`) is [disallowed by default](https://learn.microsoft.com/aspnet/core/migration/22-to-30#allowsynchronousio-disabled). To allow it, set `AllowSynchronousIO` on the server's options (for example, `KestrelServerOptions` or `IISServerOptions`), or set it for a single request with `IHttpBodyControlFeature`.
+- **`Async` suffix:** it's trimmed from action names, which changes routes for actions like `IndexAsync`.
+- **Nullable reference types** imply `[Required]` (6.0+), but only once you enable nullable.
+
+ASP.NET Core 2.3 is also unsupported after April 13, 2027, so Unravel suits a migration you can sprint through, where running past end of support is a short, accepted risk rather than a long-term plan.
 
 The ultimate goal is that an upgrade to ASP.NET Core could be reduced to roughly:
 1. Remove `Global.asax`, `Web.config`, and other lingering ASP.NET artifacts
