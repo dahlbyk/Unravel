@@ -16,7 +16,7 @@ namespace Unravel.Startup.Owin
         /// </remarks>
         /// <param name="startup">The startup instance.</param>
         /// <param name="app">The <see cref="IAppBuilder"/>.</param>
-        public static void Configure(object startup, IAppBuilder app)
+        public static void Configure(object? startup, IAppBuilder app)
         {
             if (startup is ConventionBasedStartup cbs)
             {

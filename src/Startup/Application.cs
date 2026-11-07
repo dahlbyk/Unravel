@@ -59,14 +59,20 @@ namespace Unravel
         ///   <list type="bullet">
         ///     <item><see cref="IAppBuilder"/> (singleton)</item>
         ///     <item><see cref="IHttpContextAccessor"/> (singleton)</item>
-        ///     <item><see cref="IOwinContext"/> (scoped)</item>
-        ///     <item><see cref="IAuthenticationManager"/> (scoped)</item>
+        ///     <item><see cref="IOwinContext"/> (scoped; only available during a request)</item>
+        ///     <item><see cref="IAuthenticationManager"/> (scoped; only available during a request)</item>
         ///     <item>
         ///       <see cref="Microsoft.AspNetCore.Http.IHttpContextAccessor"/> (singleton);
         ///       see <see cref="AspNetCore.Http.SystemWebHttpContextAccessor"/> for details
         ///     </item>
         ///   </list>
         /// </summary>
+        /// <remarks>
+        ///   Resolving <see cref="IOwinContext"/> or <see cref="IAuthenticationManager"/> outside a request throws
+        ///   <see cref="InvalidOperationException"/>, as does resolving anything that depends on them.
+        ///   Where a request is optional, depend on <see cref="IHttpContextAccessor"/> instead and use
+        ///   <c>HttpContext?.GetOwinContext()</c>.
+        /// </remarks>
         /// <param name="app">The host app.</param>
         /// <returns>The <see cref="IWebHost"/>.</returns>
         protected IWebHost BuildWebHost(IAppBuilder app)
@@ -77,8 +83,9 @@ namespace Unravel
                     services.AddSingleton(app);
                     services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
-                    services.AddScoped(sp => sp.GetRequiredService<IHttpContextAccessor>().HttpContext?.GetOwinContext());
-                    services.AddScoped(sp => sp.GetService<IOwinContext>()?.Authentication);
+                    services.AddScoped(sp => sp.GetRequiredService<IHttpContextAccessor>().HttpContext?.GetOwinContext()
+                        ?? throw new InvalidOperationException($"{nameof(IOwinContext)} is only available during a request. Where a request is optional, use {nameof(IHttpContextAccessor)}.{nameof(IHttpContextAccessor.HttpContext)}?.GetOwinContext() instead."));
+                    services.AddScoped(sp => sp.GetRequiredService<IOwinContext>().Authentication);
 
                     services.AddSingleton<Microsoft.AspNetCore.Http.IHttpContextAccessor, AspNetCore.Http.SystemWebHttpContextAccessor>();
                 })
