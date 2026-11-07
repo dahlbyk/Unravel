@@ -4,7 +4,7 @@ Unravel your dependence on `System.Web`.
 
 ## Goals
 
-Unravel's goal is to facilitate in-place upgrade from ASP.NET MVC and Web API on .NET Framework to ASP.NET Core 2.1 (the last version [supported on .NET Framework](https://dotnet.microsoft.com/platform/support/policy/aspnet#dotnet-core)). Long-lived upgrade branches are bad.
+Unravel's goal is to facilitate in-place upgrade from ASP.NET MVC and Web API on .NET Framework to ASP.NET Core 2.3 (the version [supported on .NET Framework](https://dotnet.microsoft.com/platform/support/policy/aspnet#dotnet-core)). Long-lived upgrade branches are bad.
 
 The ultimate goal is that an upgrade to ASP.NET Core could be reduced to roughly:
 1. Remove `Global.asax`, `Web.config`, and other lingering ASP.NET artifacts
