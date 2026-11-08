@@ -16,6 +16,10 @@ on:
 jobs:
   build:
     runs-on: windows-latest
+    permissions:
+      contents: read
+      packages: write
+      id-token: write # nuget.org trusted publishing
     env:
       DOTNET_CLI_TELEMETRY_OPTOUT: true
       DOTNET_NOLOGO: true
@@ -77,12 +81,19 @@ jobs:
     - name: dotnet nuget push --source github
       if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.url == github.event.pull_request.base.repo.url
       working-directory: artifacts
-      run: dotnet nuget push --source github *.nupkg
+      run: dotnet nuget push --source github --skip-duplicate *.nupkg
+
+    - name: nuget login
+      if: github.event_name == 'push' && github.ref_name == 'main'
+      uses: NuGet/login@v1
+      id: nuget-login
+      with:
+        user: dahlbyk
 
     - name: dotnet nuget push
       if: github.event_name == 'push' && github.ref_name == 'main'
       working-directory: artifacts
       env:
-        NUGET_AUTH_TOKEN: ${{ secrets.NUGET_API_KEY }}
+        NUGET_AUTH_TOKEN: ${{ steps.nuget-login.outputs.NUGET_API_KEY }}
         SOURCE_URL: https://api.nuget.org/v3/index.json
-      run: dotnet nuget push --source ${{ env.SOURCE_URL }} --api-key ${{ env.NUGET_AUTH_TOKEN }} *.nupkg
+      run: dotnet nuget push --source ${{ env.SOURCE_URL }} --api-key ${{ env.NUGET_AUTH_TOKEN }} --skip-duplicate *.nupkg
